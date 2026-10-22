@@ -1,0 +1,30 @@
+{
+  "R": 10,
+  "test_size": 0.2,
+  "models": {
+    "LR": {
+      "C": 1.0
+    },
+    "RF": {
+      "n_estimators": 300
+    },
+    "RF_leaf50": {
+      "n_estimators": 300,
+      "min_samples_leaf": 50
+    },
+    "XGB": {
+      "n_estimators": 300,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8
+    }
+  },
+  "encodings": [
+    "std",
+    "rank"
+  ],
+  "concept_sets": [
+    "canon4",
+    "canon5"
+  ]
+}

@@ -1,0 +1,9 @@
+Khái niệm,Mã hoá,Mô hình,Trong-miền A,B→A,Trong-miền B,A→B
+4 KN,std,LR,0.645,0.630,0.631,0.525
+4 KN,std,XGB,0.572,0.589,0.630,0.546
+4 KN,rank,LR,0.644,0.621,0.621,0.607
+4 KN,rank,XGB,0.572,0.594,0.630,0.581
+5 KN (+ thâm niên),std,LR,0.669,0.620,0.632,0.522
+5 KN (+ thâm niên),std,XGB,0.601,0.574,0.632,0.541
+5 KN (+ thâm niên),rank,LR,0.667,0.620,0.621,0.591
+5 KN (+ thâm niên),rank,XGB,0.601,0.591,0.632,0.571

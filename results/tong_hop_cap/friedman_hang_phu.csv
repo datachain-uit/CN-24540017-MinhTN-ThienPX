@@ -1,0 +1,14 @@
+phuong_phap,nhom,hang_TB
+RF,chỉ đích,4.5
+Stacking,chỉ đích,5.619047619047619
+Daumé+LR,chuyển giao,5.904761904761905
+Trung bình hạng (RF),chuyển giao,5.928571428571429
+Stacking+LR (nguồn),chuyển giao,6.071428571428571
+LR neo nguồn,chuyển giao,6.142857142857143
+LR,chỉ đích,6.583333333333333
+CatBoost,chỉ đích,6.785714285714286
+Trung bình hạng (LR),chuyển giao,7.178571428571429
+XGB khởi tạo nguồn,chuyển giao,7.5
+XGBoost,chỉ đích,8.654761904761905
+Stacking+XGB (nguồn),chuyển giao,8.964285714285714
+Zero-shot,chuyển giao,11.166666666666666

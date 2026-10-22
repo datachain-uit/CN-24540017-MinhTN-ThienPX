@@ -1,0 +1,674 @@
+{
+ "kb1_AC": [
+  [
+   "LR (L2)",
+   "0,829 (0,610)",
+   "0,694 (0,316)",
+   "0,510 (0,175)",
+   "0,549 (0,196)",
+   "0,826 (0,420)",
+   "0,804 (0,408)",
+   "0,612 (0,232)",
+   "0,559 (0,181)"
+  ],
+  [
+   "RF mặc định",
+   "0,809 (0,532)",
+   "0,604 (0,213)",
+   "0,359 (0,133)",
+   "0,534 (0,200)",
+   "0,981 (0,962)",
+   "0,971 (0,927)",
+   "0,300 (0,134)",
+   "0,526 (0,195)"
+  ],
+  [
+   "RF (leaf 50)",
+   "0,784 (0,492)",
+   "0,692 (0,331)",
+   "0,360 (0,133)",
+   "0,530 (0,201)",
+   "0,980 (0,955)",
+   "0,976 (0,944)",
+   "0,307 (0,134)",
+   "0,529 (0,204)"
+  ],
+  [
+   "XGBoost",
+   "0,816 (0,556)",
+   "0,653 (0,246)",
+   "0,400 (0,141)",
+   "0,530 (0,211)",
+   "0,987 (0,970)",
+   "0,979 (0,949)",
+   "0,401 (0,157)",
+   "0,532 (0,270)"
+  ],
+  [
+   "TabPFN v2",
+   "0,840 (0,627)",
+   "0,708 (0,331)",
+   "0,433 (0,148)",
+   "0,563 (0,215)",
+   "0,987 (0,971)",
+   "0,979 (0,949)",
+   "0,322 (0,120)",
+   "0,508 (0,164)"
+  ],
+  [
+   "Quy tắc không học",
+   "–",
+   "0,566 (0,189)",
+   "–",
+   "–",
+   "–",
+   "0,756 (0,529)",
+   "–",
+   "–"
+  ]
+ ],
+ "sens_AC": [
+  [
+   "core",
+   "std",
+   "0,694",
+   "0,510",
+   "0,804",
+   "0,612"
+  ],
+  [
+   "core",
+   "rank",
+   "0,700",
+   "0,549",
+   "0,826",
+   "0,559"
+  ],
+  [
+   "consistent",
+   "std",
+   "0,650",
+   "0,509",
+   "0,767",
+   "0,754"
+  ],
+  [
+   "consistent",
+   "rank",
+   "0,669",
+   "0,596",
+   "0,773",
+   "0,691"
+  ],
+  [
+   "ext",
+   "std",
+   "0,755",
+   "0,510",
+   "0,804",
+   "0,569"
+  ],
+  [
+   "ext",
+   "rank",
+   "0,767",
+   "0,553",
+   "0,826",
+   "0,558"
+  ]
+ ],
+ "kb1_AD": [
+  [
+   "LR (L2)",
+   "0,829 (0,610)",
+   "0,654 (0,341)",
+   "0,650 (0,322)",
+   "0,645 (0,311)",
+   "0,632 (0,641)",
+   "0,544 (0,561)",
+   "0,553 (0,565)",
+   "0,544 (0,561)"
+  ],
+  [
+   "RF mặc định",
+   "0,809 (0,532)",
+   "0,561 (0,233)",
+   "0,557 (0,233)",
+   "0,503 (0,179)",
+   "0,668 (0,674)",
+   "0,566 (0,576)",
+   "0,518 (0,542)",
+   "0,522 (0,527)"
+  ],
+  [
+   "RF (leaf 50)",
+   "0,784 (0,492)",
+   "0,667 (0,350)",
+   "0,603 (0,275)",
+   "0,602 (0,217)",
+   "0,587 (0,602)",
+   "0,534 (0,578)",
+   "0,539 (0,550)",
+   "0,544 (0,552)"
+  ],
+  [
+   "XGBoost",
+   "0,816 (0,556)",
+   "0,620 (0,283)",
+   "0,585 (0,265)",
+   "0,494 (0,180)",
+   "0,638 (0,635)",
+   "0,546 (0,580)",
+   "0,532 (0,555)",
+   "0,535 (0,552)"
+  ],
+  [
+   "TabPFN v2",
+   "0,840 (0,627)",
+   "0,653 (0,338)",
+   "0,646 (0,328)",
+   "0,641 (0,297)",
+   "0,634 (0,638)",
+   "0,537 (0,560)",
+   "0,546 (0,566)",
+   "0,539 (0,554)"
+  ],
+  [
+   "Quy tắc không học",
+   "–",
+   "0,651 (0,268)",
+   "–",
+   "–",
+   "–",
+   "0,539 (0,529)",
+   "–",
+   "–"
+  ]
+ ],
+ "sens_AD": [
+  [
+   "core",
+   "std",
+   "0,654",
+   "0,650",
+   "0,544",
+   "0,553"
+  ],
+  [
+   "core",
+   "rank",
+   "0,647",
+   "0,645",
+   "0,535",
+   "0,544"
+  ],
+  [
+   "ext",
+   "std",
+   "0,660",
+   "0,587",
+   "0,562",
+   "0,532"
+  ],
+  [
+   "ext",
+   "rank",
+   "0,653",
+   "0,579",
+   "0,558",
+   "0,523"
+  ]
+ ],
+ "map_AC": [
+  [
+   "Mức hài lòng",
+   "JobSatisfaction (1–4)",
+   "satisfaction_level (0–1)",
+   "0,422",
+   "0,253",
+   "Cùng chiều"
+  ],
+  [
+   "Đánh giá hiệu suất",
+   "PerformanceRating (3–4)",
+   "last_evaluation (0–1)",
+   "0,501",
+   "0,504",
+   "Gần như không có tín hiệu ở một miền"
+  ],
+  [
+   "Thâm niên",
+   "YearsAtCompany (năm)",
+   "time_spend_company (năm)",
+   "0,351",
+   "0,691",
+   "**Ngược chiều**"
+  ],
+  [
+   "Thăng chức trong 5 năm",
+   "YearsSinceLastPromotion ≤ 5",
+   "promotion_last_5years",
+   "0,499",
+   "0,492",
+   "Gần như không có tín hiệu ở một miền"
+  ],
+  [
+   "Mức lương",
+   "MonthlyIncome",
+   "salary (low/medium/high)",
+   "0,344",
+   "0,421",
+   "Cùng chiều"
+  ],
+  [
+   "Làm thêm giờ (tập mở rộng)",
+   "OverTime = Yes",
+   "average_montly_hours > 200",
+   "0,651",
+   "0,528",
+   "Cùng chiều"
+  ],
+  [
+   "Phòng/nghề kinh doanh (tập mở rộng)",
+   "Department = Sales",
+   "Department = sales",
+   "0,551",
+   "0,504",
+   "Gần như không có tín hiệu ở một miền"
+  ],
+  [
+   "Phòng/nghề nhân sự (tập mở rộng)",
+   "Department = Human Resources",
+   "Department = hr",
+   "0,505",
+   "0,504",
+   "Gần như không có tín hiệu ở một miền"
+  ]
+ ],
+ "map_AD": [
+  [
+   "Giới tính nam",
+   "Gender = Male",
+   "gender = m",
+   "0,520",
+   "0,485",
+   "Gần như không có tín hiệu ở một miền"
+  ],
+  [
+   "Tuổi",
+   "Age",
+   "age",
+   "0,366",
+   "0,465",
+   "Cùng chiều"
+  ],
+  [
+   "Thâm niên",
+   "YearsAtCompany (chặn 15)",
+   "stag / 12 (tháng → năm, chặn 15)",
+   "0,350",
+   "0,473",
+   "Cùng chiều"
+  ],
+  [
+   "Phòng/nghề nhân sự (tập mở rộng)",
+   "Department = Human Resources",
+   "profession = HR",
+   "0,505",
+   "0,457",
+   "Gần như không có tín hiệu ở một miền"
+  ],
+  [
+   "Phòng/nghề kinh doanh (tập mở rộng)",
+   "Department = Sales",
+   "profession = Sales",
+   "0,551",
+   "0,507",
+   "Gần như không có tín hiệu ở một miền"
+  ]
+ ],
+ "go_AC": [
+  [
+   "C→A",
+   "10",
+   "Random Forest (0,321)",
+   "Trung bình hạng RF + nguồn (0,299)",
+   "−0,022",
+   "[−0,084; +0,039]",
+   "Không"
+  ],
+  [
+   "C→A",
+   "20",
+   "Random Forest (0,341)",
+   "Trung bình hạng RF + nguồn (0,306)",
+   "−0,036",
+   "[−0,105; +0,034]",
+   "Không"
+  ],
+  [
+   "C→A",
+   "50",
+   "Random Forest (0,405)",
+   "Daumé + LR (0,384)",
+   "−0,021",
+   "[−0,100; +0,059]",
+   "Không"
+  ],
+  [
+   "A→C",
+   "10",
+   "CatBoost (0,465)",
+   "Trung bình hạng RF + nguồn (0,355)",
+   "−0,110",
+   "[−0,304; +0,084]",
+   "Không"
+  ],
+  [
+   "A→C",
+   "20",
+   "CatBoost (0,556)",
+   "Trung bình hạng RF + nguồn (0,451)",
+   "−0,106",
+   "[−0,321; +0,110]",
+   "Không"
+  ],
+  [
+   "A→C",
+   "50",
+   "CatBoost (0,791)",
+   "Trung bình hạng RF + nguồn (0,703)",
+   "−0,088",
+   "[−0,239; +0,062]",
+   "Không"
+  ]
+ ],
+ "go_AC_zs": {
+  "A": "+0,011",
+  "C": "+0,053"
+ },
+ "go_AC_zspr": {
+  "A": "0,189",
+  "C": "0,180"
+ },
+ "go_AD": [
+  [
+   "D→A",
+   "10",
+   "Random Forest (0,321)",
+   "Trung bình hạng RF + nguồn (0,333)",
+   "+0,012",
+   "[−0,052; +0,075]",
+   "Không"
+  ],
+  [
+   "D→A",
+   "20",
+   "Random Forest (0,341)",
+   "Trung bình hạng RF + nguồn (0,330)",
+   "−0,012",
+   "[−0,073; +0,050]",
+   "Không"
+  ],
+  [
+   "D→A",
+   "50",
+   "Random Forest (0,405)",
+   "Trung bình hạng RF + nguồn (0,398)",
+   "−0,007",
+   "[−0,046; +0,033]",
+   "Không"
+  ],
+  [
+   "A→D",
+   "10",
+   "Random Forest (0,536)",
+   "Zero-shot (0,570)",
+   "+0,034",
+   "[−0,020; +0,088]",
+   "Không"
+  ],
+  [
+   "A→D",
+   "20",
+   "Random Forest (0,538)",
+   "Zero-shot (0,570)",
+   "+0,031",
+   "[−0,023; +0,086]",
+   "Không"
+  ],
+  [
+   "A→D",
+   "50",
+   "LR (0,569)",
+   "LR neo hệ số nguồn (0,570)",
+   "+0,001",
+   "[−0,010; +0,012]",
+   "Không"
+  ]
+ ],
+ "go_AD_zs": {
+  "A": "+0,175",
+  "D": "+0,058"
+ },
+ "go_AD_zspr": {
+  "A": "0,315",
+  "D": "0,570"
+ },
+ "go_ACc": [
+  [
+   "C→A",
+   "10",
+   "Random Forest (0,321)",
+   "Trung bình hạng RF + nguồn (0,310)",
+   "−0,011",
+   "[−0,058; +0,036]",
+   "Không"
+  ],
+  [
+   "C→A",
+   "20",
+   "Random Forest (0,341)",
+   "Trung bình hạng RF + nguồn (0,314)",
+   "−0,028",
+   "[−0,086; +0,031]",
+   "Không"
+  ],
+  [
+   "C→A",
+   "50",
+   "Random Forest (0,405)",
+   "Daumé + LR (0,382)",
+   "−0,023",
+   "[−0,113; +0,068]",
+   "Không"
+  ],
+  [
+   "A→C",
+   "10",
+   "CatBoost (0,465)",
+   "Trung bình hạng RF + nguồn (0,425)",
+   "−0,040",
+   "[−0,162; +0,082]",
+   "Không"
+  ],
+  [
+   "A→C",
+   "20",
+   "CatBoost (0,556)",
+   "Trung bình hạng RF + nguồn (0,464)",
+   "−0,092",
+   "[−0,245; +0,060]",
+   "Không"
+  ],
+  [
+   "A→C",
+   "50",
+   "CatBoost (0,791)",
+   "Trung bình hạng RF + nguồn (0,707)",
+   "−0,084",
+   "[−0,209; +0,041]",
+   "Không"
+  ]
+ ],
+ "go_ACc_zs": {
+  "A": "+0,041",
+  "C": "+0,236"
+ },
+ "go_ACc_zspr": {
+  "A": "0,228",
+  "C": "0,413"
+ },
+ "synth": [
+  [
+   "AB",
+   "B→A",
+   "khác (hành vi ↔ ý định)",
+   "0,829",
+   "0,645",
+   "0,630",
+   "0,279 / 0,160",
+   "Trung bình hạng (RF) k = 10: +0,004 [−0,043; +0,051]",
+   "PIVOT"
+  ],
+  [
+   "AB",
+   "A→B",
+   "khác (hành vi ↔ ý định)",
+   "0,781",
+   "0,631",
+   "0,607",
+   "0,329 / 0,249",
+   "Trung bình hạng (LR) k = 10: +0,012 [−0,047; +0,070]",
+   "PIVOT"
+  ],
+  [
+   "AC",
+   "C→A",
+   "giống (hành vi ↔ hành vi)",
+   "0,829",
+   "0,694",
+   "0,549",
+   "0,189 / 0,160",
+   "Daumé+LR k = 50: −0,021 [−0,100; +0,059]",
+   "PIVOT"
+  ],
+  [
+   "AC",
+   "A→C",
+   "giống (hành vi ↔ hành vi)",
+   "0,826",
+   "0,804",
+   "0,612",
+   "0,180 / 0,166",
+   "Trung bình hạng (RF) k = 50: −0,088 [−0,239; +0,062]",
+   "PIVOT"
+  ],
+  [
+   "AD",
+   "D→A",
+   "giống (hành vi ↔ hành vi)",
+   "0,829",
+   "0,654",
+   "0,650",
+   "0,315 / 0,160",
+   "Trung bình hạng (RF) k = 10: +0,012 [−0,052; +0,075]",
+   "PIVOT"
+  ],
+  [
+   "AD",
+   "A→D",
+   "giống (hành vi ↔ hành vi)",
+   "0,632",
+   "0,544",
+   "0,553",
+   "0,570 / 0,508",
+   "Zero−shot k = 10: +0,034 [−0,020; +0,088]",
+   "PIVOT"
+  ]
+ ],
+ "friedman": "Kiểm định Friedman trên 41 khối (3 cặp × 2 chiều × 7 mức k, bỏ mức “toàn bộ” của đích Job Change vì TabPFN v2 không chạy khi tập huấn luyện vượt 10.000 dòng) với 14 phương pháp: χ² = 108,19, p = 4,2·10⁻¹⁷ (Iman – Davenport F = 10,19), tức các phương pháp khác nhau có ý nghĩa; Nemenyi CD = 3,10 (α = 0,05). Phân tích phụ trên đủ 42 khối, bỏ TabPFN v2 (13 phương pháp): χ² = 101,36, CD = 2,82, thứ tự hạng của 13 phương pháp không đổi.",
+ "ranks": [
+  [
+   "RF",
+   "chỉ đích",
+   "4,95"
+  ],
+  [
+   "TabPFN v2",
+   "chỉ đích",
+   "5,83"
+  ],
+  [
+   "Stacking",
+   "chỉ đích",
+   "6,27"
+  ],
+  [
+   "Daumé+LR",
+   "chuyển giao",
+   "6,37"
+  ],
+  [
+   "Trung bình hạng (RF)",
+   "chuyển giao",
+   "6,44"
+  ],
+  [
+   "Stacking+LR (nguồn)",
+   "chuyển giao",
+   "6,51"
+  ],
+  [
+   "LR neo nguồn",
+   "chuyển giao",
+   "6,59"
+  ],
+  [
+   "LR",
+   "chỉ đích",
+   "7,07"
+  ],
+  [
+   "CatBoost",
+   "chỉ đích",
+   "7,51"
+  ],
+  [
+   "Trung bình hạng (LR)",
+   "chuyển giao",
+   "7,63"
+  ],
+  [
+   "XGB khởi tạo nguồn",
+   "chuyển giao",
+   "8,32"
+  ],
+  [
+   "XGBoost",
+   "chỉ đích",
+   "9,67"
+  ],
+  [
+   "Stacking+XGB (nguồn)",
+   "chuyển giao",
+   "9,89"
+  ],
+  [
+   "Zero-shot",
+   "chuyển giao",
+   "11,95"
+  ]
+ ],
+ "notes": [
+  "**PIVOT ở cả sáu chiều của ba cặp.** Với tập khái niệm chính và đủ 8 baseline chuyển giao (kể cả trung bình hạng Random Forest + nguồn như pilot của GVHD), không chiều nào có chuyển giao vượt ngưỡng 0,02 PR-AUC với CI không chứa 0 ở k ≤ 50 (Bảng A5.4c, A5.5f, A5.5h).",
+  "**Cùng ngữ nghĩa nhãn không đủ để chuyển giao có ích.** Ở A ↔ D (cùng nhãn, dữ liệu thật), khác miền gần như không làm hại: zero-shot D→A bằng LR trên 3 khái niệm đạt 0,650 AUC-ROC so với 0,654 trong miền A. Nhưng ba khái niệm này chỉ mang tín hiệu yếu (0,65 ở A; 0,54 ở D), thấp xa so với đủ đặc trưng (0,83 ở A). Ở A→D với k = 10–20, zero-shot hơn baseline đích mạnh nhất +0,034 và +0,031 PR-AUC nhưng CI chứa 0 – một cửa sổ nhỏ giống pilot của GVHD, chưa đủ để kết luận.",
+  "**Chiều tác động của khái niệm chung quyết định dấu của chuyển giao.** Cặp A ↔ C có phần chung giàu thông tin (LR trên 5 khái niệm đạt 0,694 AUC-ROC ở A và 0,804 ở C), nhưng thâm niên ngược chiều khiến xuyên miền chỉ còn 0,51–0,61 với LR và dưới mức ngẫu nhiên với các mô hình cây (0,30–0,40 khi dùng thang đo của nguồn) – chuyển giao âm. Khi bỏ thâm niên (phân tích phụ), A→C bằng LR đạt 0,754 so với 0,767 trong miền, và zero-shot đạt PR-AUC 0,413 (tỷ lệ dương 0,166; hơn bản xáo trộn nhãn +0,236).",
+  "**Ngay cả khi nguồn mang nhiều thông tin, miền đích học nhanh vẫn thắng.** Ở HR 14.999, CatBoost chỉ với 10 mẫu đạt PR-AUC 0,465 và với 50 mẫu đạt 0,791, nên dù zero-shot với tập cùng chiều đạt 0,413, không cách chuyển giao nào vượt (Bảng A5.5g). Chuyển giao chỉ có cơ hội khi miền đích nghèo đặc trưng riêng, như Babushkin (đủ đặc trưng chỉ 0,63–0,67 AUC-ROC), nơi zero-shot cạnh tranh ở k nhỏ.",
+  "**Tổng hợp thống kê.** Random Forest chỉ dùng đích có hạng trung bình tốt nhất (4,95), tiếp theo TabPFN v2 (5,83) và stacking (6,27). Các baseline chuyển giao tốt nhất (Daumé + LR 6,37; trung bình hạng Random Forest + nguồn 6,44) cách Random Forest chưa tới CD = 3,10, tức không khác có ý nghĩa; zero-shot đứng cuối (11,95) vì không dùng nhãn đích (Bảng A5.5i, Hình 10).",
+  "**Đối chiếu với pilot ở Phụ lục A của đánh giá.** Ở B→A, k = 10, trung bình hạng Random Forest + zero-shot với w chọn bằng kiểm định chéo cho ΔAUC-ROC 0,000 so với Random Forest; với trọng số bằng nhau (w = 0,5, tính lại từ dự đoán thô) cho ΔAUC-ROC +0,011 [−0,027; +0,050] và ΔPR-AUC +0,020 [−0,049; +0,088] – cùng hướng với mức +0,032 của pilot nhưng nhỏ hơn và CI chứa 0.",
+  "**Chất lượng dữ liệu.** HR 14.999 có 20% dòng trùng hoàn toàn; Babushkin có 15% bản ghi lặp của cùng một người. Cả hai được xử lý trước khi chia theo giao thức 6.4; nếu bỏ qua, kết quả trong miền bị thổi phồng (ví dụ Random Forest trên 3 khái niệm ở Babushkin: 0,670 thay vì 0,566 AUC-ROC).",
+  "**TabPFN v2 (chạy 21/10) không đổi kết luận.** Ở k ≤ 50, TabPFN v2 không phải baseline đích mạnh nhất ở HR 14.999 (CatBoost: 0,465 so với 0,413 ở k = 10; 0,791 so với 0,779 ở k = 50) hay ở Babushkin (Random Forest, LR); ở HR 14.999 nó dẫn đầu từ k = 100 (0,919 PR-AUC). Trong thí nghiệm 2×2, TabPFN v2 cũng chuyển giao âm ở A ↔ C (C→A 0,433 và A→C 0,322 AUC-ROC khi giữ thang nguồn), tức chuyển giao âm đến từ chiều ngược của khái niệm chứ không từ lựa chọn mô hình; ở A ↔ D, TabPFN v2 cho kết quả gần như LR (D→A 0,646 so với 0,653 trong miền).",
+  "**Trả lời RQ4 (tạm thời) và hạn chế.** H4 (lợi ích ở cặp cùng ngữ nghĩa lớn hơn cặp khác ngữ nghĩa) chưa được ủng hộ: cả ba cặp đều PIVOT. So sánh chưa hoàn toàn có kiểm soát vì mỗi cặp có tập khái niệm khác nhau; HR 14.999 là dữ liệu mô phỏng; Babushkin có nhãn bị kiểm duyệt và quần thể đặc thù (67% làm nghề nhân sự, 76% nữ). Dữ liệu hiện có cho thấy hai yếu tố quan trọng hơn ngữ nghĩa nhãn: (i) chiều tác động nhất quán của khái niệm chung và (ii) lượng thông tin riêng của miền đích."
+ ]
+}

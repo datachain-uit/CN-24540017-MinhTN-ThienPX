@@ -1,0 +1,3 @@
+pair=AC cfg=40a7ef2e models=['TabPFN']
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+C: {'rows_raw': 14999, 'dup_removed': 3008, 'conflict_groups': 0, 'rows': 11991, 'pos': 1991}

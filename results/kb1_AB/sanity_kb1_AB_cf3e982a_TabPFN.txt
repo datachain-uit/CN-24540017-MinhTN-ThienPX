@@ -1,0 +1,3 @@
+pair=AB cfg=cf3e982a models=['TabPFN']
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+B: {'rows_raw': 19158, 'dup_removed': 74, 'conflict_groups': 25, 'rows': 19084, 'pos': 4755}

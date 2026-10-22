@@ -1,0 +1,10 @@
+# Dữ liệu gốc: tải từ Kaggle, kiểm tra bằng SHA-256 trong data/README.md (không đưa lên Git)
+data/*.csv
+data/**/*.csv
+# Dự đoán thô (~270 MB): lưu trong du_doan_tho_gate0.zip trên Drive
+predictions_*.csv.gz
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.zip
+.DS_Store

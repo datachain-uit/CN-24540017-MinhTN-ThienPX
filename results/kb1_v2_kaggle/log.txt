@@ -1,0 +1,28 @@
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237} 
+B: {'rows_raw': 19158, 'dup_removed': 74, 'conflict_groups': 25, 'rows': 19084, 'pos': 4755}
+  đích A lần 0 xong (24s)
+  đích A lần 1 xong (48s)
+  đích A lần 2 xong (71s)
+  đích A lần 3 xong (94s)
+  đích A lần 4 xong (117s)
+  đích A lần 5 xong (140s)
+  đích A lần 6 xong (163s)
+  đích A lần 7 xong (187s)
+  đích A lần 8 xong (212s)
+  đích A lần 9 xong (235s)
+  đích B lần 0 xong (276s)
+  đích B lần 1 xong (317s)
+  đích B lần 2 xong (358s)
+  đích B lần 3 xong (398s)
+  đích B lần 4 xong (439s)
+  đích B lần 5 xong (480s)
+  đích B lần 6 xong (520s)
+  đích B lần 7 xong (561s)
+  đích B lần 8 xong (601s)
+  đích B lần 9 xong (642s)
+cfg=99d14779
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+B: {'rows_raw': 19158, 'dup_removed': 74, 'conflict_groups': 25, 'rows': 19084, 'pos': 4755}
+Đích A: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.502 (kỳ vọng ≈ 0,5); PR-AUC của baseline lớp đa số = tỷ lệ dương 0.1612
+Đích B: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.483 (kỳ vọng ≈ 0,5); PR-AUC của baseline lớp đa số = tỷ lệ dương 0.2492
+Đã lưu 760 dòng vào results/kb1_v2_kaggle/results_kb1v2_99d14779.csv

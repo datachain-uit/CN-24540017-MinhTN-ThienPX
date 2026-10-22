@@ -1,0 +1,54 @@
+{
+  "R": 10,
+  "test_size": 0.2,
+  "models": {
+    "LR": {
+      "C": 1.0
+    },
+    "RF": {
+      "n_estimators": 300
+    },
+    "RF_leaf50": {
+      "n_estimators": 300,
+      "min_samples_leaf": 50
+    },
+    "XGB": {
+      "n_estimators": 300,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8
+    },
+    "TabPFN": {
+      "version": "v2",
+      "n_estimators": 4,
+      "max_train": 10000
+    }
+  },
+  "encodings": [
+    "std",
+    "rank"
+  ],
+  "pair": "AC",
+  "models_run": [
+    "LR",
+    "RF",
+    "RF_leaf50",
+    "XGB"
+  ],
+  "sets": [
+    "core",
+    "consistent",
+    "ext"
+  ],
+  "main": "core",
+  "binary": [
+    "promoted_5y",
+    "overtime",
+    "dept_sales",
+    "dept_hr"
+  ],
+  "rule": [
+    "satisfaction",
+    -1
+  ]
+}

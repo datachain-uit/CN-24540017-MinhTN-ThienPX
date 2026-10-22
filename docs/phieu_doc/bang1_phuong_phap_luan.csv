@@ -1,0 +1,13 @@
+ma,cong_trinh,metric_bao_cao,giao_thuc_chia,mat_can_bang_truoc_hay_sau_chia,cong_bo_ma,rui_ro_ro_ri_ghi_chu,trang_nguon
+[1],Sexton et al. 2005,?,?,?,?,?,
+[2],Saradhi & Palshikar 2011,?,?,?,?,?,
+[3],Jain et al. 2020,?,?,?,?,Các mô hình đã nằm trong benchmark [43],
+[4],Alsheref et al. 2022,?,?,?,?,Tạp chí ngừng được Scopus lập chỉ mục từ 2022,
+[5],Chung et al. 2023,?,?,?,?,Trích bản chính thức ESWA (không dùng preprint SSRN),
+[6],Li 2023,?,?,?,?,?,
+[7],Mohiuddin et al. 2023,?,?,?,?,Hệ thống hỗ trợ quyết định; trích cho SHAP,
+[8],Baydili & Tasci 2025,AUC-ROC (0;96 trên IBM) ?,?,GAN TRƯỚC khi chia train/test,?,Rò rỉ: số liệu có nguy cơ bị thổi phồng; không dùng làm mốc,
+[9],Veglio et al. 2025,?,?,?,?,Dữ liệu nội bộ; không tái lập được,
+[10],AL-Ali et al. 2026,?,?,?,?,Đánh giá độc lập từng bộ,
+[31],Pereira & Torezzan 2024,Chỉ accuracy,Huấn luyện trên một bộ Kaggle; kiểm tra trên bộ khác,?,?,Hai bộ chung 6 thuộc tính; cùng ngữ nghĩa nhãn,
+[43],De Vos et al. 2025,?,?,?,Có,Mã mặc định khác bài (2 fold; 1 lần lặp; inner CV 2 fold; có chọn đặc trưng),

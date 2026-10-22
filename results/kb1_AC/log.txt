@@ -1,0 +1,28 @@
+A {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+C {'rows_raw': 14999, 'dup_removed': 3008, 'conflict_groups': 0, 'rows': 11991, 'pos': 1991}
+  [AC] đích A lần 0 xong (24s)
+  [AC] đích A lần 1 xong (47s)
+  [AC] đích A lần 2 xong (70s)
+  [AC] đích A lần 3 xong (93s)
+  [AC] đích A lần 4 xong (116s)
+  [AC] đích A lần 5 xong (138s)
+  [AC] đích A lần 6 xong (161s)
+  [AC] đích A lần 7 xong (184s)
+  [AC] đích A lần 8 xong (207s)
+  [AC] đích A lần 9 xong (230s)
+  [AC] đích C lần 0 xong (252s)
+  [AC] đích C lần 1 xong (274s)
+  [AC] đích C lần 2 xong (296s)
+  [AC] đích C lần 3 xong (318s)
+  [AC] đích C lần 4 xong (341s)
+  [AC] đích C lần 5 xong (363s)
+  [AC] đích C lần 6 xong (386s)
+  [AC] đích C lần 7 xong (408s)
+  [AC] đích C lần 8 xong (430s)
+  [AC] đích C lần 9 xong (452s)
+pair=AC cfg=40a7ef2e models=['LR', 'RF', 'RF_leaf50', 'XGB']
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+C: {'rows_raw': 14999, 'dup_removed': 3008, 'conflict_groups': 0, 'rows': 11991, 'pos': 1991}
+Đích A: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.481 (kỳ vọng ≈ 0,5); tỷ lệ dương 0.1612
+Đích C: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.417 (kỳ vọng ≈ 0,5); tỷ lệ dương 0.1660
+Đã lưu 1100 dòng vào results/kb1_AC/results_kb1_AC_40a7ef2e_cpu.csv

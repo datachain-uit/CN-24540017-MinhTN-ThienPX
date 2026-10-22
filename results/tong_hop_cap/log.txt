@@ -1,0 +1,23 @@
+cap chieu                      nhan  in_full_LR  in_KN_LR  cross_std_LR  cross_C1_LR  mat_dac_trung  lech_mien  ZS_auc  ZS_pr  ty_le_duong                                chuyen_giao_tot_nhat    GO
+ AB   B→A   khác (hành vi ↔ ý định)       0.829     0.645         0.630        0.621          0.184      0.015   0.628  0.279        0.160 Trung bình hạng (RF) @k=10: +0.004 [-0.043; +0.051] False
+ AB   A→B   khác (hành vi ↔ ý định)       0.781     0.631         0.525        0.607          0.150      0.024   0.607  0.329        0.249 Trung bình hạng (LR) @k=10: +0.012 [-0.047; +0.070] False
+ AC   C→A giống (hành vi ↔ hành vi)       0.829     0.694         0.510        0.549          0.136      0.144   0.546  0.189        0.160             Daumé+LR @k=50: -0.021 [-0.100; +0.059] False
+ AC   A→C giống (hành vi ↔ hành vi)       0.826     0.804         0.612        0.559          0.022      0.191   0.556  0.180        0.166 Trung bình hạng (RF) @k=50: -0.088 [-0.239; +0.062] False
+ AD   D→A giống (hành vi ↔ hành vi)       0.829     0.654         0.650        0.645          0.175      0.004   0.647  0.315        0.160 Trung bình hạng (RF) @k=10: +0.012 [-0.052; +0.075] False
+ AD   A→D giống (hành vi ↔ hành vi)       0.632     0.544         0.553        0.544          0.087     -0.008   0.546  0.570        0.508            Zero-shot @k=10: +0.034 [-0.020; +0.088] False
+
+Friedman: N = 42 khối (cặp × chiều × k), k = 13 phương pháp; chi2 = 101.36, p = 3.01e-16; Iman–Davenport F = 10.32; Nemenyi CD (α = 0,05) = 2.82. Bỏ khỏi xếp hạng vì thiếu ở một số khối: ['TabPFN']
+         phuong_phap        nhom  hang_TB
+                  RF    chỉ đích     4.50
+            Stacking    chỉ đích     5.62
+            Daumé+LR chuyển giao     5.90
+Trung bình hạng (RF) chuyển giao     5.93
+ Stacking+LR (nguồn) chuyển giao     6.07
+        LR neo nguồn chuyển giao     6.14
+                  LR    chỉ đích     6.58
+            CatBoost    chỉ đích     6.79
+Trung bình hạng (LR) chuyển giao     7.18
+  XGB khởi tạo nguồn chuyển giao     7.50
+             XGBoost    chỉ đích     8.65
+Stacking+XGB (nguồn) chuyển giao     8.96
+           Zero-shot chuyển giao    11.17

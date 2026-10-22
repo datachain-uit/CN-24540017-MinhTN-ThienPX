@@ -1,0 +1,201 @@
+variant,setting,rep,auc_roc,pr_auc
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,0,0.5720992333534327,0.22456983718467344
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,0,0.5980704625721425,0.2607177282403462
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,1,0.6788698423636833,0.28289153493488844
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,1,0.6407959341889913,0.30657710208107536
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,2,0.5440175725730036,0.2214861393403083
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,2,0.5249375484537859,0.17280575333680856
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,3,0.4892324920320441,0.1571470163655644
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,3,0.5126625893703162,0.16261008942209332
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,4,0.5689551210267896,0.21796832164933672
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,4,0.6047032474804032,0.23363495594950828
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,5,0.598371952795245,0.23725788734236103
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,5,0.5352312860711517,0.19621756374186175
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,6,0.6068567490739942,0.2538538728162964
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,6,0.5883797054009822,0.2508411237262057
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,7,0.5597812042380912,0.19570194113231326
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,7,0.5292445516409682,0.20708498705807346
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,8,0.5525885089154965,0.2424490784397343
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,8,0.568093720389353,0.22797825023795038
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in A,9,0.5535360496166767,0.2180653108321609
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",B->A,9,0.5830820914807477,0.22493412715724329
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,0,0.5667870453329694,0.30424076582603027
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,0,0.5431647958625843,0.2808516799602784
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,1,0.5579239321300603,0.29584199991989224
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,1,0.5446817284923571,0.27825286665416654
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,2,0.5534408266026213,0.2918411030614032
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,2,0.5511895510877374,0.28503859967199885
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,3,0.5726955428707284,0.3075458651400117
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,3,0.525259524076834,0.2657267610508944
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,4,0.5648623074986994,0.3043035844779103
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,4,0.5203442147429195,0.2600987448591231
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,5,0.5768478914104447,0.30947790430979477
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,5,0.5301245686217101,0.27376453774185255
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,6,0.5436912920105402,0.2797196552359805
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,6,0.5233221283212367,0.2607571949460299
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,7,0.5684292730390679,0.3077602530686757
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,7,0.5519888346127005,0.2841689789776415
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,8,0.583189509995355,0.31315787865505285
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,8,0.5398961169900124,0.27991421142632356
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",in B,9,0.5526463127291725,0.29931735652139035
+"V0 ánh xạ KB1 v2 (giá trị số, đơn vị gốc)",A->B,9,0.5299548790966719,0.27160290197382797
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,0,0.5805409596003102,0.22605549723781454
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,0,0.47962787492462744,0.1541874384246652
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,1,0.702859850116289,0.28647459061546404
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,1,0.47467482125936766,0.1484014281976936
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,2,0.5552588508915497,0.21515320756881476
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,2,0.6162460160220519,0.22258572502875495
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,3,0.4770006029804462,0.15346888173240786
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,3,0.572056163321561,0.19979159563526633
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,4,0.5780428977517444,0.21681990912442675
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,4,0.5028856921354122,0.1714179783013517
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,5,0.5960892411060384,0.23154435981962462
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,5,0.5339822551468688,0.16968462946480126
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,6,0.6109484021018176,0.24230331551706655
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,6,0.5300628822465329,0.16970470923483594
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,7,0.5709794125247654,0.20077789784568115
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,7,0.5512964079593418,0.20199048450912938
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,8,0.5374709277284865,0.23969118758151814
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,8,0.46804203635110686,0.1532640967411668
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in A,9,0.5453096735291585,0.21722051196710174
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),B->A,9,0.5212765957446809,0.17916209202705807
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,0,0.5748035453920397,0.3127035135927665
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,0,0.4912996052929923,0.24850160161858592
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,1,0.5556172552783532,0.29955871769420506
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,1,0.49642753101557624,0.2446498885301318
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,2,0.5539348524306511,0.293168592803786
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,2,0.47957598531827883,0.2373609078610466
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,3,0.5759653224321113,0.31095586486724736
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,3,0.4795699315298181,0.23552824727692415
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,4,0.5673397745642557,0.3042355293580203
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,4,0.4913093280441567,0.24543410291642864
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,5,0.5817520104081134,0.31880937162846545
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,5,0.4986239555380423,0.2527212412533384
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,6,0.550894749934509,0.2887699059402231
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,6,0.49124989084835957,0.2485836488253436
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,7,0.5640397260605686,0.3096345000721731
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,7,0.4923507631075527,0.2440307403782911
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,8,0.5804187093616519,0.314166253612146
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,8,0.5124895159390747,0.2563770048264334
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),in B,9,0.5572607671213978,0.30681573626958575
+V1 mã hoá nhãn chuỗi cho B (học vấn + kinh nghiệm theo chữ cái),A->B,9,0.4951149596083897,0.24514025867245315
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,0,0.5805409596003102,0.22605549723781454
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,0,0.5706348522697907,0.21934326120850733
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,1,0.702859850116289,0.28647459061546404
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,1,0.6333017486432939,0.24159534946117311
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,2,0.5552588508915497,0.21515320756881476
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,2,0.5637867172021707,0.2073716713274576
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,3,0.4770006029804462,0.15346888173240786
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,3,0.5490136962701352,0.1948577685923791
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,4,0.5780428977517444,0.21681990912442675
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,4,0.4888879317770696,0.17375261423112148
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,5,0.5960892411060384,0.23154435981962462
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,5,0.48199672667757776,0.17626323041160458
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,6,0.6109484021018176,0.24230331551706655
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,6,0.5969506417434749,0.21689070125037085
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,7,0.5709794125247654,0.20077789784568115
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,7,0.6389869928503749,0.260823608346443
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,8,0.5374709277284865,0.23969118758151814
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,8,0.4581359290205875,0.15860853445166415
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in A,9,0.5453096735291585,0.21722051196710174
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",B->A,9,0.5219226462227581,0.19945418865674602
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,0,0.5785299273618765,0.3167457406165419
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,0,0.4817984594759401,0.24776479154607584
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,1,0.5578544052868285,0.3021184083754084
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,1,0.4923757120539367,0.25056947967983234
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,2,0.553348001846222,0.29248599405133313
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,2,0.4835212209133809,0.24429960585340166
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,3,0.5765182351115329,0.3109824892438761
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,3,0.47879688108818497,0.24543122443986032
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,4,0.5677905066323838,0.30384625808239757
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,4,0.48208757373697786,0.2390799086026757
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,5,0.5823898595741216,0.32322328917907495
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,5,0.48880104169189076,0.2511891268824956
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,6,0.5496518888186894,0.2883250387558806
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,6,0.48216095299104855,0.23767544525032372
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,7,0.5676202667629403,0.3110278045704086
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,7,0.49810149524906017,0.25681896394290327
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,8,0.5805986719822599,0.3136300245106584
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,8,0.4818329477253532,0.2518177878408307
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",in B,9,0.5573735877245314,0.3073812755041862
+"V2 chỉ học vấn B mã hoá theo chữ cái, kinh nghiệm là số",A->B,9,0.4810654007277754,0.24599839106781957
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,0,0.5805409596003102,0.22605549723781454
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,0,0.4651563442156947,0.15792515648813577
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,1,0.702859850116289,0.28647459061546404
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,1,0.5044362132827978,0.15540378257588788
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,2,0.5552588508915497,0.21515320756881476
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,2,0.5153329313463691,0.1709993149896466
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,3,0.4770006029804462,0.15346888173240786
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,3,0.4863037298647601,0.15225948631586367
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,4,0.5780428977517444,0.21681990912442675
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,4,0.4852269790679645,0.154102287326208
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,5,0.5960892411060384,0.23154435981962462
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,5,0.4933241450598673,0.15993171372802584
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,6,0.6109484021018176,0.24230331551706655
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,6,0.47527780170557327,0.1699219366774079
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,7,0.5709794125247654,0.20077789784568115
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,7,0.48686364027909385,0.16085717202893424
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,8,0.5374709277284865,0.23969118758151814
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,8,0.4815229563269877,0.18878889738151733
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in A,9,0.5453096735291585,0.21722051196710174
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",B->A,9,0.4857438194504264,0.16855184085915348
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,0,0.5774705143812331,0.31687812720137165
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,0,0.43859789122699655,0.22386155245052713
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,1,0.5585949854085354,0.3021720942985593
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,1,0.43891378891577015,0.22773262151723167
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,2,0.5562923444158021,0.29494989729060533
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,2,0.43769110709481995,0.22367521722500128
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,3,0.5763568007525777,0.3122729364753506
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,3,0.4276654830592985,0.22054679036379632
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,4,0.5659974845591704,0.3018053079652137
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,4,0.43514466353043735,0.2258280282607837
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,5,0.5828264661358412,0.31848906309830327
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,5,0.4566378139439661,0.23572997781032606
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,6,0.5486566826853578,0.288689853666711
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,6,0.45350415289888407,0.23607611993272642
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,7,0.565774411626796,0.30936942148996627
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,7,0.44260366470670676,0.2281967523008212
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,8,0.5813188893609622,0.3149142159389702
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,8,0.4563129272965689,0.23510128639100636
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",in B,9,0.5608358043797141,0.30891393782616644
+"V3 chỉ kinh nghiệm B mã hoá theo chữ cái, học vấn ánh xạ đúng",A->B,9,0.42946620995418927,0.220822309818795
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,0,0.5805409596003102,0.22605549723781454
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,0,0.5980704625721425,0.2607177282403462
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,1,0.702859850116289,0.28647459061546404
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,1,0.6407959341889913,0.30657710208107536
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,2,0.5552588508915497,0.21515320756881476
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,2,0.5249375484537859,0.17280575333680856
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,3,0.4770006029804462,0.15346888173240786
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,3,0.5126625893703162,0.16261008942209332
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,4,0.5780428977517444,0.21681990912442675
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,4,0.6047032474804032,0.23363495594950828
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,5,0.5960892411060384,0.23154435981962462
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,5,0.5352312860711517,0.19621756374186175
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,6,0.6109484021018176,0.24230331551706655
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,6,0.5883797054009822,0.2508411237262057
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,7,0.5709794125247654,0.20077789784568115
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,7,0.5292445516409682,0.20708498705807346
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,8,0.5374709277284865,0.23969118758151814
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,8,0.568093720389353,0.22797825023795038
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in A,9,0.5453096735291585,0.21722051196710174
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),B->A,9,0.5830820914807477,0.22493412715724329
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,0,0.5667870453329694,0.3042407658260302
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,0,0.5286254304610493,0.2657268401977654
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,1,0.5579239321300604,0.29584375936122953
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,1,0.5318862210638083,0.2661471358139715
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,2,0.5534406431544862,0.29184070716551674
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,2,0.5322718290439491,0.2659655331653328
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,3,0.5726957263188637,0.30754581192519836
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,3,0.5171232323854935,0.25547518243106215
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,4,0.5648615737061586,0.30430252488916576
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,4,0.5035365131499292,0.2493229319343404
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,5,0.5768478914104447,0.30947790430979477
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,5,0.5183699459121518,0.2598474406950356
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,6,0.5436916589068106,0.2797204294045978
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,6,0.5065944101151834,0.24924511030860796
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,7,0.5684294564872031,0.3077602530686757
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,7,0.5379535846866302,0.2686603198150548
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,8,0.5831895099953551,0.31315787865505285
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,8,0.5239940988403877,0.263786471623617
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),in B,9,0.5526459458329022,0.29931735652139035
+V4 như V0 nhưng không chặn kinh nghiệm của A (0–40 năm),A->B,9,0.5210018763075266,0.25889013893135615

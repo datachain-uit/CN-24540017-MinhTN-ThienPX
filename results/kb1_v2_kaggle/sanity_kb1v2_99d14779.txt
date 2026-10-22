@@ -1,0 +1,5 @@
+cfg=99d14779
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+B: {'rows_raw': 19158, 'dup_removed': 74, 'conflict_groups': 25, 'rows': 19084, 'pos': 4755}
+Đích A: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.502 (kỳ vọng ≈ 0,5); PR-AUC của baseline lớp đa số = tỷ lệ dương 0.1612
+Đích B: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.483 (kỳ vọng ≈ 0,5); PR-AUC của baseline lớp đa số = tỷ lệ dương 0.2492

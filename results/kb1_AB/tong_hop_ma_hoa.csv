@@ -1,0 +1,19 @@
+Tập khái niệm,Mã hoá,Mô hình,Trong-miền A,B→A,Trong-miền B,A→B
+canon4,std,LR,0.645,0.63,0.631,0.525
+canon4,std,RF,0.574,0.561,0.564,0.524
+canon4,std,RF_leaf50,0.633,0.629,0.633,0.609
+canon4,std,XGB,0.572,0.589,0.63,0.546
+canon4,std,TabPFN,0.651,0.616,0.639,0.608
+canon4,rank,LR,0.644,0.621,0.621,0.607
+canon4,rank,RF,0.574,0.572,0.563,0.549
+canon4,rank,RF_leaf50,0.633,0.62,0.633,0.606
+canon4,rank,XGB,0.572,0.594,0.63,0.581
+canon4,rank,TabPFN,0.644,0.588,0.639,0.614
+canon5,std,LR,0.669,0.62,0.632,0.522
+canon5,std,RF,0.586,0.534,0.557,0.536
+canon5,std,RF_leaf50,0.656,0.625,0.636,0.584
+canon5,std,XGB,0.601,0.574,0.632,0.541
+canon5,rank,LR,0.667,0.62,0.621,0.591
+canon5,rank,RF,0.589,0.569,0.557,0.552
+canon5,rank,RF_leaf50,0.656,0.631,0.636,0.597
+canon5,rank,XGB,0.601,0.591,0.632,0.571

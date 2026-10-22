@@ -1,0 +1,32 @@
+Friedman: N = 41 khối (cặp × chiều × k), k = 14 phương pháp; chi2 = 108.19, p = 4.23e-17; Iman–Davenport F = 10.19; Nemenyi CD (α = 0,05) = 3.10. Khối bị bỏ vì thiếu phương pháp: ['AB/B/full']
+Phụ: N = 42 khối, k = 13 phương pháp (bỏ ['TabPFN']); chi2 = 101.36, p = 3.01e-16; F = 10.32; CD = 2.82
+         phuong_phap        nhom  hang_TB
+                  RF    chỉ đích    4.951
+           TabPFN v2    chỉ đích    5.829
+            Stacking    chỉ đích    6.268
+            Daumé+LR chuyển giao    6.366
+Trung bình hạng (RF) chuyển giao    6.439
+ Stacking+LR (nguồn) chuyển giao    6.512
+        LR neo nguồn chuyển giao    6.585
+                  LR    chỉ đích    7.073
+            CatBoost    chỉ đích    7.512
+Trung bình hạng (LR) chuyển giao    7.634
+  XGB khởi tạo nguồn chuyển giao    8.317
+             XGBoost    chỉ đích    9.671
+Stacking+XGB (nguồn) chuyển giao    9.890
+           Zero-shot chuyển giao   11.951
+
+         phuong_phap        nhom  hang_TB
+                  RF    chỉ đích    4.500
+            Stacking    chỉ đích    5.619
+            Daumé+LR chuyển giao    5.905
+Trung bình hạng (RF) chuyển giao    5.929
+ Stacking+LR (nguồn) chuyển giao    6.071
+        LR neo nguồn chuyển giao    6.143
+                  LR    chỉ đích    6.583
+            CatBoost    chỉ đích    6.786
+Trung bình hạng (LR) chuyển giao    7.179
+  XGB khởi tạo nguồn chuyển giao    7.500
+             XGBoost    chỉ đích    8.655
+Stacking+XGB (nguồn) chuyển giao    8.964
+           Zero-shot chuyển giao   11.167

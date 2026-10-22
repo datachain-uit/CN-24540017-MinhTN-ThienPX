@@ -1,0 +1,2 @@
+# Chỉ cho TabPFN v2 trên Google Colab (GPU Tesla T4); các thư viện còn lại dùng bản có sẵn của Colab
+tabpfn==2.1.3

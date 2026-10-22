@@ -1,0 +1,5 @@
+pair=AD cfg=4c085b4a models=['LR', 'RF', 'RF_leaf50', 'XGB']
+A: {'rows_raw': 1470, 'rows': 1470, 'pos': 237}
+D: {'rows_raw': 1129, 'dup_removed': 13, 'conflict_groups': 0, 'person_dup_removed': 163, 'rows': 953, 'pos': 486}
+Đích A: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.515 (kỳ vọng ≈ 0,5); tỷ lệ dương 0.1612
+Đích D: LR với nhãn train bị xáo trộn -> AUC-ROC TB 0.489 (kỳ vọng ≈ 0,5); tỷ lệ dương 0.5100

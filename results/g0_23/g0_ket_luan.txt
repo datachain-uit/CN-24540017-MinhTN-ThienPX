@@ -1,0 +1,3 @@
+A: PIVOT
+B: PIVOT
+co_TabPFN: True
