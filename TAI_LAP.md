@@ -15,7 +15,8 @@ Cột 4 là lệnh huấn luyện lại (cần dữ liệu gốc; xem `chay_lai_
 | Bảng A5.5f, Hình 8–9 (Cổng 0 AC, AD) | `python g0_decision.py results/g0_AC AC`, `... results/g0_AD AD` | `results/g0_AC/`, `results/g0_AD/` | `g0_pair.py --pair AC|AD` |
 | Bảng A5.5g (AC, tập “cùng chiều”) | `python g0_decision.py results/g0_AC_consistent AC` | `results/g0_AC_consistent/` | `g0_pair.py --pair AC --cset consistent` |
 | Bảng A5.5h–i, Hình 10 (tổng hợp, Friedman – Nemenyi) | `python pairs_synthesis.py --out results/tong_hop_cap` | các thư mục trên | – |
-| Hình 4–5 (CARTE, KB2b) | kho `tabular_tl_repro` và `code_thucnghiem_carte.py` (ngoài kho này) | – | – |
+| Hình 4–5 (CARTE, KB2b) | `python kb2b_carte/ve_hinh_carte.py` | `kb2b_carte/ket_qua/` | `kb2b_carte/code_thucnghiem_carte.py` |
+| Toàn bộ báo cáo Word | `bash bao_cao/build_bao_cao.sh` | `bao_cao/*_trong_bao_cao.json` + hình trong `results/` | – |
 
 Ghi chú về mã băm: `g0_23` có hai mã (`6f2142bf` cho lượt CPU đầu, `44c64e04` sau khi thêm CatBoost, stacking, TabPFN v2 vào cấu hình). Các phương pháp chung giữa hai lượt cho kết quả trùng; `g0_decision.py` gộp mọi file trong thư mục.
 TabPFN v2 không chạy ở mức “toàn bộ” khi tập huấn luyện vượt 10.000 dòng (đích Job Change); ở 2×2 tập huấn luyện được rút phân tầng còn 10.000 dòng.

@@ -1,0 +1,2 @@
+{ "name": "tb-htl-bao-cao", "private": true, "description": "Sinh báo cáo tiến độ (.docx) từ kết quả thí nghiệm",
+  "dependencies": { "docx": "9.7.1" } }

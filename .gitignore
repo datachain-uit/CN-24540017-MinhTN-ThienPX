@@ -8,3 +8,11 @@ __pycache__/
 .ipynb_checkpoints/
 *.zip
 .DS_Store
+bao_cao/node_modules/
+bao_cao/package-lock.json
+bao_cao/base.docx
+bao_cao/_x/
+bao_cao/Bao_cao_tien_do.docx
+kb2b_carte/hinh_tai_tao/
+results/tai_lap_log.txt
+bao_cao/node_modules
