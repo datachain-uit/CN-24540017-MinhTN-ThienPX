@@ -1,8 +1,9 @@
 # prereg_k2.yaml – Tiền đăng ký kịch bản K2 (miền đích nghèo đặc trưng)
 # Theo mẫu Phụ lục B3 review 18/10 và mục 6.2–6.3 review 22/10.
 # PHẢI commit trước lần chạy K2 đầu tiên; mọi thay đổi sau đó ghi vào deviations.md kèm mã commit.
-ngay_chot: "…/10/2026"          # điền khi commit
-commit_chot: ""                  # điền mã commit sau khi commit
+ngay_chot: "23/10/2026"
+commit_chot: "79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2"   # bản đầu của tiền đăng ký
+sua_truoc_khi_chay: "23/10/2026 – bổ sung phương án Age (L1_age) và xác nhận 2 điểm; commit ngay sau 79a0a4c, trước lần chạy K2 đầu tiên"
 cau_hoi: [RQ5 (chính), RQ2, RQ6] # xem 00_contributions.md
 
 target: ibm                      # A, 1.470 dòng, tỷ lệ dương 0,161
@@ -36,8 +37,9 @@ schemas:
     B: [male, gender_other_missing, education, experience, training, tenure]
     C: [tenure, satisfaction, evaluation, promoted_5y, pay, overtime, dept_sales, dept_hr]
   L2: all_target_features          # = Cổng 0 (results/g0_23, results/g0_AC), dùng làm mốc, không chạy lại
-  can_GVHD_chot:
-    - "Age vào L1 chỉ nhờ Babushkin (D, thăm dò). Theo quy tắc chữ (4 bộ công khai) thì giữ; nếu GVHD muốn chỉ tính A, B, C thì bỏ Age."
+  L1_age:                         # Age vào L1 chỉ nhờ Babushkin (D, thăm dò) – chốt cả hai phương án trước khi chạy
+    chinh: "L1 giữ Age (đúng quy tắc: ít nhất 2 trong 4 bộ công khai A, B, C, D)"
+    do_nhay: "L1 bỏ Age (chỉ tính A, B, C); báo cáo cạnh bản chính, không chọn theo kết quả"
   khong_chon_theo_hieu_nang: true  # thử thêm mức khác thì báo cáo tất cả
 target_features_rule: "mô hình chỉ dùng đích chỉ thấy các cột IBM của mức lược đồ đang xét; số: median + z-score, phân loại: one-hot; fit trên k mẫu"
 alignment_C1: "khái niệm chung chuẩn hoá thứ hạng, fit riêng trên phần train của từng miền, không dùng nhãn (giả định N9: tổ chức đích có hồ sơ đầy đủ nhưng ít nhãn)"
@@ -46,7 +48,7 @@ source_model: "LR(C = 1) trên khái niệm chung của mức lược đồ, că
 methods:
   target_only: [LR, RF, XGB, CAT, STACK, TabPFN, LightGBM, AdaBoost]   # siêu tham số mặc định như Cổng 0; LightGBM, AdaBoost mặc định của thư viện
   target_only_small_k:            # M7: bộ tham số cho k ≤ 50, báo cáo CẠNH bản mặc định (không thay thế)
-    XGB: {n_estimators: 100, max_depth: 2, learning_rate: 0.1, min_child_weight: 0.01}   # đề xuất – nhóm xác nhận khi commit
+    XGB: {n_estimators: 100, max_depth: 2, learning_rate: 0.1, min_child_weight: 0.01}   # Minh và Thiên xác nhận 23/10/2026
   target_preselected:             # M1: baseline đích chọn trước, dùng để báo cáo
     candidates: [LR, RF, XGB, CAT, LightGBM, AdaBoost]                  # STACK, TabPFN không đưa vào vì chi phí kiểm định chéo lồng
     cv: "phân tầng, số fold = min(3, n_dương, n_âm), chỉ số PR-AUC trung bình trên chính k mẫu"

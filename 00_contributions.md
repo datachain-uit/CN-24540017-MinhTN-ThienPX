@@ -3,7 +3,7 @@
 Đề tài: *Ứng dụng học chuyển giao để dự đoán rủi ro nghỉ việc của lực lượng lao động dựa trên các nguồn dữ liệu nhân sự khác nhau*
 Nhóm: Tăng Nhật Minh (24540017), Phạm Xuân Thiên (24540028) · GVHD: ThS. Nguyễn Thị Anh Thư
 
-**Ngày chốt:** …/10/2026 · **Mã commit chốt:** (điền sau khi commit) — file này phải được commit **trước** lần chạy K2 đầu tiên (review 18/10, M4; review 22/10, N4). Mọi thay đổi sau ngày chốt ghi vào `deviations.md`.
+**Ngày chốt:** 23/10/2026 · **Mã commit chốt:** `79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2` (bản đầu); phương án Age cho L1 được bổ sung ở commit ngay sau, trước lần chạy K2 đầu tiên — file này phải được commit **trước** lần chạy K2 đầu tiên (review 18/10, M4; review 22/10, N4). Mọi thay đổi sau ngày chốt ghi vào `deviations.md`.
 
 ## 1. Đóng góp (quyết định 2, review 18/10)
 

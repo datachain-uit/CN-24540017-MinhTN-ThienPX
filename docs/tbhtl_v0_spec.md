@@ -48,4 +48,4 @@ Hàm mục tiêu: tổng log-loss trên k mẫu + hai số hạng phạt; tối 
 
 Mọi thay đổi (lưới λ, tiêu chí chọn λ, cách mã hoá, nhánh riêng phi tuyến…) gọi là v0.1 trở đi và ghi vào `deviations.md` kèm lý do và mã commit.
 
-*Chốt ngày: …/10/2026 · mã commit: (điền sau khi commit)*
+*Chốt ngày: 23/10/2026 · mã commit: `79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2`*
