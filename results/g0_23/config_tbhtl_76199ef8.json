@@ -1,0 +1,43 @@
+{
+ "R": 30,
+ "ks": [
+  10,
+  20,
+  50,
+  100
+ ],
+ "hidden": 16,
+ "emb": 8,
+ "rho": 0.4,
+ "private": "linear",
+ "pre": {
+  "epochs": 20,
+  "batch": 256,
+  "lr": 0.001,
+  "wd": 0.0001
+ },
+ "ft": {
+  "epochs": 200,
+  "lr": 0.01,
+  "l2_private": 0.5
+ },
+ "lam_grid": [
+  0.1,
+  1.0,
+  10.0,
+  100.0
+ ],
+ "lam_cv": "log-loss, ho\u00e0 th\u00ec ch\u1ecdn \u03bb l\u1edbn h\u01a1n",
+ "lam_default": 10.0,
+ "SHUF_seed": 0,
+ "version": "v0",
+ "pair": "AB",
+ "methods": [
+  "TBHTL",
+  "TBHTL_NOANCHOR",
+  "TBHTL_SHARED",
+  "TBHTL_SCRATCH",
+  "TBHTL_SHUF"
+ ],
+ "cfg": "76199ef8"
+}

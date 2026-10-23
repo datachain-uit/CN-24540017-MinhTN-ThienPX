@@ -61,5 +61,13 @@ fr = open("results/tong_hop_cap/friedman.txt").read().splitlines()
 check("Friedman chính: χ² = 108,19, CD = 3,10", "chi2 = 108.19" in fr[0] and "= 3.10" in fr[0], fr[0][:110])
 check("Friedman phụ: χ² = 101,36, CD = 2,82", "chi2 = 101.36" in fr[1] and "CD = 2.82" in fr[1], fr[1][:110])
 
+# 6. Review 22/10: Friedman mức chiều (Phụ lục A3) và nửa độ rộng CI (Phụ lục A4)
+fc = open("results/tong_hop_cap/friedman_chieu.txt").read()
+check("Friedman 6 chiều khớp Phụ lục A3 (χ² = 36,2; CD = 7,45)", "chi2 = 36.18" in fc and "= 7.45" in fc.split("doi_chieu_6_chieu")[1])
+md = pd.read_csv("results/tong_hop_cap/mde_cong0.csv")
+check("Nửa độ rộng CI khớp Phụ lục A4 (trung vị 0,057; 2/18 ô < 0,02)",
+      round(md.nua_do_rong_CI.median(), 3) == 0.057 and int((md.nua_do_rong_CI < .02).sum()) == 2,
+      f"trung vị {md.nua_do_rong_CI.median():.4f}")
+
 print("\nKẾT QUẢ:", "TẤT CẢ ĐẠT" if not bad else f"{len(bad)} mục lỗi: {bad}")
 sys.exit(1 if bad else 0)

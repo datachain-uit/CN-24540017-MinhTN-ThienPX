@@ -1,0 +1,190 @@
+{
+ "quy_tac": "(chốt trước khi chạy K2, không chọn theo hiệu năng):\n  Đích A (IBM); nguồn B (Job Change) và C (HR 14.999), mỗi nguồn chạy riêng.\n  - Khái niệm = một cột (hoặc một giá trị của cột phân loại) của IBM có trong bảng ánh xạ của ít nhất một cặp trong pairs.py.\n  - Một khái niệm “có ở” bộ dữ liệu X nếu bảng ánh xạ A ↔ X có nó (ở bất kỳ tập khái niệm nào của cặp, trừ tập\n    “consistent” vì tập này chọn sau khi xem nhãn).\n  - L0(nguồn) : đúng tập khái niệm CHÍNH đã chốt của cặp A ↔ nguồn (B: 4 khái niệm canon4; C: 5 khái niệm core,\n                gồm cả thâm niên ngược chiều).\n  - L1        : các khái niệm có ở ít nhất 2 trong 4 bộ dữ liệu công khai (A, B, C, D). Đích chỉ thấy các cột IBM tương ứng.\n                Phần chung với nguồn ở L1 = mọi khái niệm của cặp A ↔ nguồn nằm trong L1.\n  - L2        : đủ đặc trưng (thiết lập Cổng 0, dùng làm mốc, không chạy lại).\n  Mô hình chỉ dùng đích chỉ thấy các cột IBM của mức lược đồ đang xét.",
+ "dich": "A",
+ "nguon": {
+  "B": {
+   "L0": {
+    "khai_niem_chung": [
+     "male",
+     "gender_other_missing",
+     "education",
+     "experience",
+     "training"
+    ],
+    "cot_IBM_dich_thay": [
+     "Education",
+     "Gender",
+     "TotalWorkingYears",
+     "TrainingTimesLastYear"
+    ]
+   },
+   "L1": {
+    "khai_niem_chung": [
+     "male",
+     "gender_other_missing",
+     "education",
+     "experience",
+     "training",
+     "tenure"
+    ],
+    "cot_IBM_dich_thay": [
+     "Age",
+     "Department",
+     "Education",
+     "Gender",
+     "JobSatisfaction",
+     "MonthlyIncome",
+     "OverTime",
+     "PerformanceRating",
+     "TotalWorkingYears",
+     "TrainingTimesLastYear",
+     "YearsAtCompany",
+     "YearsSinceLastPromotion"
+    ]
+   },
+   "L2": {
+    "ghi_chu": "đủ đặc trưng IBM – thiết lập Cổng 0 (results/g0_23, results/g0_AC), không chạy lại"
+   }
+  },
+  "C": {
+   "L0": {
+    "khai_niem_chung": [
+     "satisfaction",
+     "evaluation",
+     "tenure",
+     "promoted_5y",
+     "pay"
+    ],
+    "cot_IBM_dich_thay": [
+     "JobSatisfaction",
+     "MonthlyIncome",
+     "PerformanceRating",
+     "YearsAtCompany",
+     "YearsSinceLastPromotion"
+    ]
+   },
+   "L1": {
+    "khai_niem_chung": [
+     "tenure",
+     "satisfaction",
+     "evaluation",
+     "promoted_5y",
+     "pay",
+     "overtime",
+     "dept_sales",
+     "dept_hr"
+    ],
+    "cot_IBM_dich_thay": [
+     "Age",
+     "Department",
+     "Education",
+     "Gender",
+     "JobSatisfaction",
+     "MonthlyIncome",
+     "OverTime",
+     "PerformanceRating",
+     "TotalWorkingYears",
+     "TrainingTimesLastYear",
+     "YearsAtCompany",
+     "YearsSinceLastPromotion"
+    ]
+   },
+   "L2": {
+    "ghi_chu": "đủ đặc trưng IBM – thiết lập Cổng 0 (results/g0_23, results/g0_AC), không chạy lại"
+   }
+  }
+ },
+ "L1_cot_IBM": [
+  "Age",
+  "Department",
+  "Education",
+  "Gender",
+  "JobSatisfaction",
+  "MonthlyIncome",
+  "OverTime",
+  "PerformanceRating",
+  "TotalWorkingYears",
+  "TrainingTimesLastYear",
+  "YearsAtCompany",
+  "YearsSinceLastPromotion"
+ ],
+ "L1_khoa": [
+  "Age",
+  "Department=Human Resources",
+  "Department=Sales",
+  "Education",
+  "Gender",
+  "JobSatisfaction",
+  "MonthlyIncome",
+  "OverTime",
+  "PerformanceRating",
+  "TotalWorkingYears",
+  "TrainingTimesLastYear",
+  "YearsAtCompany",
+  "YearsSinceLastPromotion"
+ ],
+ "so_bo_du_lieu": {
+  "Age": [
+   "A",
+   "D"
+  ],
+  "Department=Human Resources": [
+   "A",
+   "C",
+   "D"
+  ],
+  "Department=Sales": [
+   "A",
+   "C",
+   "D"
+  ],
+  "Education": [
+   "A",
+   "B"
+  ],
+  "Gender": [
+   "A",
+   "B",
+   "D"
+  ],
+  "JobSatisfaction": [
+   "A",
+   "C"
+  ],
+  "MonthlyIncome": [
+   "A",
+   "C"
+  ],
+  "OverTime": [
+   "A",
+   "C"
+  ],
+  "PerformanceRating": [
+   "A",
+   "C"
+  ],
+  "TotalWorkingYears": [
+   "A",
+   "B"
+  ],
+  "TrainingTimesLastYear": [
+   "A",
+   "B"
+  ],
+  "YearsAtCompany": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "YearsSinceLastPromotion": [
+   "A",
+   "C"
+  ]
+ },
+ "L1_chi_nho_D": [
+  "Age"
+ ],
+ "ghi_chu_D": "Babushkin (D) là thăm dò (quyết định 2, review 22/10); các khoá chỉ có nhờ D được liệt kê ở L1_chi_nho_D",
+ "sha256_8": "7c717313"
+}

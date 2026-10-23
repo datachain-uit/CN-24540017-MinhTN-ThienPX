@@ -1,0 +1,27 @@
+phan_tich,phuong_phap,ma,nhom,hang_TB
+chinh_4_chieu,Random Forest,RF,chỉ đích,3.0
+chinh_4_chieu,TabPFN v2,TabPFN,chỉ đích,3.0
+chinh_4_chieu,RANKAVG-RF,RANKAVG_RF,chuyển giao,3.75
+chinh_4_chieu,LR,LR,chỉ đích,6.0
+chinh_4_chieu,Stacking điểm nguồn + LR,STK_LR,chuyển giao,6.25
+chinh_4_chieu,Daumé + LR,DAUME_LR,chuyển giao,6.25
+chinh_4_chieu,CatBoost,CAT,chỉ đích,6.5
+chinh_4_chieu,Trung bình hạng LR w(k),RANKAVG,chuyển giao,7.5
+chinh_4_chieu,LR neo hệ số nguồn,ANCHOR_LR,chuyển giao,7.75
+chinh_4_chieu,Stacking LR + RF + XGB,STACK,chỉ đích,9.0
+chinh_4_chieu,XGBoost khởi tạo từ nguồn,OFF_XGB,chuyển giao,9.5
+chinh_4_chieu,XGBoost,XGB,chỉ đích,10.75
+chinh_4_chieu,Stacking điểm nguồn + XGBoost,STK_XGB,chuyển giao,11.75
+doi_chieu_6_chieu,Random Forest,RF,chỉ đích,2.8333333333333335
+doi_chieu_6_chieu,RANKAVG-RF,RANKAVG_RF,chuyển giao,3.0
+doi_chieu_6_chieu,TabPFN v2,TabPFN,chỉ đích,4.666666666666667
+doi_chieu_6_chieu,Trung bình hạng LR w(k),RANKAVG,chuyển giao,6.0
+doi_chieu_6_chieu,Stacking điểm nguồn + LR,STK_LR,chuyển giao,6.333333333333333
+doi_chieu_6_chieu,LR,LR,chỉ đích,6.5
+doi_chieu_6_chieu,Daumé + LR,DAUME_LR,chuyển giao,6.5
+doi_chieu_6_chieu,LR neo hệ số nguồn,ANCHOR_LR,chuyển giao,6.833333333333333
+doi_chieu_6_chieu,CatBoost,CAT,chỉ đích,7.333333333333333
+doi_chieu_6_chieu,XGBoost khởi tạo từ nguồn,OFF_XGB,chuyển giao,8.0
+doi_chieu_6_chieu,Stacking LR + RF + XGB,STACK,chỉ đích,10.0
+doi_chieu_6_chieu,XGBoost,XGB,chỉ đích,11.333333333333334
+doi_chieu_6_chieu,Stacking điểm nguồn + XGBoost,STK_XGB,chuyển giao,11.666666666666666

@@ -21,8 +21,13 @@ run python kb1_pair_summary.py --pair AD results/kb1_AD/results_kb1_AD_4c085b4a_
 run python g0_decision.py results/g0_AC AC
 run python g0_decision.py results/g0_AD AD
 run python g0_decision.py results/g0_AC_consistent AC
-# Bảng A5.5h–i, Hình 10 (tổng hợp ba cặp, Friedman – Nemenyi)
+# Bảng A5.5h–i, Hình 10 (tổng hợp ba cặp; Friedman 41 khối = độ nhạy)
+# Tổng hợp chính ở mức chiều (review 22/10, N3) và bảng MDE (N1); bản 41 khối là phân tích độ nhạy
+run python friedman_chieu.py --out results/tong_hop_cap
+run python mde_cong0.py --out results/tong_hop_cap
 run python pairs_synthesis.py --out results/tong_hop_cap
+# Thăm dò TB-HTL dạng MLP 23/10 (deviations.md mục 3), chiều B→A (so với baseline Cổng 0; không đổi kết luận Cổng 0)
+run python tbhtl_thamdo_eval.py results/g0_23 A
 
 # Chuỗi ô trong báo cáo Word (bao_cao/*.json)
 run python bao_cao/make_kb1_json.py

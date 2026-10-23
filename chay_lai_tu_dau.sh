@@ -24,4 +24,6 @@ python kb1_pair.py --pair AD --data A=$A D=$D                              # 2×
 python g0_pair.py  --pair AD --data A=$A D=$D --only $CPU --suffix cpu     # Cổng 0 AD (~32 phút cho đích D)
 python g0_pair.py  --pair AD --data A=$A D=$D --only RANKAVG_RF RANKAVG_RF_SHUF --suffix rankrf
 
+python tbhtl_thamdo_nn.py --pair AB --data A=$A B=$B --targets A                # thăm dò TB-HTL MLP 23/10 (~10 phút CPU)
+
 bash tai_lap_bang.sh && python kiem_tra_tai_lap.py

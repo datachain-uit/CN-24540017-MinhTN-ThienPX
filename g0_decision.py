@@ -68,6 +68,7 @@ def set_pair(pair):
 def main(folder):
     files = sorted(glob.glob(f"{folder}/results_g0_23_*.csv") + glob.glob(f"{folder}/results_g0_[A-D][A-D]_*.csv"))
     r = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+    r = r[~r.method.astype(str).str.startswith("TBHTL")]      # TB-HTL đánh giá riêng (tbhtl_thamdo_eval.py; K2), không thuộc Cổng 0
     r["k"] = r["k"].astype(str)
     has_tabpfn = (r.method == "TabPFN").any()
     print("Đọc:", [f.split("/")[-1] for f in files], "| có TabPFN v2:", has_tabpfn)

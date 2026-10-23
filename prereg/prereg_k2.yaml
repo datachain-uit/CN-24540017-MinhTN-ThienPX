@@ -1,0 +1,71 @@
+# prereg_k2.yaml – Tiền đăng ký kịch bản K2 (miền đích nghèo đặc trưng)
+# Theo mẫu Phụ lục B3 review 18/10 và mục 6.2–6.3 review 22/10.
+# PHẢI commit trước lần chạy K2 đầu tiên; mọi thay đổi sau đó ghi vào deviations.md kèm mã commit.
+ngay_chot: "…/10/2026"          # điền khi commit
+commit_chot: ""                  # điền mã commit sau khi commit
+cau_hoi: [RQ5 (chính), RQ2, RQ6] # xem 00_contributions.md
+
+target: ibm                      # A, 1.470 dòng, tỷ lệ dương 0,161
+sources: [jobchange, hr14999]    # B (19.084 dòng sau loại trùng), C (11.991 dòng sau loại trùng); mỗi nguồn chạy riêng
+k_grid: [10, 20, 50, 100]        # review 22/10 mục 6.3 (k ≤ 100)
+repeats: 30                      # trùng 30 lần chia train/test của Cổng 0
+draws_per_split: 5               # M = 5 lần rút k mẫu; lấy trung bình trong mỗi lần chia trước khi kiểm định
+splits_file: prereg/splits_A_R30_M5.json
+splits_sha256: c0af5426d07c7ae9e1b6683d6a7181bd22b58cabf14a259d65b0d85c313c547b
+splits_rule: "lần rút m = 0 trùng Cổng 0 (RandomState(10000 + r)); m ≥ 1 dùng RandomState(10000 + 1000·m + r)"
+
+primary_metric: pr_auc
+secondary_metrics: [auc_roc, brier, ece]
+practical_threshold: 0.02
+mde_pr_auc:                      # MDE dự kiến (power 80%) = cận trên lấy từ Cổng 0 cùng chiều, M = 1 (mde_cong0.csv)
+  B_to_A: {k10: 0.066, k20: 0.074, k50: 0.073}
+  C_to_A: {k10: 0.088, k20: 0.098, k50: 0.112}
+  ghi_chu: "MDE thực tế của K2 tính lại sau khi chạy và báo cáo kèm mọi kết luận"
+alpha: 0.05
+ci: "hiệu chỉnh Nadeau–Bengio, n_test/n_train = 0.25, t(R−1)"
+multiple_testing: "Holm trong mỗi họ (nguồn × mức lược đồ × họ so sánh)"
+go_rule: "tồn tại k ≤ 50: Δ(chuyển giao − baseline đích mạnh nhất) ≥ 0.02 và CI không chứa 0; và không chuyển giao âm quá 0.01 ở k = 100"
+
+schemas:
+  file: prereg/k2_khai_niem.json   # sinh bằng k2_khai_niem.py, sha256 = 3943e1577078735c966431179c4c603c6aeeb036151684a97647f24a4cd3df49
+  L0: shared_concepts_only         # B: male, gender_other_missing, education, experience, training | C: satisfaction, evaluation, tenure, promoted_5y, pay
+  L1: concepts_in_at_least_2_public_datasets   # 12 cột IBM: Age, Department, Education, Gender, JobSatisfaction, MonthlyIncome,
+                                               # OverTime, PerformanceRating, TotalWorkingYears, TrainingTimesLastYear,
+                                               # YearsAtCompany, YearsSinceLastPromotion
+  L1_shared_with_source:
+    B: [male, gender_other_missing, education, experience, training, tenure]
+    C: [tenure, satisfaction, evaluation, promoted_5y, pay, overtime, dept_sales, dept_hr]
+  L2: all_target_features          # = Cổng 0 (results/g0_23, results/g0_AC), dùng làm mốc, không chạy lại
+  can_GVHD_chot:
+    - "Age vào L1 chỉ nhờ Babushkin (D, thăm dò). Theo quy tắc chữ (4 bộ công khai) thì giữ; nếu GVHD muốn chỉ tính A, B, C thì bỏ Age."
+  khong_chon_theo_hieu_nang: true  # thử thêm mức khác thì báo cáo tất cả
+target_features_rule: "mô hình chỉ dùng đích chỉ thấy các cột IBM của mức lược đồ đang xét; số: median + z-score, phân loại: one-hot; fit trên k mẫu"
+alignment_C1: "khái niệm chung chuẩn hoá thứ hạng, fit riêng trên phần train của từng miền, không dùng nhãn (giả định N9: tổ chức đích có hồ sơ đầy đủ nhưng ít nhãn)"
+source_model: "LR(C = 1) trên khái niệm chung của mức lược đồ, căn chỉnh C1, học trên toàn bộ miền nguồn"
+
+methods:
+  target_only: [LR, RF, XGB, CAT, STACK, TabPFN, LightGBM, AdaBoost]   # siêu tham số mặc định như Cổng 0; LightGBM, AdaBoost mặc định của thư viện
+  target_only_small_k:            # M7: bộ tham số cho k ≤ 50, báo cáo CẠNH bản mặc định (không thay thế)
+    XGB: {n_estimators: 100, max_depth: 2, learning_rate: 0.1, min_child_weight: 0.01}   # đề xuất – nhóm xác nhận khi commit
+  target_preselected:             # M1: baseline đích chọn trước, dùng để báo cáo
+    candidates: [LR, RF, XGB, CAT, LightGBM, AdaBoost]                  # STACK, TabPFN không đưa vào vì chi phí kiểm định chéo lồng
+    cv: "phân tầng, số fold = min(3, n_dương, n_âm), chỉ số PR-AUC trung bình trên chính k mẫu"
+    fallback_if_folds_lt_2: RF    # dựa trên Cổng 0 (RF mạnh nhất ở k ≤ 20 với đích IBM)
+  transfer: [ZS, STK_LR, STK_XGB, OFF_XGB, DAUME_LR, RANKAVG, ANCHOR_LR, RANKAVG_RF]
+  transfer_L0_only: [CORAL]       # L0 là chuyển giao đồng nhất; DANN là mức nên có
+  control: [ZS_SHUF, STK_LR_SHUF, RANKAVG_SHUF, ANCHOR_LR_SHUF, RANKAVG_RF_SHUF]   # nhãn nguồn xáo trộn, seed 0
+  tbhtl:                          # RQ6, đặc tả docs/tbhtl_v0_spec.md
+    full: TBHTL_v0                # C1 + C2 + C4; lam_s ∈ {0.1, 1, 10, 100, 1e4} chọn bằng CV (PR-AUC) trên k mẫu; lam_p = 1
+    ablations: [minus_C1, minus_C2, minus_C4_eq_ANCHOR_LR]
+    control: TBHTL_v0_SHUF
+
+so_sanh:
+  - "mỗi phương pháp chuyển giao − baseline đích mạnh nhất (sau khi xem) → GO"
+  - "mỗi phương pháp chuyển giao − baseline đích chọn trước → báo cáo"
+  - "TBHTL_v0 − baseline chuyển giao tốt nhất (RQ6); TBHTL_v0 − từng ablation; TBHTL_v0 − TBHTL_v0_SHUF"
+  - "H5: lợi ích ở L0 so với L1 so với L2 (Cổng 0) cho từng nguồn"
+
+du_kien:                          # [Suy luận] review 22/10: ghi trước để đối chiếu, không dùng để chọn thiết kế
+  - "L0, nguồn B: LR trên 4 khái niệm trong miền A ≈ 0.645 AUC-ROC, zero-shot từ B ≈ 0.630 → nơi chuyển giao có cơ hội rõ nhất ở k nhỏ"
+  - "L1: RF chỉ dùng đích có thể mạnh hơn LR ở k nhỏ; TB-HTL tuyến tính có thể không vượt — vẫn báo cáo"
+thoi_gian_uoc_tinh: "3–6 giờ CPU cho hai nguồn (M = 5); TabPFN v2 < 1 giờ GPU"

@@ -1,0 +1,2 @@
+chinh_4_chieu: N = 4 chiều, k = 13 phương pháp; chi2 = 24.43, p = 1.8e-02; Nemenyi CD (α = 0,05) = 9.12
+doi_chieu_6_chieu: N = 6 chiều, k = 13 phương pháp; chi2 = 36.18, p = 3.0e-04; Nemenyi CD (α = 0,05) = 7.45
