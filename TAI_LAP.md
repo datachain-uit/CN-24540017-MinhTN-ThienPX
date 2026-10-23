@@ -20,6 +20,7 @@ Cột 4 là lệnh huấn luyện lại (cần dữ liệu gốc; xem `chay_lai_
 | Bảng MDE Cổng 0 – review 22/10 N1 | `python mde_cong0.py` | `results/g0_23`, `g0_AC`, `g0_AD` | – |
 | Danh sách khái niệm L0, L1 của K2 (tiền đăng ký) | `python k2_khai_niem.py --ibm data/WA_Fn-UseC_-HR-Employee-Attrition.csv` | `prereg/k2_khai_niem.json` | – |
 | File chia K2 (R = 30, M = 5; lần rút 0 trùng Cổng 0) | `python splits_k2.py --ibm data/WA_Fn-UseC_-HR-Employee-Attrition.csv` | `prereg/splits_A_R30_M5.json` (sha256 trong `prereg/prereg_k2.yaml`) | – |
+| K2 – miền đích nghèo đặc trưng (RQ5, RQ6; tiền đăng ký `prereg/prereg_k2.yaml`, commit `d2f1ef5`) | `python k2_eval.py results/k2` | `results/k2/results_k2_*.csv` | `k2_run.py` (CPU, ~3,5 giờ trên 2 nhân; chia lần chia bằng `--reps`) và `notebooks/chay_TabPFN_v2_K2_Colab.ipynb` (TabPFN v2) |
 | Hình 4–5 (CARTE, KB2b) | `python kb2b_carte/ve_hinh_carte.py` | `kb2b_carte/ket_qua/` | `kb2b_carte/code_thucnghiem_carte.py` |
 | Toàn bộ báo cáo Word | `bash bao_cao/build_bao_cao.sh` | `bao_cao/*_trong_bao_cao.json` + hình trong `results/` | – |
 

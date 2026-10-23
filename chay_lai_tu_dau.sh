@@ -26,4 +26,6 @@ python g0_pair.py  --pair AD --data A=$A D=$D --only RANKAVG_RF RANKAVG_RF_SHUF 
 
 python tbhtl_thamdo_nn.py --pair AB --data A=$A B=$B --targets A                # thăm dò TB-HTL MLP 23/10 (~10 phút CPU)
 
+for r in 0 5 10 15 20 25; do python k2_run.py --data A=$A B=$B C=$C --reps $r $((r+5)); done   # K2 CPU (~3,5 giờ trên 2 nhân)
+
 bash tai_lap_bang.sh && python kiem_tra_tai_lap.py

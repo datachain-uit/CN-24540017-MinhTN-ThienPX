@@ -7,3 +7,5 @@ xgboost==3.4.1
 catboost==1.2.10
 matplotlib==3.11.2
 torch==2.14.1  # TB-HTL v0 (CPU)
+lightgbm==4.7.0   # K2
+pyyaml==6.0.3     # đọc prereg_k2.yaml

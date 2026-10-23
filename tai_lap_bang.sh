@@ -29,6 +29,9 @@ run python pairs_synthesis.py --out results/tong_hop_cap
 # Thăm dò TB-HTL dạng MLP 23/10 (deviations.md mục 3), chiều B→A (so với baseline Cổng 0; không đổi kết luận Cổng 0)
 run python tbhtl_thamdo_eval.py results/g0_23 A
 
+# K2 (nếu đã có kết quả)
+if ls results/k2/results_k2_*.csv >/dev/null 2>&1; then run python k2_eval.py results/k2; fi
+
 # Chuỗi ô trong báo cáo Word (bao_cao/*.json)
 run python bao_cao/make_kb1_json.py
 run python bao_cao/make_g0_json.py
