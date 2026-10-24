@@ -18,8 +18,9 @@ Cập nhật: 24/10/2026. Mỗi thành viên tự xác nhận dòng của mình 
 | Bản nháp LaTeX (11/10) | `paper/tbhtl.tex` | `f65e85a` |
 | Theo review 22/10: bảng MDE, Friedman mức chiều, danh sách khái niệm K2, đặc tả TB-HTL v0, nhật ký sai lệch | `mde_cong0.py`, `friedman_chieu.py`, `k2_khai_niem.py`, `docs/tbhtl_v0_spec.md`, `deviations.md` | `79a0a4c` |
 | Tiền đăng ký K2 | `00_contributions.md`, `prereg/` | `79a0a4c`, `d2f1ef5` |
-| K2: mã chạy, phân tích, notebook TabPFN v2; kết quả K2 | `k2_run.py`, `k2_eval.py`, `notebooks/chay_TabPFN_v2_K2_Colab.ipynb`, `results/k2/` | `3112a8f` (kết quả: commit sau) |
+| K2: mã chạy, phân tích, notebook TabPFN v2; kết quả K2 | `k2_run.py`, `k2_eval.py`, `notebooks/chay_TabPFN_v2_K2_Colab.ipynb`, `results/k2/` | `3112a8f`; kết quả lần chạy theo bản chốt 23/10: `48bf86a` |
 | Thăm dò TB-HTL dạng mạng nơ-ron (không dùng cho kết luận) | `tbhtl_thamdo_nn.py`, `tbhtl_thamdo_eval.py` | `79a0a4c` |
+| Sửa đổi K2 theo review 24/10 (áp bản vá của GVHD; F1, G-Mean; ghi tỷ lệ hoà; đổi tên lần chạy MLP; tài liệu tiền đăng ký; notebook TabPFN v2 cho 5 mức; kiểm tra tái lập bổ sung) | `k2_run.py`, `k2_eval.py`, `g0_pair.py`, `kiem_tra_tai_lap.py`, `prereg/prereg_k2.yaml`, `deviations.md` mục 9–14, `docs/khai_bao_cong_cu.md` | commit sửa đổi 24/10 |
 
 ## Phạm Xuân Thiên (24540028)
 
@@ -29,6 +30,7 @@ Cập nhật: 24/10/2026. Mỗi thành viên tự xác nhận dòng của mình 
 | EDA bốn miền | `eda/eda_bon_mien.ipynb`, `eda/bang*.csv`, `eda/hinh/` | `b89d1d3`, `8823d07` |
 | Phiếu đọc 10 bài ưu tiên; cột phương pháp luận của Bảng 1 | `docs/phieu_doc/`, `docs/phieu_doc/bang1_phuong_phap_luan.csv` | `b89d1d3` (đang hoàn thiện, hạn 28/10) |
 | Nhật ký tuần | `docs/nhat_ky_tuan.md` | `e689490`, `b89d1d3` |
+| Việc theo review 24/10 (mục 6.5): EDA thêm miền D và khái niệm sau căn chỉnh C1 (25/10); 5 → 10 phiếu đọc (25/10, 28/10); TabPFN v2 cho K2 (30/10); CORAL ở L0, Cổng 0 với `--tie neutral` (04/11) | — | (chưa có) |
 | Việc đến 28/10: mục 6.4 review 22/10 (LightGBM, AdaBoost, Brier, ECE, F1, G-Mean, baseline đích chọn trước, XGBoost k nhỏ, xáo trộn nhãn đích), Plan.xlsx (M9), đề xuất hội nghị | — | (chưa có) |
 
 ## Chưa xác định
@@ -39,4 +41,4 @@ Cập nhật: 24/10/2026. Mỗi thành viên tự xác nhận dòng của mình 
 
 ## Công cụ hỗ trợ
 
-Mã, phân tích thống kê và phần lớn văn bản báo cáo được xây dựng với sự hỗ trợ của trợ lý AI (Claude, Anthropic). Nhóm chạy mọi thí nghiệm, kiểm tra kết quả bằng `kiem_tra_tai_lap.py` và chịu trách nhiệm về nội dung.
+Mã, phân tích thống kê và phần lớn văn bản báo cáo được xây dựng với sự hỗ trợ của trợ lý AI (Claude, Anthropic). Nhóm chạy mọi thí nghiệm, kiểm tra kết quả bằng `kiem_tra_tai_lap.py` và chịu trách nhiệm về nội dung. Khai báo chi tiết theo từng file và commit: `docs/khai_bao_cong_cu.md` (V5, review 24/10).

@@ -81,6 +81,19 @@ def stack_model(seed, ytr, full):
                               cv=StratifiedKFold(cv, shuffle=True, random_state=seed), stack_method="predict_proba", n_jobs=1)
 
 
+TIE_RULE = "first"          # "first": như Cổng 0 đã báo cáo (hoà → w = 0); "neutral": hoà → w gần 0,5 nhất
+LAST_N_TIED = 0             # số giá trị w đạt điểm cao nhất ở lần chọn gần nhất (chỉ để báo cáo tỷ lệ hoà)
+
+
+def pick_w(score, grid):
+    global LAST_N_TIED
+    best = max(score)
+    LAST_N_TIED = sum(v == best for v in score)
+    if TIE_RULE == "first":
+        return grid[int(np.argmax(score))]
+    return min([w for w, v in zip(grid, score) if v == best], key=lambda w: (abs(w - 0.5), w))
+
+
 def _rank(v):
     return pd.Series(v).rank(pct=True).to_numpy()
 
@@ -103,7 +116,7 @@ def rankavg_scores(Ftr, ytr, Fte, s_tr, s_te, seed):
                 if 0 < ytr[mk].sum() < mk.sum():
                     aps.append(average_precision_score(ytr[mk], w * _rank(s_tr[mk]) + (1 - w) * _rank(oof[mk])))
             score.append(np.mean(aps) if aps else -1)
-        w = grid[int(np.argmax(score))]
+        w = pick_w(score, grid)
     else:
         w = 0.5
     lr = LogisticRegression(**CFG["LR"]).fit(Ftr, ytr).decision_function(Fte)
@@ -132,7 +145,7 @@ def rankavg_rf(Ftr, ytr, Fte, scores, tr, te, seed):
                 aps = [average_precision_score(ytr[fold_id == f], w * _rank(s_tr[fold_id == f]) + (1 - w) * _rank(oof[fold_id == f]))
                        for f in range(cv) if 0 < ytr[fold_id == f].sum() < (fold_id == f).sum()]
                 score.append(np.mean(aps) if aps else -1)
-            w = grid[int(np.argmax(score))]
+            w = pick_w(score, grid)
         else:
             w = 0.5
         out[sfx] = (w * _rank(s_te) + (1 - w) * _rank(final), w)
@@ -187,7 +200,10 @@ def main():
     ap.add_argument("--targets", nargs="*", default=None)
     ap.add_argument("--cset", default=None, help="tập khái niệm (mặc định: tập chính của cặp)")
     ap.add_argument("--suffix", default=None, help="hậu tố tên file kết quả")
+    ap.add_argument("--tie", default="first", choices=["first", "neutral"], help="quy tắc hoà khi chọn w (độ nhạy)")
     a = ap.parse_args()
+    global TIE_RULE
+    TIE_RULE = a.tie
     CFG["R"] = a.R
     P = PAIRS[a.pair]; d1, d2 = P["domains"]; paths = parse_data_args(a.data)
     cset = a.cset or P["main"]
@@ -197,6 +213,8 @@ def main():
     tag = hashlib.md5(json.dumps(dict(CFG, pair=a.pair), sort_keys=True).encode()).hexdigest()[:8]
     methods = a.only or [m for m in TARGET_ONLY + TRANSFER if m != "TabPFN"]
     suffix = a.suffix or ("_".join(methods) if a.only else "cpu")
+    if a.tie != "first":
+        suffix += "_tie_" + a.tie
     os.makedirs(a.out, exist_ok=True)
     json.dump(dict(CFG, pair=a.pair, methods=methods, cfg=tag), open(f"{a.out}/config_g0_23_{tag}.json", "w"), indent=1, ensure_ascii=False)
 

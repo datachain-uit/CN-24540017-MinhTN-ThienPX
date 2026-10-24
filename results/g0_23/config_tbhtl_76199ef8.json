@@ -33,11 +33,11 @@
  "version": "v0",
  "pair": "AB",
  "methods": [
-  "TBHTL",
-  "TBHTL_NOANCHOR",
-  "TBHTL_SHARED",
-  "TBHTL_SCRATCH",
-  "TBHTL_SHUF"
+  "TBHTL_MLP_THAMDO",
+  "TBHTL_MLP_THAMDO_NOANCHOR",
+  "TBHTL_MLP_THAMDO_SHARED",
+  "TBHTL_MLP_THAMDO_SCRATCH",
+  "TBHTL_MLP_THAMDO_SHUF"
  ],
  "cfg": "76199ef8"
 }

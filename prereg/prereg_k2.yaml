@@ -6,6 +6,19 @@ commit_chot: "79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2"   # bản đầu của t
 sua_truoc_khi_chay: "23/10/2026 – bổ sung phương án Age (L1_age) và xác nhận 2 điểm; commit ngay sau 79a0a4c, trước lần chạy K2 đầu tiên"
 cau_hoi: [RQ5 (chính), RQ2, RQ6] # xem 00_contributions.md
 
+# ---------------------------------------------------------------------------------------------------------------
+# SỬA ĐỔI 24/10/2026 theo Review-2026-10-24 (V1, V2, V3, V6, V7; quyết định 1). Ghi ở deviations.md mục 9–14
+# (mục 10–14 tương ứng mục 7–11 của review; mục 9 trả lời câu hỏi 7.1). Bản chốt 23/10 giữ nguyên trong lịch sử Git (79a0a4c, d2f1ef5).
+# Lần chạy K2 theo bản chốt 23/10 ĐÃ THỰC HIỆN (23–24/10, kết quả ở results/k2, commit 48bf86a) trước khi nhận review;
+# xem deviations.md mục 9. Các sửa đổi do GVHD đề xuất từ chẩn đoán không dùng nhãn test của K2 và từ kết quả Cổng 0
+# đã công bố. Lần chạy chính sau sửa đổi ghi vào results/k2_v2.
+sua_doi_2410:
+  phien_ban: "2410"
+  ngay: "24/10/2026"
+  can_cu: "Review-2026-10-24, mục 6.2 (sửa đổi 7–11) và bản vá sua_doi_k2_tu_e689490.patch của GVHD"
+  sua_doi_truoc_khi_chay: "(điền mã commit sau khi commit) – trước lần chạy K2 sau sửa đổi (results/k2_v2)"
+  muc: [quy_tac_hoa, go_rule, "schemas.L1_core, schemas.L2", h5_test, kiem_tra_muc_san, secondary_metrics]
+
 target: ibm                      # A, 1.470 dòng, tỷ lệ dương 0,161
 sources: [jobchange, hr14999]    # B (19.084 dòng sau loại trùng), C (11.991 dòng sau loại trùng); mỗi nguồn chạy riêng
 k_grid: [10, 20, 50, 100]        # review 22/10 mục 6.3 (k ≤ 100)
@@ -16,7 +29,8 @@ splits_sha256: c0af5426d07c7ae9e1b6683d6a7181bd22b58cabf14a259d65b0d85c313c547b
 splits_rule: "lần rút m = 0 trùng Cổng 0 (RandomState(10000 + r)); m ≥ 1 dùng RandomState(10000 + 1000·m + r)"
 
 primary_metric: pr_auc
-secondary_metrics: [auc_roc, brier, ece]
+secondary_metrics: [auc_roc, brier, ece, f1, gmean]
+f1_gmean_threshold: "gán dương cho ceil(π̂·n_test) điểm cao nhất, π̂ = tỷ lệ dương của k mẫu huấn luyện; không dùng nhãn test; không tính cho zero-shot (sửa đổi 24/10, V7)"
 practical_threshold: 0.02
 mde_pr_auc:                      # MDE dự kiến (power 80%) = cận trên lấy từ Cổng 0 cùng chiều, M = 1 (mde_cong0.csv)
   B_to_A: {k10: 0.066, k20: 0.074, k50: 0.073}
@@ -24,8 +38,9 @@ mde_pr_auc:                      # MDE dự kiến (power 80%) = cận trên l�
   ghi_chu: "MDE thực tế của K2 tính lại sau khi chạy và báo cáo kèm mọi kết luận"
 alpha: 0.05
 ci: "hiệu chỉnh Nadeau–Bengio, n_test/n_train = 0.25, t(R−1)"
-multiple_testing: "Holm trong mỗi họ (nguồn × mức lược đồ × họ so sánh)"
-go_rule: "tồn tại k ≤ 50: Δ(chuyển giao − baseline đích mạnh nhất) ≥ 0.02 và CI không chứa 0; và không chuyển giao âm quá 0.01 ở k = 100"
+multiple_testing: "Holm trong mỗi họ (nguồn × mức lược đồ × họ so sánh); riêng GO: họ = mọi phương pháp chuyển giao × k ≤ 50 của một (nguồn, mức)"
+go_rule: "tồn tại phương pháp chuyển giao và k ≤ 50: Δ(chuyển giao − baseline đích mạnh nhất) ≥ 0.02 và p sau Holm < 0.05 (họ: mọi phương pháp chuyển giao × k ≤ 50 của một (nguồn, mức)); và phương pháp đó không chuyển giao âm quá 0.01 ở k = 100. CI chưa hiệu chỉnh đa so sánh vẫn báo cáo để mô tả. Kết luận GO chỉ đưa ra khi đã có TabPFN v2; trước đó là sơ bộ (sửa đổi 24/10, V2; quyết định 3)"
+go_rule_ban_chot_2310: "tồn tại k ≤ 50: Δ(chuyển giao − baseline đích mạnh nhất) ≥ 0.02 và CI không chứa 0; và không chuyển giao âm quá 0.01 ở k = 100"
 
 schemas:
   file: prereg/k2_khai_niem.json   # sinh bằng k2_khai_niem.py, sha256 = 3943e1577078735c966431179c4c603c6aeeb036151684a97647f24a4cd3df49
@@ -36,8 +51,11 @@ schemas:
   L1_shared_with_source:
     B: [male, gender_other_missing, education, experience, training, tenure]
     C: [tenure, satisfaction, evaluation, promoted_5y, pay, overtime, dept_sales, dept_hr]
-  L2: all_target_features          # = Cổng 0 (results/g0_23, results/g0_AC), dùng làm mốc, không chạy lại
-  L1_age:                         # Age vào L1 chỉ nhờ Babushkin (D, thăm dò) – chốt cả hai phương án trước khi chạy
+  L2: all_target_features          # sửa đổi 24/10 (V3): CHẠY TRONG K2 với cùng 30 lần chia × 5 lần rút; tập khái niệm chung của Cổng 0
+                                   # (= tập của L0); lần rút 0 phải trùng Cổng 0 với các phương pháp không phụ thuộc quy tắc hoà
+  L1_core: l1_target_columns_with_L0_concepts   # sửa đổi 24/10 (V3): cột IBM của L1, mô hình nguồn trên tập khái niệm chung của L0;
+                                               # chuỗi L0 → L1_core → L2 giữ nguyên mô hình nguồn. L1 (tập mở rộng) vẫn là mức chính của RQ5
+  L1_age:                         # Age vào L1 chỉ nhờ Babushkin (D, thăm dò) – chốt cả hai phương án trước khi chạy (L1_core giữ Age như L1)
     chinh: "L1 giữ Age (đúng quy tắc: ít nhất 2 trong 4 bộ công khai A, B, C, D)"
     do_nhay: "L1 bỏ Age (chỉ tính A, B, C); báo cáo cạnh bản chính, không chọn theo kết quả"
   khong_chon_theo_hieu_nang: true  # thử thêm mức khác thì báo cáo tất cả
@@ -57,17 +75,41 @@ methods:
   transfer_L0_only: [CORAL]       # L0 là chuyển giao đồng nhất; DANN là mức nên có
   control: [ZS_SHUF, STK_LR_SHUF, RANKAVG_SHUF, ANCHOR_LR_SHUF, RANKAVG_RF_SHUF]   # nhãn nguồn xáo trộn, seed 0
   tbhtl:                          # RQ6, đặc tả docs/tbhtl_v0_spec.md
-    full: TBHTL_v0                # C1 + C2 + C4; lam_s ∈ {0.1, 1, 10, 100, 1e4} chọn bằng CV (PR-AUC) trên k mẫu; lam_p = 1
+    full: TBHTL_v0                # C1 + C2 + C4; lam_s ∈ {0.1, 1, 10, 100, 1e4} chọn bằng CV (log-loss) trên k mẫu, hoà → λ lớn nhất; lam_p = 1
+                                  # (bản chốt 23/10: CV theo PR-AUC, hoà → λ nhỏ nhất; đổi theo V1, review 24/10)
     ablations: [minus_C1, minus_C2, minus_C4_eq_ANCHOR_LR]
     control: TBHTL_v0_SHUF
+
+quy_tac_hoa:                      # sửa đổi 24/10 (V1): khi điểm kiểm định chéo hoà, không mặc định về “không chuyển giao”
+  RANKAVG: "hoà → w gần 0.5 nhất (g0_pair.TIE_RULE = neutral)"
+  RANKAVG_RF: "hoà → w gần 0.5 nhất"
+  TBHTL_v0: "λ_s theo log-loss trung bình trên fold kiểm định; hoà → λ lớn nhất"
+  PRESEL: "hoà → RF (mô hình dự phòng đã chốt)"
+  bao_cao: "tỷ lệ hoà và phân bố w, λ_s theo k (results/k2_v2/k2_hoa.csv)"
+  cong0: "Cổng 0 giữ quy tắc cũ (g0_pair.py --tie first, mặc định) để tái lập số đã báo cáo; --tie neutral là phân tích độ nhạy"
+
+h5_test:                          # sửa đổi 24/10 (V3): phép kiểm định H5 chốt trước khi chạy
+  loi_ich: "PR-AUC(phương pháp) − PR-AUC(PRESEL) cùng mức, bắt cặp theo lần chia (trung bình M lần rút trước)"
+  phuong_phap: [TBHTL_v0, RANKAVG_RF]
+  k: [10, 20, 50]
+  so_sanh_chinh: "L0 − L2"
+  so_sanh_xu_huong: ["L0 − L1_core", "L1_core − L2"]
+  kiem_dinh: "CI 95% hiệu chỉnh Nadeau–Bengio; Holm riêng cho từng loại so sánh (họ: 2 phương pháp × 3 k × 2 nguồn)"
+  ung_ho_H5: "có ít nhất một hiệu L0 − L2 dương với p sau Holm < 0.05"
+  bac_bo: "không hiệu L0 − L2 nào dương có ý nghĩa sau Holm; báo kèm MDE"
+
+kiem_tra_muc_san:                 # sửa đổi 24/10 (V6, M8): --shuffle-target, chạy trước lần chạy chính
+  cach: "hoán vị nhãn test của từng lần chia (seed 12345 + r) và hoán vị nhãn trong k mẫu (giữ số mẫu dương)"
+  pham_vi: "R = 5, M = 2, hai nguồn, mọi mức"
+  dat: "PR-AUC trung bình của mọi phương pháp xấp xỉ tỷ lệ dương của tập test (≈ 0.16), không phương pháp nào vượt rõ mức ngẫu nhiên"
 
 so_sanh:
   - "mỗi phương pháp chuyển giao − baseline đích mạnh nhất (sau khi xem) → GO"
   - "mỗi phương pháp chuyển giao − baseline đích chọn trước → báo cáo"
   - "TBHTL_v0 − baseline chuyển giao tốt nhất (RQ6); TBHTL_v0 − từng ablation; TBHTL_v0 − TBHTL_v0_SHUF"
-  - "H5: lợi ích ở L0 so với L1 so với L2 (Cổng 0) cho từng nguồn"
+  - "H5: phép kiểm định ở h5_test (L0 − L2 chính; L0 − L1_core, L1_core − L2 xu hướng)"
 
 du_kien:                          # [Suy luận] review 22/10: ghi trước để đối chiếu, không dùng để chọn thiết kế
   - "L0, nguồn B: LR trên 4 khái niệm trong miền A ≈ 0.645 AUC-ROC, zero-shot từ B ≈ 0.630 → nơi chuyển giao có cơ hội rõ nhất ở k nhỏ"
   - "L1: RF chỉ dùng đích có thể mạnh hơn LR ở k nhỏ; TB-HTL tuyến tính có thể không vượt — vẫn báo cáo"
-thoi_gian_uoc_tinh: "3–6 giờ CPU cho hai nguồn (M = 5); TabPFN v2 < 1 giờ GPU"
+thoi_gian_uoc_tinh: "3–6 giờ CPU cho hai nguồn (M = 5); TabPFN v2 < 1 giờ GPU. Sau sửa đổi 24/10 (5 mức): khoảng 6–8 giờ CPU; TabPFN v2 1–2 giờ GPU"
