@@ -5,7 +5,7 @@ Nhóm: Tăng Nhật Minh (24540017), Phạm Xuân Thiên (24540028) · GVHD: ThS
 
 **Ngày chốt:** 23/10/2026 · **Mã commit chốt:** `79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2` (bản đầu); phương án Age cho L1 được bổ sung ở commit ngay sau, trước lần chạy K2 đầu tiên — file này phải được commit **trước** lần chạy K2 đầu tiên (review 18/10, M4; review 22/10, N4). Mọi thay đổi sau ngày chốt ghi vào `deviations.md`.
 
-**Sửa đổi 24/10/2026** theo Review-2026-10-24 (quyết định 1): quy tắc hoà trung tính (V1), GO theo Holm (V2), thêm mức L1_core, L2 và phép kiểm định H5 (V3), sửa kiểm tra mức sàn (V6), F1 và G-Mean (V7) — `deviations.md` mục 9–14, mã commit sửa đổi: (điền sau khi commit). Lần chạy K2 theo bản chốt 23/10 đã thực hiện trước khi nhận review (commit `48bf86a`, `deviations.md` mục 9); lần chạy chính sau sửa đổi ghi vào `results/k2_v2`.
+**Sửa đổi 24/10/2026** theo Review-2026-10-24 (quyết định 1): quy tắc hoà trung tính (V1), GO theo Holm (V2), thêm mức L1_core, L2 và phép kiểm định H5 (V3), sửa kiểm tra mức sàn (V6), F1 và G-Mean (V7) — `deviations.md` mục 9–14, mã commit sửa đổi: `0c842858ff7cd2fbdb263971ceff9d2c5aedd5ab` (24/10, 21:30). Kiểm tra mức sàn với nhãn đích xáo trộn: đạt (`results/k2_v2/k2_muc_san.txt`). Lần chạy K2 theo bản chốt 23/10 đã thực hiện trước khi nhận review (commit `48bf86a`, `deviations.md` mục 9); lần chạy chính sau sửa đổi ghi vào `results/k2_v2`.
 
 ## 1. Đóng góp (quyết định 2, review 18/10)
 
@@ -67,5 +67,8 @@ Trung vị nửa độ rộng 0,057 (khớp Phụ lục A4, review 22/10); trung
 - **K2** (đích nghèo đặc trưng): tiền đăng ký `prereg/prereg_k2.yaml`; danh sách khái niệm `prereg/k2_khai_niem.json`; file chia `prereg/splits_A_R30_M5.json` — Minh chủ trì.
 
 ## 6. Sau giữa kỳ
+
+**Dữ liệu nhân sự thật** (câu hỏi mục 7 review 07/10, mục 7.3 review 24/10): nhóm không tiếp cận được dữ liệu nhân sự thật đã ẩn danh của doanh nghiệp. Đề tài chỉ dùng bốn bộ dữ liệu công khai (IBM là dữ liệu mô phỏng); kết luận chỉ áp dụng cho các bộ này và được ghi trong phần hạn chế. Thay cho hướng dữ liệu thật, sau giữa kỳ nhóm quét kích thước nguồn và dùng Babushkin với nhãn theo mốc cố định.
+
 
 CARTE và DSN (bắt buộc theo Phụ lục D review 07/10); K1 với tập khái niệm lồng nhau và proxy A-distance; Babushkin với nhãn theo mốc cố định (bỏ thâm niên khỏi khái niệm chung); DANN, L2-SP; SHAP, hiệu chỉnh xác suất và phân tích theo nhóm giới (Y4).

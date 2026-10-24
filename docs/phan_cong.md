@@ -20,7 +20,8 @@ Cập nhật: 24/10/2026. Mỗi thành viên tự xác nhận dòng của mình 
 | Tiền đăng ký K2 | `00_contributions.md`, `prereg/` | `79a0a4c`, `d2f1ef5` |
 | K2: mã chạy, phân tích, notebook TabPFN v2; kết quả K2 | `k2_run.py`, `k2_eval.py`, `notebooks/chay_TabPFN_v2_K2_Colab.ipynb`, `results/k2/` | `3112a8f`; kết quả lần chạy theo bản chốt 23/10: `48bf86a` |
 | Thăm dò TB-HTL dạng mạng nơ-ron (không dùng cho kết luận) | `tbhtl_thamdo_nn.py`, `tbhtl_thamdo_eval.py` | `79a0a4c` |
-| Sửa đổi K2 theo review 24/10 (áp bản vá của GVHD; F1, G-Mean; ghi tỷ lệ hoà; đổi tên lần chạy MLP; tài liệu tiền đăng ký; notebook TabPFN v2 cho 5 mức; kiểm tra tái lập bổ sung) | `k2_run.py`, `k2_eval.py`, `g0_pair.py`, `kiem_tra_tai_lap.py`, `prereg/prereg_k2.yaml`, `deviations.md` mục 9–14, `docs/khai_bao_cong_cu.md` | commit sửa đổi 24/10 |
+| Sửa đổi K2 theo review 24/10 (áp bản vá của GVHD; F1, G-Mean; ghi tỷ lệ hoà; đổi tên lần chạy MLP; tài liệu tiền đăng ký; notebook TabPFN v2 cho 5 mức; kiểm tra tái lập bổ sung) | `k2_run.py`, `k2_eval.py`, `g0_pair.py`, `kiem_tra_tai_lap.py`, `prereg/prereg_k2.yaml`, `deviations.md` mục 9–14, `docs/khai_bao_cong_cu.md` | `0c84285` |
+| Kiểm tra mức sàn K2 (nhãn đích xáo trộn) | `k2_muc_san.py`, `results/k2_v2/*xao_tron_dich*`, `results/k2_v2/k2_muc_san.*` | commit sau `0c84285` |
 
 ## Phạm Xuân Thiên (24540028)
 

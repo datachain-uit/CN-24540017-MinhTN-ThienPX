@@ -16,7 +16,7 @@ sua_doi_2410:
   phien_ban: "2410"
   ngay: "24/10/2026"
   can_cu: "Review-2026-10-24, mục 6.2 (sửa đổi 7–11) và bản vá sua_doi_k2_tu_e689490.patch của GVHD"
-  sua_doi_truoc_khi_chay: "(điền mã commit sau khi commit) – trước lần chạy K2 sau sửa đổi (results/k2_v2)"
+  sua_doi_truoc_khi_chay: "0c842858ff7cd2fbdb263971ceff9d2c5aedd5ab" # 24/10/2026 21:30, trước lần chạy K2 sau sửa đổi (results/k2_v2)
   muc: [quy_tac_hoa, go_rule, "schemas.L1_core, schemas.L2", h5_test, kiem_tra_muc_san, secondary_metrics]
 
 target: ibm                      # A, 1.470 dòng, tỷ lệ dương 0,161
@@ -102,6 +102,7 @@ kiem_tra_muc_san:                 # sửa đổi 24/10 (V6, M8): --shuffle-targe
   cach: "hoán vị nhãn test của từng lần chia (seed 12345 + r) và hoán vị nhãn trong k mẫu (giữ số mẫu dương)"
   pham_vi: "R = 5, M = 2, hai nguồn, mọi mức"
   dat: "PR-AUC trung bình của mọi phương pháp xấp xỉ tỷ lệ dương của tập test (≈ 0.16), không phương pháp nào vượt rõ mức ngẫu nhiên"
+  ket_qua: "ĐẠT (24/10/2026, mã commit 0c84285, cấu hình 9114f8ed): PR-AUC trung bình của 27 phương pháp 0.164–0.184 (PR-AUC kỳ vọng của điểm ngẫu nhiên ≈ 0.174 với 47/294 mẫu dương), AUC-ROC 0.490–0.523; theo (nguồn, mức) 0.171–0.176 (results/k2_v2/k2_muc_san.txt)"
 
 so_sanh:
   - "mỗi phương pháp chuyển giao − baseline đích mạnh nhất (sau khi xem) → GO"
