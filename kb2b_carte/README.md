@@ -9,4 +9,4 @@
 | `hinh/` | Hình 4–5 đúng như trong báo cáo |
 | `ve_hinh_carte.py` | Vẽ lại hai hình: `python kb2b_carte/ve_hinh_carte.py` (ghi vào `hinh_tai_tao/`) |
 
-Dữ liệu rượu lấy theo kho CARTE (`soda-inria/carte`, thư mục `data/single_tables`), nguyên gốc ở định dạng `.parquet`. Bản `.csv` dùng trong thực nghiệm của nhóm được lưu ở **thư mục gốc của kho**: `wine_pl.csv`, `wine_dot_com_prices.csv`, `wine_vivino_price.csv`. Hàm `wina_pl()` của thư viện `carte-ai` nạp tệp có tên `wine_pl`.
+Dữ liệu rượu (wina_pl, wine_dot_com_prices, wine_vivino_price) lấy theo kho CARTE, không đưa lên Git.
