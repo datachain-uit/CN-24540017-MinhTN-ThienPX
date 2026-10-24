@@ -16,3 +16,10 @@ bao_cao/Bao_cao_tien_do.docx
 kb2b_carte/hinh_tai_tao/
 results/tai_lap_log.txt
 bao_cao/node_modules
+
+# Không đưa dữ liệu và tài liệu rời ở thư mục gốc lên Git (repo công khai) – dữ liệu để trên Drive “File Dataset”
+/*.csv
+/*.parquet
+/*.docx
+/*.xlsx
+/*.zip
