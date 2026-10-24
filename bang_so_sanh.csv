@@ -1,0 +1,7 @@
+data_name,num_train,toi_TB,toi_sd,paper_TB,paper_sd,chenh_TB,so_seed
+wina_pl,32,0.1282,0.0559,0.1305,0.0405,0.0109,2
+wina_pl,64,0.2221,0.0599,0.2133,0.0283,0.0223,2
+wine_dot_com_prices,32,0.3166,0.0763,0.3499,0.1085,0.1307,2
+wine_dot_com_prices,64,0.4799,0.046,0.5111,0.0352,0.0313,2
+wine_vivino_price,32,0.516,0.0024,0.5644,0.0371,0.0484,2
+wine_vivino_price,64,0.6128,0.0128,0.6284,0.0243,0.0156,2
