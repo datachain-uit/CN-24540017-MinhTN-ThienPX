@@ -20,7 +20,9 @@ Cột 4 là lệnh huấn luyện lại (cần dữ liệu gốc; xem `chay_lai_
 | Bảng MDE Cổng 0 – review 22/10 N1 | `python mde_cong0.py` | `results/g0_23`, `g0_AC`, `g0_AD` | – |
 | Danh sách khái niệm L0, L1 của K2 (tiền đăng ký) | `python k2_khai_niem.py --ibm data/WA_Fn-UseC_-HR-Employee-Attrition.csv` | `prereg/k2_khai_niem.json` | – |
 | File chia K2 (R = 30, M = 5; lần rút 0 trùng Cổng 0) | `python splits_k2.py --ibm data/WA_Fn-UseC_-HR-Employee-Attrition.csv` | `prereg/splits_A_R30_M5.json` (sha256 trong `prereg/prereg_k2.yaml`) | – |
-| K2 – miền đích nghèo đặc trưng (RQ5, RQ6; tiền đăng ký `prereg/prereg_k2.yaml`, commit `d2f1ef5`) | `python k2_eval.py results/k2` | `results/k2/results_k2_*.csv` | `k2_run.py` (CPU, ~3,5 giờ trên 2 nhân; chia lần chia bằng `--reps`) và `notebooks/chay_TabPFN_v2_K2_Colab.ipynb` (TabPFN v2) |
+| K2 – miền đích nghèo đặc trưng, **sau sửa đổi 24/10** (RQ5, RQ6; `prereg/prereg_k2.yaml`, bản chốt `d2f1ef5` + sửa đổi 24/10, `deviations.md` mục 9–14) | `python k2_eval.py results/k2_v2` | `results/k2_v2/results_k2_*.csv` | `k2_run.py` (CPU, khoảng 7–8 giờ trên 2 nhân; chia lần chia bằng `--reps`, mỗi tiến trình đặt `OMP_NUM_THREADS=1` nếu chạy song song) và `notebooks/chay_TabPFN_v2_K2_Colab.ipynb` (TabPFN v2) |
+| Kiểm tra mức sàn K2 (nhãn đích xáo trộn) | `python k2_muc_san.py results/k2_v2` | `results/k2_v2/k2_muc_san.txt` | `python k2_run.py --data … --shuffle-target --R 5 --M 2` (khoảng 30 phút) |
+| K2 theo bản chốt 23/10 (lần chạy thứ nhất, giữ để đối chiếu) | xem `results/k2/README.md` | `results/k2/results_k2_283c1350_*.csv` | `k2_run.py` ở commit `3112a8f` |
 | Hình 4–5 (CARTE, KB2b) | `python kb2b_carte/ve_hinh_carte.py` | `kb2b_carte/ket_qua/` | `kb2b_carte/code_thucnghiem_carte.py` |
 | Toàn bộ báo cáo Word | `bash bao_cao/build_bao_cao.sh` | `bao_cao/*_trong_bao_cao.json` + hình trong `results/` | – |
 

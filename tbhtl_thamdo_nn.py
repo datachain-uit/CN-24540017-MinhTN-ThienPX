@@ -1,6 +1,8 @@
 """
 tbhtl_thamdo_nn.py — LẦN CHẠY THĂM DÒ ngày 23/10/2026 (deviations.md, mục 3). KHÔNG phải TB-HTL v0 theo
 docs/tbhtl_v0_spec.md và không dùng cho kết luận. Dạng mạng nơ-ron, chạy ở mức đủ đặc trưng (L2) trước khi nhận review 22/10.
+Tên phương pháp đổi thành TBHTL_MLP_THAMDO… ngày 24/10/2026 (V7 review 24/10, deviations.md mục 14) để không trùng
+TBHTL của TB-HTL v0 trong K2; kết quả đã lưu trong results/g0_23 được đổi tên theo, số liệu giữ nguyên.
 
     python tbhtl_thamdo_nn.py --pair AB --data A=data/ibm.csv B=data/aug_train.csv --targets A        # chiều B→A
     python tbhtl_thamdo_eval.py results/g0_23 A                                                 # so với baseline Cổng 0
@@ -18,11 +20,11 @@ Kiến trúc (C1–C4 ở mục B1.2 của báo cáo)
       neo L2-SP: λ·(‖θ_s − θ_s⁰‖² + ‖w_s − w_s⁰‖²); λ ∈ {0,1; 1; 10; 100} chọn bằng kiểm định chéo phân tầng (log-loss) trên chính k mẫu
 
 Biến thể (để trả lời H3b, H3d và đối chứng)
-  TBHTL          đầy đủ
-  TBHTL_NOANCHOR λ = 0 (tinh chỉnh tự do từ trọng số nguồn)                         → H3d
-  TBHTL_SHARED   chỉ nhánh chung + head (bỏ nhánh riêng của đích), λ như TBHTL      → H3b
-  TBHTL_SCRATCH  cùng kiến trúc, khởi tạo ngẫu nhiên, không tiền huấn luyện         → lợi ích có đến từ nguồn?
-  TBHTL_SHUF     tiền huấn luyện với nhãn nguồn bị xáo trộn (đối chứng G0-4)
+  TBHTL_MLP_THAMDO           đầy đủ
+  TBHTL_MLP_THAMDO_NOANCHOR  λ = 0 (tinh chỉnh tự do từ trọng số nguồn)                         → H3d
+  TBHTL_MLP_THAMDO_SHARED    chỉ nhánh chung + head (bỏ nhánh riêng của đích), λ như TBHTL_MLP_THAMDO      → H3b
+  TBHTL_MLP_THAMDO_SCRATCH   cùng kiến trúc, khởi tạo ngẫu nhiên, không tiền huấn luyện         → lợi ích có đến từ nguồn?
+  TBHTL_MLP_THAMDO_SHUF      tiền huấn luyện với nhãn nguồn bị xáo trộn (đối chứng G0-4)
 """
 import argparse, hashlib, json, os, time
 import numpy as np
@@ -44,7 +46,7 @@ CFG = dict(R=30, ks=[10, 20, 50, 100], hidden=16, emb=8, rho=0.4, private="linea
            ft=dict(epochs=200, lr=1e-2, l2_private=0.5),       # 0,5·‖w‖² trên tổng log-loss ≡ LR(C = 1) như baseline Cổng 0
            lam_grid=[0.1, 1.0, 10.0, 100.0], lam_cv="log-loss, hoà thì chọn λ lớn hơn", lam_default=10.0,
            SHUF_seed=0, version="v0")
-METHODS = ["TBHTL", "TBHTL_NOANCHOR", "TBHTL_SHARED", "TBHTL_SCRATCH", "TBHTL_SHUF"]
+METHODS = ["TBHTL_MLP_THAMDO", "TBHTL_MLP_THAMDO_NOANCHOR", "TBHTL_MLP_THAMDO_SHARED", "TBHTL_MLP_THAMDO_SCRATCH", "TBHTL_MLP_THAMDO_SHUF"]
 
 
 def mlp(d_in, cfg=CFG):
@@ -195,7 +197,7 @@ def main():
         Xs_raw, cat_s = FULL[src]; Xs = onehot_pre(Xs_raw, cat_s).fit_transform(Xs_raw)
         src_m, auc_sh = pretrain(Zs, Xs, D[src][1].astype(float), seed=0)
         y_shuf = np.random.RandomState(CFG["SHUF_seed"]).permutation(D[src][1]).astype(float)
-        src_sh, auc_sh2 = pretrain(Zs, Xs, y_shuf, seed=0) if "TBHTL_SHUF" in a.only else (None, np.nan)
+        src_sh, auc_sh2 = pretrain(Zs, Xs, y_shuf, seed=0) if "TBHTL_MLP_THAMDO_SHUF" in a.only else (None, np.nan)
         log[tgt] = dict(auc_shared_head_on_source=round(auc_sh, 4), auc_shared_head_shuffled=round(float(auc_sh2), 4))
         print(f"Tiền huấn luyện trên {src}: AUC của head chỉ dùng nhánh chung = {auc_sh:.3f} (xáo trộn: {auc_sh2:.3f}) "
               f"({time.time() - t0:.0f}s)", flush=True)
@@ -219,19 +221,19 @@ def main():
                                      n_test=len(te), pos_rate_test=y[te].mean(), cfg=tag, lam=lam_used))
                     preds.append(pd.DataFrame(dict(target=tgt, method=method, k=k, rep=rep, id=te, y_true=y[te], y_score=np.round(s, 5))))
 
-                if {"TBHTL", "TBHTL_SHARED"} & set(a.only):
+                if {"TBHTL_MLP_THAMDO", "TBHTL_MLP_THAMDO_SHARED"} & set(a.only):
                     lam = choose_lam(src_m, ztr, Xtr, ytr, rep)
-                if "TBHTL" in a.only:
-                    rec("TBHTL", finetune(src_m, ztr, Xtr, ytr, lam, rep, "full"), lam)
-                if "TBHTL_NOANCHOR" in a.only:
-                    rec("TBHTL_NOANCHOR", finetune(src_m, ztr, Xtr, ytr, 0.0, rep, "full"), 0.0)
-                if "TBHTL_SHARED" in a.only:
-                    rec("TBHTL_SHARED", finetune(src_m, ztr, Xtr, ytr, lam, rep, "shared"), lam)
-                if "TBHTL_SCRATCH" in a.only:
-                    rec("TBHTL_SCRATCH", finetune(src_m, ztr, Xtr, ytr, 0.0, rep, "scratch"), np.nan)
-                if "TBHTL_SHUF" in a.only:
+                if "TBHTL_MLP_THAMDO" in a.only:
+                    rec("TBHTL_MLP_THAMDO", finetune(src_m, ztr, Xtr, ytr, lam, rep, "full"), lam)
+                if "TBHTL_MLP_THAMDO_NOANCHOR" in a.only:
+                    rec("TBHTL_MLP_THAMDO_NOANCHOR", finetune(src_m, ztr, Xtr, ytr, 0.0, rep, "full"), 0.0)
+                if "TBHTL_MLP_THAMDO_SHARED" in a.only:
+                    rec("TBHTL_MLP_THAMDO_SHARED", finetune(src_m, ztr, Xtr, ytr, lam, rep, "shared"), lam)
+                if "TBHTL_MLP_THAMDO_SCRATCH" in a.only:
+                    rec("TBHTL_MLP_THAMDO_SCRATCH", finetune(src_m, ztr, Xtr, ytr, 0.0, rep, "scratch"), np.nan)
+                if "TBHTL_MLP_THAMDO_SHUF" in a.only:
                     lam_s = choose_lam(src_sh, ztr, Xtr, ytr, rep)
-                    rec("TBHTL_SHUF", finetune(src_sh, ztr, Xtr, ytr, lam_s, rep, "full"), lam_s)
+                    rec("TBHTL_MLP_THAMDO_SHUF", finetune(src_sh, ztr, Xtr, ytr, lam_s, rep, "full"), lam_s)
             print(f"  [TB-HTL {a.pair}] đích {tgt} lần {rep} xong ({time.time() - t0:.0f}s)", flush=True)
             pd.DataFrame(rows).to_csv(out_csv, index=False)
     pd.DataFrame(rows).to_csv(out_csv, index=False)

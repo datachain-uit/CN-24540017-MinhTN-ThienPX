@@ -1,0 +1,73 @@
+1 file, 8250 dòng; lần chia [0, 1, 2, 3, 4], lần rút [0, 1]; tỷ lệ dương tập test ≈ 0.161
+PR-AUC trung bình theo phương pháp: 0.164 – 0.184; AUC-ROC trung bình: 0.490 – 0.523
+                   n  pr_auc  pr_auc_max  auc_roc
+method                                           
+ZS_SHUF           50   0.184       0.220    0.523
+RANKAVG_RF_SHUF  400   0.182       0.271    0.517
+RANKAVG_SHUF     400   0.180       0.273    0.518
+TBHTL_SHUF       400   0.178       0.261    0.506
+STACK            200   0.177       0.281    0.504
+LR               200   0.176       0.260    0.504
+STK_LR_SHUF      400   0.176       0.273    0.505
+STK_LR           400   0.176       0.261    0.504
+ANCHOR_LR_SHUF   400   0.176       0.265    0.505
+TBHTL_mC1        400   0.176       0.267    0.503
+TBHTL_mC4        400   0.175       0.269    0.502
+ANCHOR_LR        400   0.175       0.271    0.504
+RF               200   0.174       0.252    0.503
+TBHTL            400   0.174       0.264    0.501
+CAT              200   0.173       0.236    0.502
+DAUME_LR         400   0.172       0.264    0.499
+PRESEL           200   0.172       0.252    0.500
+XGB_SMALLK       150   0.172       0.241    0.504
+AdaBoost         200   0.171       0.253    0.503
+TBHTL_mC2        400   0.171       0.221    0.496
+RANKAVG_RF       400   0.170       0.239    0.495
+RANKAVG          400   0.169       0.244    0.496
+OFF_XGB          400   0.169       0.245    0.492
+XGB              200   0.168       0.241    0.499
+ZS                50   0.167       0.219    0.490
+STK_XGB          400   0.167       0.239    0.496
+LightGBM         200   0.164       0.238    0.498
+
+PR-AUC theo nguồn, mức lược đồ:
+source  level   
+B       L0          0.175
+        L1          0.175
+        L1_core     0.175
+        L1_noAge    0.174
+        L2          0.176
+C       L0          0.171
+        L1          0.174
+        L1_core     0.173
+        L1_noAge    0.173
+        L2          0.174
+
+PR-AUC theo k (trung bình mọi nguồn, mức, lần chia, lần rút):
+k                   10    100     20     50
+method                                     
+ANCHOR_LR        0.175  0.170  0.178  0.177
+ANCHOR_LR_SHUF   0.177  0.170  0.179  0.177
+AdaBoost         0.168  0.169  0.170  0.177
+CAT              0.178  0.165  0.171  0.177
+DAUME_LR         0.171  0.169  0.175  0.175
+LR               0.178  0.171  0.178  0.177
+LightGBM         0.160  0.169  0.160  0.169
+OFF_XGB          0.167  0.168  0.167  0.173
+PRESEL           0.176  0.164  0.177  0.171
+RANKAVG          0.172  0.164  0.173  0.168
+RANKAVG_RF       0.176  0.165  0.170  0.171
+RANKAVG_RF_SHUF  0.190  0.178  0.181  0.180
+RANKAVG_SHUF     0.184  0.178  0.180  0.180
+RF               0.178  0.168  0.176  0.175
+STACK            0.176  0.176  0.182  0.176
+STK_LR           0.179  0.170  0.179  0.176
+STK_LR_SHUF      0.179  0.171  0.178  0.177
+STK_XGB          0.160  0.164  0.173  0.172
+TBHTL            0.174  0.168  0.177  0.177
+TBHTL_SHUF       0.179  0.176  0.180  0.178
+TBHTL_mC1        0.179  0.171  0.177  0.176
+TBHTL_mC2        0.170  0.171  0.172  0.170
+TBHTL_mC4        0.172  0.171  0.178  0.178
+XGB              0.160  0.168  0.171  0.173
+XGB_SMALLK       0.173    NaN  0.169  0.174

@@ -69,5 +69,32 @@ check("Nửa độ rộng CI khớp Phụ lục A4 (trung vị 0,057; 2/18 ô < 
       round(md.nua_do_rong_CI.median(), 3) == 0.057 and int((md.nua_do_rong_CI < .02).sum()) == 2,
       f"trung vị {md.nua_do_rong_CI.median():.4f}")
 
+# 7. Review 24/10 (mục 6.3.3): mã băm file tiền đăng ký K2; mức L2 ở lần rút 0 trùng Cổng 0
+import yaml
+pre = yaml.safe_load(open("prereg/prereg_k2.yaml"))
+check("Tiền đăng ký K2: mã băm file chia", hashlib.sha256(open(pre["splits_file"], "rb").read()).hexdigest() == pre["splits_sha256"],
+      pre["splits_sha256"][:8])
+h_kn = hashlib.sha256(open(pre["schemas"]["file"], "rb").read()).hexdigest()
+check("Tiền đăng ký K2: mã băm danh sách khái niệm", h_kn.startswith("3943e157"), h_kn[:8])
+fs = [f for f in glob.glob("results/k2_v2/results_k2_*_cpu*.csv")]
+if fs:
+    k2 = pd.concat([pd.read_csv(f, dtype={"k": str}) for f in fs])
+    k2 = k2[(k2.level == "L2") & (k2.draw == 0)]
+    # RANKAVG, RANKAVG_RF (và bản _SHUF) dùng quy tắc hoà trung tính trong K2 nên chỉ trùng Cổng 0 ở lần chia không hoà;
+    # đã kiểm tra riêng: với --tie first (quy tắc của Cổng 0) cả 18 phương pháp trùng tuyệt đối (deviations.md mục 10).
+    tie_dep = {"RANKAVG", "RANKAVG_RF", "RANKAVG_SHUF", "RANKAVG_RF_SHUF"}
+    for src, d in [("B", "g0_23"), ("C", "g0_AC")]:
+        g = pd.concat([pd.read_csv(f, dtype={"k": str}) for f in glob.glob(f"results/{d}/results_g0_*.csv")
+                       if "tbhtl" not in f and "TabPFN" not in f])
+        g = g[g.target == "A"]
+        x = k2[(k2.source == src) | (k2.source.isna() & (k2.group == "L2"))]
+        m = x.merge(g, on=["method", "k", "rep"], suffixes=("_k2", "_g0")).drop_duplicates(["method", "k", "rep"])
+        m = m[~m.method.isin(tie_dep)]
+        dmax = max((m.pr_auc_k2 - m.pr_auc_g0).abs().max(), (m.auc_roc_k2 - m.auc_roc_g0).abs().max())
+        check(f"K2 mức L2, lần rút 0, nguồn {src} trùng Cổng 0 (phương pháp không phụ thuộc quy tắc hoà)",
+              len(m) > 0 and dmax < 1e-12, f"{m.method.nunique()} phương pháp, {len(m)} giá trị, lệch tối đa {dmax:.2g}")
+else:
+    print("[ -- ] K2 sau sửa đổi (results/k2_v2) chưa có: bỏ qua phép so mức L2 với Cổng 0")
+
 print("\nKẾT QUẢ:", "TẤT CẢ ĐẠT" if not bad else f"{len(bad)} mục lỗi: {bad}")
 sys.exit(1 if bad else 0)

@@ -1,15 +1,19 @@
 """
 k2_run.py — Kịch bản K2 (miền đích nghèo đặc trưng), chạy đúng tiền đăng ký prereg/prereg_k2.yaml
-(commit chốt d2f1ef532e2dbc1fae4b0b3d079914b1910be1c4; bản đầu 79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2).
+(commit chốt d2f1ef532e2dbc1fae4b0b3d079914b1910be1c4; bản đầu 79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2),
+có các sửa đổi theo review 24/10 (deviations.md mục 9–14): quy tắc hoà trung tính, mức L1_core và L2, sửa --shuffle-target,
+F1 và G-Mean, ghi số giá trị hoà khi chọn w và λ_s.
 
     python k2_run.py --data A=data/WA_Fn-UseC_-HR-Employee-Attrition.csv B=data/aug_train.csv C=data/HR_comma_sep.csv
     python k2_run.py ... --shuffle-target          # chạy thử trên NHÃN ĐÍCH XÁO TRỘN (kiểm tra mã, đo thời gian, mức sàn M8)
 
-Đích A (IBM); nguồn B, C riêng; mức lược đồ L0 (theo nguồn), L1 (chính, giữ Age), L1_noAge (độ nhạy);
+Đích A (IBM); nguồn B, C riêng; mức lược đồ L0 (theo nguồn), L1 (chính, giữ Age), L1_noAge (độ nhạy),
+L1_core (cột IBM của L1, tập khái niệm chung của L0) và L2 (đủ đặc trưng IBM, tập khái niệm chung của Cổng 0);
 k ∈ {10, 20, 50, 100}; R = 30 lần chia × M = 5 lần rút (prereg/splits_A_R30_M5.json, kiểm tra sha256).
 Mô hình chỉ dùng đích chỉ thấy cột IBM của mức lược đồ; phần chỉ dùng đích tính một lần cho mỗi bộ cột
 (L1 dùng chung cho hai nguồn). TabPFN v2 chạy riêng trên Colab (--only TabPFN); CORAL ở L0 do Thiên cài (T4).
-Kết quả: results/k2/results_k2_<tag>_<hậu tố>.csv và dự đoán thô dạng npz (float16).
+Kết quả: results/k2_v2/results_k2_<tag>_<hậu tố>.csv và dự đoán thô dạng npz (float16).
+(results/k2/ giữ nguyên lần chạy theo bản chốt 23/10 – commit 48bf86a, deviations.md mục 9.)
 """
 import argparse, hashlib, json, os, time, warnings
 import numpy as np
@@ -18,14 +22,16 @@ import yaml
 from scipy.optimize import minimize
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import average_precision_score, roc_auc_score
+from sklearn.metrics import average_precision_score, log_loss, roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 
 from hr_data import full_features
 from kb1_pair import Enc
-from g0_pair import CFG as G0, anchor_lr, cat_model, onehot_pre, rankavg_rf, rankavg_scores, stack_model, xgb
+import g0_pair
+from g0_pair import CFG as G0, anchor_lr, cat_model, onehot_pre, pick_w, rankavg_rf, rankavg_scores, stack_model, xgb
+g0_pair.TIE_RULE = "neutral"                       # K2: hoà → w gần 0,5 (deviations.md mục 10 = mục 7 của review 24/10)
 from k2_khai_niem import A_KEY, raw_col
 from pairs import LOADERS, PAIRS, concepts, parse_data_args
 
@@ -43,6 +49,20 @@ def brier_ece(y, p, n_bins=10):
     bins = np.minimum((p * n_bins).astype(int), n_bins - 1)
     ece = sum(abs(y[bins == b].mean() - p[bins == b].mean()) * (bins == b).mean() for b in range(n_bins) if (bins == b).any())
     return np.mean((p - y) ** 2), ece
+
+
+def f1_gmean_at_prior(y_te, score, pi_hat):
+    """F1, G-Mean khi gán dương cho ceil(pi_hat · n) điểm cao nhất; pi_hat = tỷ lệ dương của k mẫu huấn luyện
+    (không dùng nhãn test). Phụ lục B5, review 24/10."""
+    y_te = np.asarray(y_te).astype(int); score = np.asarray(score, float)
+    n_pred = max(1, int(np.ceil(pi_hat * len(score))))
+    pred = np.zeros(len(score), int)
+    pred[np.argsort(-score, kind="stable")[:n_pred]] = 1
+    tp = int((pred & y_te).sum()); fp = int((pred & (1 - y_te)).sum())
+    fn = int(((1 - pred) & y_te).sum()); tn = int(((1 - pred) & (1 - y_te)).sum())
+    f1 = 2 * tp / (2 * tp + fp + fn) if tp else 0.0
+    gm = np.sqrt(tp / (tp + fn) * tn / (tn + fp)) if (tp + fn) and (tn + fp) else 0.0
+    return f1, gm
 
 
 # --------------------------------------------------------------------------- mô hình chỉ dùng đích
@@ -82,7 +102,9 @@ def preselect(Ftr, ytr, seed):
             mdl = make_target(m, seed).fit(Ftr[a], ytr[a])
             aps.append(average_precision_score(ytr[b], mdl.predict_proba(Ftr[b])[:, 1]))
         score[m] = np.mean(aps)
-    return max(score, key=score.get)
+    best = max(score.values()); tied = [m for m in cand if score[m] == best]
+    fb = PRE["methods"]["target_preselected"]["fallback_if_folds_lt_2"]
+    return fb if fb in tied else tied[0]                  # hoà → mô hình dự phòng (RF)
 
 
 def rankavg_rf_cached(Ftr, ytr, rf_test, scores, tr, te, seed):
@@ -104,10 +126,10 @@ def rankavg_rf_cached(Ftr, ytr, rf_test, scores, tr, te, seed):
                 aps = [average_precision_score(ytr[fold_id == f], w * _rank(s_tr[fold_id == f]) + (1 - w) * _rank(oof[fold_id == f]))
                        for f in range(cv) if 0 < ytr[fold_id == f].sum() < (fold_id == f).sum()]
                 score.append(np.mean(aps) if aps else -1)
-            w = grid[int(np.argmax(score))]
+            w = pick_w(score, grid); n_hoa = sum(v == max(score) for v in score)
         else:
-            w = 0.5
-        out[key] = (w * _rank(s_te) + (1 - w) * _rank(rf_test), w)
+            w, n_hoa = 0.5, 0
+        out[key] = (w * _rank(s_te) + (1 - w) * _rank(rf_test), w, n_hoa)
     return out
 
 
@@ -129,12 +151,13 @@ def tbhtl_logit(w, Xs, Xp, s):
 def choose_lam_s(Xs, Xp, y, s, seed, grid=(0.1, 1, 10, 100, 1e4)):
     n_pos = int(y.sum()); n_fold = min(3, n_pos, len(y) - n_pos)
     if n_fold < 2:
-        return 1.0
+        return 1.0, 0
     cv = StratifiedKFold(n_fold, shuffle=True, random_state=seed); score = {}
-    for lam in grid:
-        score[lam] = np.mean([average_precision_score(y[va], tbhtl_logit(tbhtl_fit(Xs[tr], Xp[tr], y[tr], s[tr], lam), Xs[va], Xp[va], s[va]))
+    for lam in grid:                                       # log-loss trên fold kiểm định (ít hoà hơn PR-AUC khi k nhỏ)
+        score[lam] = np.mean([log_loss(y[va], SIGMOID(tbhtl_logit(tbhtl_fit(Xs[tr], Xp[tr], y[tr], s[tr], lam), Xs[va], Xp[va], s[va])), labels=[0, 1])
                               for tr, va in cv.split(Xs, y)])
-    return max(score, key=score.get)                       # hoà → λ nhỏ nhất (thứ tự lưới), đúng đặc tả
+    best = min(score.values()); tied = [lam for lam in grid if score[lam] <= best + 1e-12]
+    return max(tied), len(tied)                            # hoà → λ lớn nhất (tin nguồn); trả về cả số giá trị hoà
 
 
 # --------------------------------------------------------------------------- chính
@@ -143,11 +166,11 @@ def main():
     ap.add_argument("--data", nargs="+", required=True)
     ap.add_argument("--R", type=int, default=PRE["repeats"]); ap.add_argument("--M", type=int, default=PRE["draws_per_split"])
     ap.add_argument("--sources", nargs="*", default=["B", "C"])
-    ap.add_argument("--levels", nargs="*", default=["L0", "L1", "L1_noAge"])
+    ap.add_argument("--levels", nargs="*", default=["L0", "L1", "L1_noAge", "L1_core", "L2"])
     ap.add_argument("--shuffle-target", action="store_true", help="chạy thử trên nhãn đích xáo trộn (seed 12345)")
     ap.add_argument("--only", nargs="*", default=None, help="vd. TabPFN (Colab)")
     ap.add_argument("--device", default="cpu")
-    ap.add_argument("--out", default="results/k2")
+    ap.add_argument("--out", default="results/k2_v2")
     ap.add_argument("--reps", type=int, nargs=2, default=None, metavar=("TU", "DEN"), help="chỉ chạy lần chia TU..DEN-1 (chia việc cho 2 tiến trình)")
     a = ap.parse_args()
     paths = parse_data_args(a.data)
@@ -156,7 +179,7 @@ def main():
     assert hashlib.sha256(open(PRE["schemas"]["file"], "rb").read()).hexdigest().startswith("3943e157"), "file khái niệm khác tiền đăng ký"
     SP = json.loads(sp_txt)[:a.R]
     KS = [str(k) for k in PRE["k_grid"]]
-    cfg = dict(prereg=PRE["commit_chot"], R=a.R, M=a.M, sources=a.sources, levels=a.levels, shuffle_target=a.shuffle_target, only=a.only)
+    cfg = dict(prereg=PRE["commit_chot"], sua_doi=PRE["sua_doi_2410"]["phien_ban"], tie=g0_pair.TIE_RULE, R=a.R, M=a.M, sources=a.sources, levels=a.levels, shuffle_target=a.shuffle_target, only=a.only)
     tag = hashlib.md5(json.dumps(cfg, sort_keys=True).encode()).hexdigest()[:8]
     suffix = "xao_tron_dich" if a.shuffle_target else ("_".join(a.only) if a.only else "cpu")
     REPS = range(*a.reps) if a.reps else range(a.R)
@@ -168,8 +191,7 @@ def main():
               open(f"{a.out}/config_k2_{tag}_{suffix}.json", "w"), indent=1, ensure_ascii=False)
 
     XA, yA, _ = LOADERS["A"](paths["A"])
-    if a.shuffle_target:
-        yA = np.random.RandomState(12345).permutation(yA)
+    y_eval = yA.copy()                       # nhãn dùng để chấm điểm trên tập test
     FA, catA = full_features(XA)
     SRC = {s: LOADERS[s](paths[s])[:2] for s in a.sources}
 
@@ -177,11 +199,14 @@ def main():
     groups = {}
     for s in a.sources:
         for lv in a.levels:
-            base = "L0" if lv == "L0" else "L1"
-            cols = list(KN["nguon"][s][base]["cot_IBM_dich_thay"])
-            if lv == "L1_noAge":
-                cols = [c for c in cols if c != "Age"]
-            gname = f"L0_{s}" if lv == "L0" else lv
+            if lv == "L2":                                   # đủ đặc trưng IBM, cùng lần rút M = 5
+                cols = list(FA.columns)
+            else:
+                base = "L0" if lv == "L0" else "L1"
+                cols = list(KN["nguon"][s][base]["cot_IBM_dich_thay"])
+                if lv == "L1_noAge":
+                    cols = [c for c in cols if c != "Age"]
+            gname = f"L0_{s}" if lv == "L0" else ("L1" if lv == "L1_core" else lv)   # L1_core dùng lại phần chỉ dùng đích của L1
             groups.setdefault(gname, dict(cols=cols, combos=[]))["combos"].append((s, lv))
     print({g: (len(v["cols"]), v["combos"]) for g, v in groups.items()}, flush=True)
 
@@ -190,9 +215,10 @@ def main():
     for s in a.sources:
         P = PAIRS[PAIR_OF[s]]; Xs, ys = SRC[s]
         for lv in a.levels:
-            cset = P["main"] if lv == "L0" else L1_SET[s]
+            wide = lv in ("L1", "L1_noAge")                  # chỉ L1 và L1_noAge dùng tập khái niệm mở rộng
+            cset = L1_SET[s] if wide else P["main"]
             Cs, Ct = concepts(PAIR_OF[s], s, Xs, cset), concepts(PAIR_OF[s], "A", XA, cset)
-            want = KN["nguon"][s]["L0" if lv == "L0" else "L1"]["khai_niem_chung"]
+            want = KN["nguon"][s]["L1" if wide else "L0"]["khai_niem_chung"]
             assert sorted(Cs.columns) == sorted(want), (s, lv, list(Cs.columns), want)
             enc_r = Enc("rank", P["binary"]); Zr = enc_r.fit_source(Cs)
             enc_s = Enc("std", P["binary"]); Zst = enc_s.fit_source(Cs)
@@ -206,12 +232,16 @@ def main():
     out_csv = f"{a.out}/results_k2_{tag}_{suffix}.csv"
     methods_only = set(a.only) if a.only else None
 
+    cur = {}                                  # tỷ lệ dương của k mẫu đang xét (ngưỡng F1, G-Mean)
+
     def rec(src, lv, grp, method, k, r, m, te, score, prob=None, **extra):
-        y = yA[te]
+        y = y_eval[te]
         row = dict(target="A", source=src, level=lv, group=grp, method=method, k=k, rep=r, draw=m,
                    pr_auc=average_precision_score(y, score), auc_roc=roc_auc_score(y, score), cfg=tag, **extra)
         if prob is not None:
             row["brier"], row["ece"] = brier_ece(y, prob)
+        if k != "zero":                       # zero-shot không có k mẫu → không có ngưỡng theo k mẫu
+            row["f1"], row["gmean"] = f1_gmean_at_prior(y, score, cur["pi"])
         rows.append(row)
         key = f"{src}|{lv}|{method}|{k}"
         preds.setdefault(key, np.full((a.R, a.M, len(te)), np.nan, np.float16))[r, m] = score
@@ -219,6 +249,8 @@ def main():
     for r in REPS:
         sp = SP[r]
         tr_all, te = np.array(sp["train"]), np.array(sp["test"])
+        if a.shuffle_target:                 # kiểm tra mức sàn: xáo trộn nhãn test, giữ số mẫu dương
+            y_eval[te] = np.random.RandomState(12345 + r).permutation(yA[te])
         # C1 phía đích: fit trên đặc trưng của toàn bộ phần train (không nhãn) – như Cổng 0 (giả định N9)
         T = {}
         for key, sm in SM.items():
@@ -232,6 +264,9 @@ def main():
         for m, draw in enumerate(sp["draws"][:a.M]):
             for k in KS:
                 tr = np.array(draw[k]); ytr = yA[tr]
+                if a.shuffle_target:             # xáo trộn trong k mẫu: giữ đủ hai lớp như lần rút gốc
+                    ytr = np.random.RandomState(12345 + 1000 * r + 10 * m + int(k)).permutation(ytr)
+                cur["pi"] = float(ytr.mean())
                 for gname, g in groups.items():
                     cols = g["cols"]; Xg = FA[cols]; catg = [c for c in catA if c in cols]
                     pre = onehot_pre(Xg, catg).fit(Xg.iloc[tr])
@@ -258,14 +293,15 @@ def main():
                     rec(gs, gl, gname, "PRESEL", k, r, m, te, P_[ch], P_[ch], chosen=ch)
                     # ---- chuyển giao, theo từng nguồn dùng nhóm cột này
                     sc_all = {(c, sfx): T[c][kk] for c in g["combos"] for sfx, kk in (("", "s"), ("_SHUF", "sh"))}
-                    for (c, sfx), (v, w) in rankavg_rf_cached(Ftr, ytr, P_["RF"], sc_all, tr, te, r).items():
-                        rec(c[0], c[1], gname, "RANKAVG_RF" + sfx, k, r, m, te, v, None, w=w)
+                    for (c, sfx), (v, w, nh) in rankavg_rf_cached(Ftr, ytr, P_["RF"], sc_all, tr, te, r).items():
+                        rec(c[0], c[1], gname, "RANKAVG_RF" + sfx, k, r, m, te, v, None, w=w, n_hoa=nh)
                     for (src, lv) in g["combos"]:
                         sm, tt = SM[(src, lv)], T[(src, lv)]
                         s_all, sh_all, Zt = tt["s"], tt["sh"], tt["Zt"]
                         for sfx, sc in (("", s_all), ("_SHUF", sh_all)):
+                            g0_pair.LAST_N_TIED = 0
                             v, w = rankavg_scores(Ftr, ytr, Fte, sc[tr], sc[te], r)
-                            rec(src, lv, gname, "RANKAVG" + sfx, k, r, m, te, v, None, w=w)
+                            rec(src, lv, gname, "RANKAVG" + sfx, k, r, m, te, v, None, w=w, n_hoa=g0_pair.LAST_N_TIED)
                             z = anchor_lr(np.c_[Zt[tr], Ftr], ytr, sc[tr], np.c_[Zt[te], Fte], sc[te], G0["ANCHOR"]["lam"])
                             rec(src, lv, gname, "ANCHOR_LR" + sfx, k, r, m, te, z, SIGMOID(z))
                             scl = StandardScaler().fit(sc[tr, None])
@@ -297,10 +333,10 @@ def main():
                                 "TBHTL_mC2": (Zt[tr], Zt[te], E[0], E[1], s_all, None),
                                 "TBHTL_mC4": (Zt[tr], Zt[te], Xp_tr, Xp_te, s_all, 1.0),
                                 "TBHTL_SHUF": (Zt[tr], Zt[te], Xp_tr, Xp_te, sh_all, None)}.items():
-                            lam = lam if lam is not None else choose_lam_s(xs_tr, xp_tr, ytr, s_vec[tr], r)
+                            lam, nh = (lam, 0) if lam is not None else choose_lam_s(xs_tr, xp_tr, ytr, s_vec[tr], r)
                             w = tbhtl_fit(xs_tr, xp_tr, ytr, s_vec[tr], lam)
                             z = tbhtl_logit(w, xs_te, xp_te, s_vec[te])
-                            rec(src, lv, gname, name, k, r, m, te, z, SIGMOID(z), lam=lam)
+                            rec(src, lv, gname, name, k, r, m, te, z, SIGMOID(z), lam=lam, n_hoa=nh)
         print(f"  [K2] lần chia {r} xong ({time.time() - t0:.0f}s)", flush=True)
         pd.DataFrame(rows).to_csv(out_csv, index=False)
     pd.DataFrame(rows).to_csv(out_csv, index=False)

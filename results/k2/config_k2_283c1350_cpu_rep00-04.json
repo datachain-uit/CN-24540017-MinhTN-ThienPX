@@ -1,0 +1,20 @@
+{
+ "prereg": "79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2",
+ "R": 30,
+ "M": 5,
+ "sources": [
+  "B",
+  "C"
+ ],
+ "levels": [
+  "L0",
+  "L1",
+  "L1_noAge"
+ ],
+ "shuffle_target": false,
+ "only": null,
+ "cfg": "283c1350",
+ "prereg_file_sha256": "faf24a41337d0067638d37979a432dc59b2d2736db566f4c0fb143c72daf4f4c",
+ "code_sha256": "f8c79ff11ebdbfc52c6acd1170bc6cc086c974324ad286c6c573be9bb00891d7",
+ "started": "2026-10-23 17:12:51 +0000"
+}

@@ -1,13 +1,15 @@
 """
 tbhtl_thamdo_eval.py — (THĂM DÒ 23/10, xem deviations.md mục 3) So sánh bản TB-HTL dạng mạng nơ-ron với baseline của Cổng 0 trên cùng 30 lần chia (không đổi kết luận Cổng 0).
+Tên phương pháp đổi thành TBHTL_MLP_THAMDO… ngày 24/10/2026 (V7 review 24/10, deviations.md mục 14) để không trùng
+TBHTL của TB-HTL v0 trong K2; kết quả đã lưu trong results/g0_23 được đổi tên theo, số liệu giữ nguyên.
 
     python tbhtl_thamdo_eval.py results/g0_23 A          # chiều B→A
 
 So sánh bắt cặp theo lần chia, CI 95% hiệu chỉnh Nadeau–Bengio (tỷ lệ test/train 0,25), Holm trong mỗi họ so sánh:
   (1) mỗi biến thể TB-HTL − baseline CHỈ DÙNG ĐÍCH mạnh nhất tại cùng k (kể cả TabPFN v2) — cùng tiêu chí với GO
   (2) TB-HTL − baseline chuyển giao đơn giản tốt nhất tại cùng k
-  (3) ablation: TB-HTL − TBHTL_NOANCHOR (H3d), TB-HTL − TBHTL_SHARED (H3b), TB-HTL − TBHTL_SCRATCH (lợi ích từ nguồn),
-      TB-HTL − TBHTL_SHUF (đối chứng nhãn nguồn xáo trộn)
+  (3) ablation: TB-HTL − …_NOANCHOR (H3d), TB-HTL − …_SHARED (H3b), TB-HTL − …_SCRATCH (lợi ích từ nguồn),
+      TB-HTL − …_SHUF (đối chứng nhãn nguồn xáo trộn)
 """
 import glob, sys
 import numpy as np
@@ -20,9 +22,9 @@ import matplotlib.pyplot as plt
 from g0_decision import corrected, holm, TO, TR, NAME, COL, MK
 
 KS = ["10", "20", "50", "100"]
-TB = ["TBHTL", "TBHTL_NOANCHOR", "TBHTL_SHARED", "TBHTL_SCRATCH", "TBHTL_SHUF"]
-TBN = {"TBHTL": "TB-HTL thăm dò (MLP)", "TBHTL_NOANCHOR": "TB-HTL không neo (λ = 0)", "TBHTL_SHARED": "TB-HTL chỉ nhánh chung",
-       "TBHTL_SCRATCH": "TB-HTL không tiền huấn luyện", "TBHTL_SHUF": "TB-HTL, nhãn nguồn xáo trộn"}
+TB = ["TBHTL_MLP_THAMDO", "TBHTL_MLP_THAMDO_NOANCHOR", "TBHTL_MLP_THAMDO_SHARED", "TBHTL_MLP_THAMDO_SCRATCH", "TBHTL_MLP_THAMDO_SHUF"]
+TBN = {"TBHTL_MLP_THAMDO": "TB-HTL thăm dò (MLP)", "TBHTL_MLP_THAMDO_NOANCHOR": "TB-HTL không neo (λ = 0)", "TBHTL_MLP_THAMDO_SHARED": "TB-HTL chỉ nhánh chung",
+       "TBHTL_MLP_THAMDO_SCRATCH": "TB-HTL không tiền huấn luyện", "TBHTL_MLP_THAMDO_SHUF": "TB-HTL, nhãn nguồn xáo trộn"}
 
 
 def main(folder, tgt):
@@ -39,8 +41,8 @@ def main(folder, tgt):
         bt = max(to, key=to.get)
         trs = {m: curve.get((m, "zero" if m == "ZS" else k)) for m in TR if (m, "zero" if m == "ZS" else k) in curve.index}
         btr = max(trs, key=trs.get)
-        comps = [(m, bt, "so với đích mạnh nhất") for m in TB] + [("TBHTL", btr, "so với chuyển giao đơn giản tốt nhất")] + \
-                [("TBHTL", m, "ablation") for m in TB[1:]]
+        comps = [(m, bt, "so với đích mạnh nhất") for m in TB] + [("TBHTL_MLP_THAMDO", btr, "so với chuyển giao đơn giản tốt nhất")] + \
+                [("TBHTL_MLP_THAMDO", m, "ablation") for m in TB[1:]]
         for a, b, fam in comps:
             x, y = get(a, k), get(b, k)
             if not len(x) or not len(y):
@@ -57,7 +59,7 @@ def main(folder, tgt):
     T.to_csv(f"{folder}/tbhtl_kiem_dinh_{tgt}.csv", index=False)
 
     # λ* theo k (kết quả về cơ chế, C4)
-    lam = g[g.method == "TBHTL"].groupby("k").lam.agg(["median", "mean", lambda s: (s >= 10).mean()])
+    lam = g[g.method == "TBHTL_MLP_THAMDO"].groupby("k").lam.agg(["median", "mean", lambda s: (s >= 10).mean()])
     lam.columns = ["lam_trung_vi", "lam_tb", "ty_le_lam_ge10"]
     lam = lam.reindex(KS)
     lam.to_csv(f"{folder}/tbhtl_lambda_{tgt}.csv")
@@ -78,8 +80,8 @@ def main(folder, tgt):
             ax.plot(xs, [curve.get((m, k), np.nan) for k in KS], color=COL[m], marker=MK[m], lw=1.2, ls="--", alpha=.8, label=f"{NAME[m]} (chỉ đích)")
     if ("RANKAVG_RF", "10") in curve.index:
         ax.plot(xs, [curve.get(("RANKAVG_RF", k)) for k in KS], color=COL["RANKAVG_RF"], marker="h", lw=1.2, ls=":", label=NAME["RANKAVG_RF"])
-    sty = {"TBHTL": ("#111111", "o", 2.4), "TBHTL_NOANCHOR": ("#8c8c8c", "s", 1.4), "TBHTL_SHARED": ("#c97b00", "^", 1.4),
-           "TBHTL_SCRATCH": ("#5b8def", "D", 1.4), "TBHTL_SHUF": ("#d6336c", "x", 1.4)}
+    sty = {"TBHTL_MLP_THAMDO": ("#111111", "o", 2.4), "TBHTL_MLP_THAMDO_NOANCHOR": ("#8c8c8c", "s", 1.4), "TBHTL_MLP_THAMDO_SHARED": ("#c97b00", "^", 1.4),
+           "TBHTL_MLP_THAMDO_SCRATCH": ("#5b8def", "D", 1.4), "TBHTL_MLP_THAMDO_SHUF": ("#d6336c", "x", 1.4)}
     for m, (c, mk, lw) in sty.items():
         if m in curve.index.get_level_values(0):
             ax.plot(xs, [curve.get((m, k), np.nan) for k in KS], color=c, marker=mk, lw=lw, label=TBN[m])

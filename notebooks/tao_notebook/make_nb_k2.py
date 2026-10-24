@@ -5,7 +5,7 @@ def code(s): cells.append({"cell_type": "code", "metadata": {}, "execution_count
 
 md("""# TabPFN v2 cho kịch bản K2 (miền đích nghèo đặc trưng)
 
-Chỉ chạy **TabPFN v2** (cần GPU); các phương pháp khác của K2 đã chạy trên CPU. Thiết kế theo `prereg/prereg_k2.yaml` (commit chốt `d2f1ef5`).
+Chỉ chạy **TabPFN v2** (cần GPU); các phương pháp khác của K2 chạy trên CPU. Thiết kế theo `prereg/prereg_k2.yaml` (bản chốt `d2f1ef5`, **có sửa đổi 24/10**: thêm mức L1_core và L2 — `deviations.md` mục 9–14). Người chạy: **Phạm Xuân Thiên** (review 24/10, mục 6.3, hạn 30/10).
 
 **Trước khi chạy: Runtime → Change runtime type → T4 GPU → Save.**
 
@@ -13,10 +13,15 @@ Chỉ chạy **TabPFN v2** (cần GPU); các phương pháp khác của K2 đã 
 |---|---|---|
 | 1 | Lấy mã từ GitHub (repo công khai), tải 3 file dữ liệu | 1–2 phút |
 | 2 | Cài TabPFN v2 | 1–2 phút |
-| 4 | Lần chia 0–14 → tự tải `tabpfn_k2_rep00-14.zip` | 15–30 phút |
-| 5 | Lần chia 15–29 → tự tải `tabpfn_k2_rep15-29.zip` | 15–30 phút |
+| 4 | Lần chia 0–9 → tự tải `tabpfn_k2_rep00-09.zip` | 20–40 phút |
+| 5 | Lần chia 10–19 → tự tải `tabpfn_k2_rep10-19.zip` | 20–40 phút |
+| 6 | Lần chia 20–29 → tự tải `tabpfn_k2_rep20-29.zip` | 20–40 phút |
 
-Nếu Colab ngắt giữa chừng: chạy lại Ô 1–2 rồi chạy tiếp ô chưa xong. Gửi lại cho Claude hai file zip.""")
+Mỗi lần chia có 5 nhóm cột đích (L0 theo từng nguồn, L1 — dùng chung cho L1_core —, L1_noAge, L2) × 5 lần rút × 4 giá trị k.
+Nếu Colab ngắt giữa chừng: chạy lại Ô 1–2 rồi chạy tiếp ô chưa xong.
+
+**Sau khi chạy:** giải nén ba file zip vào `results/k2_v2/` của kho Git (giữ nguyên tên file), rồi commit bằng tài khoản Git của người chạy, ví dụ
+`git add results/k2_v2/*TabPFN* && git commit -m "K2: TabPFN v2 (Colab T4), lần chia 0–29"`, và ghi một dòng vào `docs/nhat_ky_ngay.md`.""")
 
 md("## Ô 1 – Lấy mã và tải dữ liệu\nBấm **Choose Files**, chọn cùng lúc 3 file: IBM (`WA_Fn-UseC_-HR-Employee-Attrition.csv`), Job Change (`aug_train.csv`), HR 14.999 (`HR_comma_sep.csv`). Tên file khác cũng được. Phải thấy 3 dòng **OK** và **SHA-256 khớp**.")
 code("""import os, shutil, glob, csv, hashlib
@@ -24,6 +29,8 @@ os.chdir('/content'); shutil.rmtree('/content/repo', ignore_errors=True)
 !git clone -q https://github.com/datachain-uit/CN-24540017-MinhTN-ThienPX.git /content/repo
 %cd /content/repo
 !git log --oneline -3
+import yaml
+assert "sua_doi_2410" in yaml.safe_load(open("prereg/prereg_k2.yaml")), "kho Git chưa có sửa đổi 24/10 – báo lại cho Minh"
 from google.colab import files
 up = files.upload()
 def detect(cols):
@@ -51,13 +58,16 @@ md("## Ô 3 – (chỉ khi cần) đăng nhập Hugging Face\nChỉ chạy nếu
 code("""from huggingface_hub import login
 login()""")
 
-for a, b in [(0, 15), (15, 30)]:
-    md(f"## Ô {4 if a == 0 else 5} – TabPFN v2, lần chia {a}–{b - 1}\nXong sẽ tự tải `tabpfn_k2_rep{a:02d}-{b - 1:02d}.zip`.")
+for i, (a, b) in enumerate([(0, 10), (10, 20), (20, 30)]):
+    md(f"## Ô {4 + i} – TabPFN v2, lần chia {a}–{b - 1}\nXong sẽ tự tải `tabpfn_k2_rep{a:02d}-{b - 1:02d}.zip` (chỉ gồm file của các lần chia này).")
     code(f"""%cd /content/repo
-!python k2_run.py --data A=data/A.csv B=data/B.csv C=data/C.csv --only TabPFN --device cuda --reps {a} {b} 2>&1 | grep -v -i warning
-import shutil; from google.colab import files
-shutil.make_archive('/content/tabpfn_k2_rep{a:02d}-{b - 1:02d}', 'zip', '/content/repo/results', 'k2')
-files.download('/content/tabpfn_k2_rep{a:02d}-{b - 1:02d}.zip')""")
+!python k2_run.py --data A=data/A.csv B=data/B.csv C=data/C.csv --only TabPFN --device cuda --reps {a} {b} --out results/k2_v2 2>&1 | grep -v -i warning
+import glob, zipfile; from google.colab import files
+z = '/content/tabpfn_k2_rep{a:02d}-{b - 1:02d}.zip'
+with zipfile.ZipFile(z, 'w', zipfile.ZIP_DEFLATED) as f:
+    for p in glob.glob('results/k2_v2/*TabPFN_rep{a:02d}-{b - 1:02d}*'):
+        f.write(p, p.split('/')[-1]); print('  +', p)
+files.download(z)""")
 
 nb = {"cells": cells, "metadata": {"colab": {"provenance": [], "gpuType": "T4"}, "accelerator": "GPU",
       "kernelspec": {"display_name": "Python 3", "name": "python3"}, "language_info": {"name": "python"}},
