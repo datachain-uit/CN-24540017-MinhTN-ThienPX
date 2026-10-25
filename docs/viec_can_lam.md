@@ -24,11 +24,11 @@ Cập nhật: 25/10/2026 (Minh, các dòng của Minh; dòng của Thiên do Thi
 
 | Hạn | Việc | Căn cứ | Sản phẩm | Trạng thái | Commit |
 |---|---|---|---|---|---|
-| 25/10 | EDA bốn miền chạy lại được: thêm **miền D**; phân phối khái niệm chung của **L0, L1 theo miền sau căn chỉnh C1**; AUC đơn biến **đối chiếu Bảng A5.5a–b** | R24 6.5 | `eda/eda_bon_mien.ipynb` | ◐ (A–C có ở `8823d07`) | |
+| 25/10 | EDA bốn miền chạy lại được: thêm **miền D**; phân phối khái niệm chung của **L0, L1 theo miền sau căn chỉnh C1**; AUC đơn biến **đối chiếu Bảng A5.5a–b** | R24 6.5 | `eda/eda_bon_mien.ipynb` | ☑ (đủ A–D; mục 6b sau C1, mục 6c đối chiếu A5.5a–b) | commit EDA 25/10 |
 | 25/10 | 5 phiếu đọc theo mẫu; điền dòng tương ứng của Bảng 1 | R24 6.5 | `docs/phieu_doc/`, `bang1_phuong_phap_luan.csv` | ◐ | |
-| 25/10 | Viết lại giải trình cho commit `b89d1d3` (ghi đúng phần việc) | phân công 24/10 | `docs/nhat_ky_tuan.md` | ☐ | |
-| 25/10 | Dọn thư mục gốc (3 file trùng `kb2b_carte/`, dữ liệu wine, file Word) | phân công 24/10 | `git rm` | ☐ | |
-| 25/10 | Điền dòng tuần 15–21/10 trong nhật ký tuần | R24 QĐ5 | `docs/nhat_ky_tuan.md` | ☐ | |
+| 25/10 | Viết lại giải trình cho commit `b89d1d3` (ghi đúng phần việc) | phân công 24/10 | `docs/nhat_ky_tuan.md` | ☑ | `54b28ce` |
+| 25/10 | Dọn thư mục gốc (3 file trùng `kb2b_carte/`, dữ liệu wine, file Word) | phân công 24/10 | `git rm` | ☑ | `10207f4` |
+| 25/10 | Điền dòng tuần 15–21/10 trong nhật ký tuần | R24 QĐ5 | `docs/nhat_ky_tuan.md` | ☑ | `54b28ce` |
 | 28/10 | Bổ sung Cổng 0 cho bốn đích: LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean (dùng hàm trong `k2_run.py`); xáo trộn nhãn đích B→A | R22 6.4, R24 6.5 | `results/g0_*` | ☐ | |
 | 28/10 | Đủ 10 phiếu đọc; sửa nguồn trong Plan.xlsx (M9); đề xuất 2–3 hội nghị | R24 6.5 | `docs/phieu_doc/`, đề xuất | ☐ | |
 | 28/10 | Khai báo công cụ AI (phần Thiên) | R24 6.6 | `docs/khai_bao_cong_cu.md` | ☐ | |
