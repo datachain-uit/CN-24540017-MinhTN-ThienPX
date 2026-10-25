@@ -59,8 +59,6 @@ Khi tìm bài SBPO 2024, tra ra một luận văn của cùng tác giả thứ n
 
 Theo mô tả OpenAlex: học chuyển giao bằng TrAdaBoost trên hai bộ dữ liệu HR công khai, mô hình thích ứng sang miền đích bằng một số ít mẫu có nhãn. Gần như trùng khớp với thiết lập Cổng 0.
 
-Hai việc cần quyết. Thứ nhất, luận văn này có phải bản mở rộng của bài SBPO [31] không; nếu đúng thì nó là công trình gần đề tài nhất trong toàn bộ danh mục, gần hơn cả [11] Levin và [24] CARTE. Thứ hai, TrAdaBoost có nên thêm vào danh sách baseline chuyển giao của Cổng 0 không; hiện `g0_23.py` có 8 baseline (ZS, STK_LR, STK_XGB, OFF_XGB, DAUME_LR, RANKAVG, ANCHOR_LR, RANKAVG_RF) nhưng không có TrAdaBoost, vốn là thuật toán chuyển giao kinh điển cho đúng tình huống ít nhãn ở miền đích.
-
-Đánh giá 22/10 ghi "danh sách baseline giữ nguyên theo Phụ lục D của review 07/10, không bổ sung baseline mới", nên việc thêm TrAdaBoost phải hỏi ý GVHD trước. Nhưng phát hiện này cần báo cáo.
+Việc cần kiểm: luận văn này có phải bản mở rộng của bài SBPO [31] không; nếu đúng thì nó là công trình gần đề tài nhất trong toàn bộ danh mục, gần hơn cả [11] Levin và [24] CARTE, và cần đưa vào phần tổng quan. Danh sách baseline của Cổng 0 giữ nguyên theo quyết định của GVHD (đánh giá 22/10: không bổ sung baseline mới).
 
 Ba hướng lấy bài [31], theo thứ tự ưu tiên: hỏi Minh vì bài nằm trong danh mục của nhóm nên nhiều khả năng Minh đã có PDF khi lập Bảng 1; tra kỷ yếu Galoá theo tác giả Torezzan bằng trình duyệt; tải luận văn UNICAMP 2025 ở link trên.
