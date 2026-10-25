@@ -1,0 +1,9 @@
+{'L0_B': (4, [('B', 'L0')]), 'L1': (12, [('B', 'L1'), ('B', 'L1_core'), ('C', 'L1'), ('C', 'L1_core')]), 'L1_noAge': (11, [('B', 'L1_noAge'), ('C', 'L1_noAge')]), 'L2': (30, [('B', 'L2'), ('C', 'L2')]), 'L0_C': (5, [('C', 'L0')])}
+  [K2] lần chia 25 xong (831s)
+  [K2] lần chia 26 xong (1675s)
+  [K2] lần chia 27 xong (2528s)
+/usr/local/lib/python3.13/dist-packages/sklearn/utils/parallel.py:144: UserWarning: `sklearn.utils.parallel.delayed` should be used with `sklearn.utils.parallel.Parallel` to make it possible to propagate the scikit-learn configuration of the current thread to the joblib workers.
+  warnings.warn(
+  [K2] lần chia 28 xong (3377s)
+  [K2] lần chia 29 xong (4216s)
+Đã lưu 20475 dòng vào results/k2_v2/results_k2_cdf6d7ca_cpu_rep25-29.csv

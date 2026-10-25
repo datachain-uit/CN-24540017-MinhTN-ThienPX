@@ -1,0 +1,24 @@
+{
+ "prereg": "79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2",
+ "sua_doi": "2410",
+ "tie": "neutral",
+ "R": 30,
+ "M": 5,
+ "sources": [
+  "B",
+  "C"
+ ],
+ "levels": [
+  "L0",
+  "L1",
+  "L1_noAge",
+  "L1_core",
+  "L2"
+ ],
+ "shuffle_target": false,
+ "only": null,
+ "cfg": "cdf6d7ca",
+ "prereg_file_sha256": "c3e33d8500988913c879b3be079e5fb93dfca279e7a673fa4ec8592240495f20",
+ "code_sha256": "423c03af5128f8c26e705211101d4eaa22d3765da5d96177cb8e16b9c31e5ae2",
+ "started": "2026-10-24 20:25:26 +0000"
+}

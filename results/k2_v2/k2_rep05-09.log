@@ -1,0 +1,7 @@
+{'L0_B': (4, [('B', 'L0')]), 'L1': (12, [('B', 'L1'), ('B', 'L1_core'), ('C', 'L1'), ('C', 'L1_core')]), 'L1_noAge': (11, [('B', 'L1_noAge'), ('C', 'L1_noAge')]), 'L2': (30, [('B', 'L2'), ('C', 'L2')]), 'L0_C': (5, [('C', 'L0')])}
+  [K2] lần chia 5 xong (941s)
+  [K2] lần chia 6 xong (1837s)
+  [K2] lần chia 7 xong (2673s)
+  [K2] lần chia 8 xong (3545s)
+  [K2] lần chia 9 xong (4405s)
+Đã lưu 20475 dòng vào results/k2_v2/results_k2_cdf6d7ca_cpu_rep05-09.csv

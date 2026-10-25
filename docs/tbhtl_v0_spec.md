@@ -25,14 +25,14 @@ Hàm mục tiêu: tổng log-loss trên k mẫu + hai số hạng phạt; tối 
 |---|---|---|---|
 | **C1** căn chỉnh | Chuẩn hoá thứ hạng (QuantileTransformer → normal) các khái niệm chung, fit riêng trên phần train của từng miền, không dùng nhãn (như Cổng 0; giả định N9: tổ chức đích có hồ sơ đầy đủ nhưng ít nhãn) | **−C1**: dùng thang đo của nguồn (z-score fit trên nguồn) | H-C1: zero-shot và TB-HTL ở k ≤ 20 giảm khi bỏ C1 |
 | **C2** hai nhánh | Nhánh chung = offset s(z) + hiệu chỉnh w_s; nhánh riêng = x với mức phạt riêng λ_p | **−C2**: bỏ nhánh riêng (x có 0 cột). Ở L0, x vốn có 0 cột nên −C2 trùng bản đầy đủ | H-C2: lợi ích của C2 (đầy đủ − (−C2)) tăng từ L0 → L1 → L2 |
-| **C4** độ mạnh chuyển giao theo k | λ_s chọn bằng kiểm định chéo phân tầng trên chính k mẫu, số fold = min(3, n_dương, n_âm), lưới chốt trước {0,1; 1; 10; 100; 10⁴}, tiêu chí **log-loss trung bình trên fold kiểm định; hoà thì lấy λ lớn nhất** (tin nguồn khi dữ liệu không phân biệt được); n_fold < 2 → λ_s = 1. *(Bản chốt 23/10: tiêu chí PR-AUC, hoà → λ nhỏ nhất; đổi theo V1 review 24/10, xem mục cuối)* | **−C4**: λ_s = λ_p = 1 cố định — **trùng ANCHOR_LR** của Cổng 0 | H-C4: λ_s được chọn giảm khi k tăng; TB-HTL không gây chuyển giao âm quá 0,01 PR-AUC ở k = 100 |
+| **C4** độ mạnh chuyển giao theo k | λ_s chọn bằng kiểm định chéo phân tầng trên chính k mẫu, số fold = min(3, n_dương, n_âm), lưới chốt trước {0,1; 1; 10; 100; 10⁴}, tiêu chí **log-loss trung bình trên fold kiểm định; hoà thì lấy λ lớn nhất** (tin nguồn khi dữ liệu không phân biệt được); n_fold < 2 → λ_s = 1. *(Bản chốt 23/10: tiêu chí PR-AUC, hoà → λ nhỏ nhất; đổi theo V1 review 24/10, xem mục cuối)* | **−C4**: λ_s = λ_p = 1 cố định trên [z, cột riêng của đích] (TBHTL_mC4). *Không trùng ANCHOR_LR*: trong K2, ANCHOR_LR hiệu chỉnh trên [z, mọi cột đích của mức] (sửa trình bày 25/10, V9 review 25/10) | H-C4: λ_s được chọn giảm khi k tăng; TB-HTL không gây chuyển giao âm quá 0,01 PR-AUC ở k = 100 |
 | Đối chứng | s(z) từ mô hình nguồn học trên **nhãn nguồn xáo trộn** (seed 0), mọi thứ khác giữ nguyên | — | Lợi ích biến mất → lợi ích đến từ tri thức nguồn, không chỉ từ điều chuẩn |
 
 ## Khác gì với các baseline đã có
 
 | Baseline Cổng 0 | Dạng | Khác với TB-HTL v0 |
 |---|---|---|
-| ANCHOR_LR | offset s(z) + [z, x]·δ, cùng một λ = 1 cho mọi hệ số | TB-HTL tách hai mức phạt và **chọn λ_s theo k** (C4); ANCHOR_LR là ablation −C4 |
+| ANCHOR_LR | offset s(z) + [z, x]·δ, cùng một λ = 1 cho mọi hệ số | TB-HTL tách hai mức phạt và **chọn λ_s theo k** (C4); hiệu chỉnh trên cột riêng thay vì mọi cột đích. ANCHOR_LR là **baseline riêng**, không phải ablation −C4 (V9 review 25/10; ở B–L0, k = 10: PR-AUC 0,220 so với 0,215) |
 | STK_LR | LR trên [x đủ đặc trưng, s(z)] — hệ số của s học tự do | TB-HTL cố định hệ số của s bằng 1 (offset) và neo phần hiệu chỉnh về 0 |
 | DAUME_LR | tăng cường đặc trưng chung/riêng, học chung dữ liệu nguồn và đích | TB-HTL không học lại trên dữ liệu nguồn ở bước đích, chỉ dùng s(z) và chọn độ neo theo k |
 | RANKAVG-RF | trung bình thứ hạng điểm RF chỉ dùng đích và zero-shot, w chọn bằng kiểm định chéo | TB-HTL là một mô hình tuyến tính duy nhất; RANKAVG-RF trộn điểm sau khi dự đoán |
@@ -60,3 +60,6 @@ Mọi thay đổi (lưới λ, tiêu chí chọn λ, cách mã hoá, nhánh riê
 | Ghi nhận | — | số giá trị λ hoà (`n_hoa`) cho từng lần chọn | Báo cáo tỷ lệ hoà theo k |
 
 Theo quy ước ở mục trên, đổi tiêu chí chọn λ là một thay đổi đặc tả. Thay đổi do GVHD quyết định (quyết định 1, review 24/10) từ chẩn đoán chỉ dùng nhãn của k mẫu huấn luyện, không dùng nhãn test của K2. Tuy vậy, kết quả K2 theo bản chốt 23/10 đã được nhóm xem trước khi nhận review (`deviations.md` mục 9), nên báo cáo trình bày cả hai lần chạy. Tên phương pháp trong mã giữ là `TBHTL`; kết quả của lần chạy theo bản chốt 23/10 ở `results/k2`, sau sửa đổi ở `results/k2_v2`.
+
+
+**Ghi chú trình bày (25/10, V9 review 25/10):** ở L0, phép TB-HTL − (−C2) báo cáo là “không áp dụng” (Δ = 0 theo thiết kế); phép này **vẫn giữ trong họ Holm đã chốt** để không nới kiểm định sau khi xem kết quả. Đây là sửa cách trình bày, không sửa thiết kế (`deviations.md` mục 16).
