@@ -1,47 +1,55 @@
 # Việc cần làm đến giữa kỳ
 
-Nguồn: Review-2026-10-24 (mục 6.2–6.7), các việc còn hiệu lực của review 18/10 và 22/10. Mỗi người tự cập nhật dòng của mình khi xong (ghi mã commit), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
+Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 25/10/2026 (Minh, các dòng của Minh; dòng của Thiên do Thiên tự cập nhật).
+Cập nhật: 26/10/2026 (Minh lập theo review 26/10; dòng của Thiên do Thiên tự cập nhật trạng thái).
+
+**Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
 ## Tăng Nhật Minh
 
 | Hạn | Việc | Căn cứ | Sản phẩm | Trạng thái | Commit |
 |---|---|---|---|---|---|
 | 25/10 | Sửa đổi tiền đăng ký K2 (V1–V3, V6, V7) | R24 6.2 | `k2_run.py`, `k2_eval.py`, `prereg/`, `deviations.md` 9–14 | ☑ | `0c84285` |
-| 25/10 | Kiểm tra mức sàn `--shuffle-target` | R24 6.3.1 | `results/k2_v2/*xao_tron_dich*` | ☑ | `a9727e0` |
+| 25/10 | Kiểm tra mức sàn K2 | R24 6.3.1 | `results/k2_v2/*xao_tron_dich*` | ☑ | `a9727e0` |
 | 25/10 | Đính chính thứ tự chạy | — | `deviations.md` 15 | ☑ | `2a1bbb0` |
-| 25–27/10 | Chạy K2 sau sửa đổi (5 mức, 30 × 5) | R24 6.3.2 | `results/k2_v2/results_k2_*_cpu_*.csv` | ☑ (24/10 21:27 → 25/10) | commit kết quả K2 |
-| 27/10 | Hai phép kiểm mới trong `kiem_tra_tai_lap.py` | R24 6.3.3 | mã băm tiền đăng ký; L2 lần rút 0 = Cổng 0 | ☑ (đạt trên kết quả thật: 14 phương pháp × 2 nguồn, lệch 0) | commit kết quả K2 |
-| 28/10 | Chạy `k2_eval.py` – bảng K2 sơ bộ (“chưa có TabPFN v2”) | R24 6.3.5 | `results/k2_v2/k2_*.csv` | ☑ (sơ bộ) | commit kết quả K2 |
-| 28/10 | Báo cáo Word cập nhật: Bảng 0 phản hồi review 18/10, 22/10, 24/10; B1.2; đổi tên Nội dung 2; Bảng 5 RQ1–RQ7; A ↔ D thăm dò; N7; tên RANKAVG-RF; mã commit | R22 6.6, R24 6.5 | Báo cáo 28/10 | ☐ | |
-| 28/10 | Khai báo công cụ AI (phần Minh) | R24 6.6 | `docs/khai_bao_cong_cu.md` | ☑ | `0c84285` |
-| 29/10–04/11 | Phân tích RQ5 (GO, H5), RQ6 (TB-HTL, ablation, λ_s theo k) | R24 6.5 | bảng, hình | ☐ | |
-| sau 30/10 | Chạy lại `k2_eval.py` khi có TabPFN v2 → kết luận GO, H5 | R24 6.3.5 | `k2_ket_luan.csv` (chính thức) | ☐ | |
-| 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (kịch bản A/B) | R24 6.4 | slide, dàn ý | ☐ | |
+| 25/10 | K2 sau sửa đổi (5 mức, 30 × 5), `k2_eval.py` sơ bộ, hai phép kiểm tái lập mới | R24 6.3.2–6.3.5 | `results/k2_v2/` | ☑ (sơ bộ, chưa có TabPFN v2) | `46b6770` |
+| 25/10 | Sửa trình bày đặc tả TB-HTL (V9) | R25 V9 | `docs/tbhtl_v0_spec.md`, `deviations.md` 16 | ☑ | `46b6770` |
+| 26/10 | Sửa `CLAUDE.md` (quy tắc 2; không chạy nhãn thật trước `commit_chot`; khai nhận có minh chứng) và bảng việc này | R26 7.7 | `CLAUDE.md`, `docs/viec_can_lam.md` | ◐ | |
+| 26/10 | Ghi chú ô suy biến (V5); sửa hai con số trong `00_contributions.md` (V6); ghi bỏ K2-XN; trả lời câu 8.1 | R26 V5, V6, 7.1, 8.1 | `deviations.md` 17–20 | ◐ | |
+| 26/10 | Rà soát tiền đăng ký độ nhạy C1 của Thiên | R26 7.8 | nhận xét trên commit A của Thiên | ☐ | |
+| 26–27/10 | Đường tham chiếu quy tắc ở K2-L0: commit mã + dòng `deviations.md` **trước**, rồi chạy 30 lần chia | R26 7.5 | `k2_quy_tac.py`, `results/k2_quy_tac/` | ◐ (mã + thử `--R 10`) | |
+| 27/10 | Cổng 0 với `--tie neutral` (6 chiều) | R25 QĐ5 | `results/g0_*` (hậu tố `_tie_neutral`) | ☐ | |
+| 28/10 | Báo cáo Word cập nhật theo R26 7.2 và R25 7.6 (Bảng 0 phản hồi review 18/10, 22/10, 24/10, 25/10, 26/10; trình tự chạy K2; bảng K2 sơ bộ; L0 so với quy tắc và mức trần KB1; hạn chế C1 và khái niệm chung; trích dẫn pháp lý; đặc tả TB-HTL). **Phần nhận định do Minh tự viết** | R26 7.2 | Báo cáo 28/10 | ☐ | |
+| 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☐ | |
+| 29–30/10 | CORAL ở L0 (mã và lần chạy) | R26 QĐ5 | `results/k2_v2/*CORAL*` | ☐ | |
+| 31/10–04/11 | Kết luận K2 (GO theo Holm, H5) khi có TabPFN v2; RQ6; CORAL | R26 7.8 | `k2_ket_luan.csv` chính thức | ☐ | |
+| 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
 
 ## Phạm Xuân Thiên
 
 | Hạn | Việc | Căn cứ | Sản phẩm | Trạng thái | Commit |
 |---|---|---|---|---|---|
-| 25/10 | EDA bốn miền chạy lại được: thêm **miền D**; phân phối khái niệm chung của **L0, L1 theo miền sau căn chỉnh C1**; AUC đơn biến **đối chiếu Bảng A5.5a–b** | R24 6.5 | `eda/eda_bon_mien.ipynb` | ☑ (đủ A–D; mục 6b sau C1, mục 6c đối chiếu A5.5a–b) | commit EDA 25/10 |
-| 25/10 | 5 phiếu đọc theo mẫu; điền dòng tương ứng của Bảng 1 | R24 6.5 | `docs/phieu_doc/`, `bang1_phuong_phap_luan.csv` | ◐ | |
-| 25/10 | Viết lại giải trình cho commit `b89d1d3` (ghi đúng phần việc) | phân công 24/10 | `docs/nhat_ky_tuan.md` | ☑ | `54b28ce` |
-| 25/10 | Dọn thư mục gốc (3 file trùng `kb2b_carte/`, dữ liệu wine, file Word) | phân công 24/10 | `git rm` | ☑ | `10207f4` |
-| 25/10 | Điền dòng tuần 15–21/10 trong nhật ký tuần | R24 QĐ5 | `docs/nhat_ky_tuan.md` | ☑ | `54b28ce` |
-| 28/10 | Bổ sung Cổng 0 cho bốn đích: LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean (dùng hàm trong `k2_run.py`); xáo trộn nhãn đích B→A | R22 6.4, R24 6.5 | `results/g0_*` | ☐ | |
-| 28/10 | Đủ 10 phiếu đọc; sửa nguồn trong Plan.xlsx (M9); đề xuất 2–3 hội nghị | R24 6.5 | `docs/phieu_doc/`, đề xuất | ☐ | |
-| 28/10 | Khai báo công cụ AI (phần Thiên) | R24 6.6 | `docs/khai_bao_cong_cu.md` | ☐ | |
-| 30/10 | TabPFN v2 cho K2 trên Colab (5 mức) | R24 6.3.4 | `results/k2_v2/*TabPFN*` | ☐ | |
-| 04/11 | CORAL ở L0; Cổng 0 với `--tie neutral` cho 6 chiều; bảng chỉ số hiệu chỉnh | R24 6.5 | `results/` | ☐ | |
-| 05–08/11 | Cùng Minh: slide giữa kỳ, dàn ý bài báo | R24 6.4 | slide, dàn ý | ☐ | |
+| 25/10 | EDA đủ bốn miền; phân phối sau C1; đối chiếu A5.5a–b | R24 6.5, R25 V5 | `eda/` | ☑ | `d197041` |
+| 25/10 | Dọn thư mục gốc; đính chính giải trình, nhật ký tuần | R25 V8, V3 | `git rm`, `docs/` | ☑ | `10207f4`, `54b28ce` |
+| 26/10 | Khôi phục ô tiêu đề notebook EDA từ `b89d1d3` | R26 V7 | `eda/eda_bon_mien.ipynb` | ☐ | |
+| 26/10 | Độ nhạy C1: `--check-zs` (ĐẠT) → commit A → mức sàn → commit B | R26 7.3 | `prereg/prereg_c1_do_nhay.yaml`, `c1_do_nhay*.py` | ☐ | |
+| 26/10 | Phiếu đọc luận văn UNICAMP 2025 ([44]) và dòng Bảng 1 | R25 7.3, R26 7.4 | `docs/phieu_doc/` | ☐ | |
+| 27/10 | Độ nhạy C1 chạy chính; `c1_do_nhay_eval.py` | R26 7.3 | `results/c1_do_nhay/` | ☐ | |
+| 27/10 | TrAdaBoost: `--check-zs` 3 thiết lập → commit A → mức sàn → commit B (gói mã review 25/10) | R25 7.3, R26 7.4 | `prereg/prereg_trada.yaml`, `tradaboost.py`, `trada_*.py` | ☐ | |
+| 28/10 | TrAdaBoost chạy chính; đoạn tổng quan về luận văn và đoạn kết quả C1 (Thiên tự viết) | R26 7.3, 7.4 | `results/trada/`, đoạn văn | ☐ | |
+| 28/10 | Khai báo công cụ AI (phần Thiên); xác nhận bảng phân công; phiếu đọc còn lại; Plan.xlsx; đề xuất 2–3 hội nghị | R25, R26 7.6 | `docs/` | ☐ | |
+| 30/10 | TabPFN v2 cho K2 (5 mức) trên Colab, ghi `git rev-parse HEAD` + `git status --porcelain` cạnh kết quả | R26 V7 | `results/k2_v2/*TabPFN*` | ☐ | |
+| 30/10 | Phần bổ sung Cổng 0 (LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean; xáo trộn nhãn B→A) | R22 6.4, R25 QĐ5 | `results/g0_*` | ☐ | |
+| 04/11 | `trada_eval.py`; bảng đối chiếu với luận văn | R26 7.4 | bảng | ☐ | |
+| 05–08/11 | Cùng Minh: slide giữa kỳ, dàn ý bài báo | R26 7.8 | slide, dàn ý | ☐ | |
 
 ## Cả nhóm
 
 | Hạn | Việc | Trạng thái |
 |---|---|---|
-| từ 25/10, hằng ngày | Mỗi người 1 dòng `docs/nhat_ky_ngay.md` trước 22:00; email ≤ 5 dòng kèm mã commit, luân phiên người gửi | ◐ (Minh bắt đầu 24/10, `dbd3072`) |
-| 28/10 | Đề xuất hội nghị (QĐ6 review 22/10) | ☐ |
-| giữa kỳ (09–15/11) | Mỗi người tự trình bày phần mã của mình (Minh: `k2_run.py`, TB-HTL v0, `k2_eval.py`; Thiên: EDA, bổ sung Cổng 0, TabPFN v2 K2) | ☐ |
+| hằng ngày | Mỗi người 1 dòng `docs/nhat_ky_ngay.md` trước 22:00 (dòng đầu sau mỗi review ghi “đã đọc review ngày …”); email ≤ 5 dòng do sinh viên tự viết, luân phiên người gửi | ◐ |
+| 28/10, 22:00 | Bảng phân công thống nhất, mỗi người một commit xác nhận dòng của mình (R26 7.6) | ☐ |
+| giữa kỳ (09–15/11) | Mỗi người tự trình bày phần mã mình commit (Minh: `k2_run.py`, `k2_eval.py`, TB-HTL v0, `k2_quy_tac.py`, CORAL; Thiên: EDA, `c1_do_nhay.py`, TrAdaBoost, bổ sung Cổng 0, TabPFN v2) | ☐ |
 
-**Không làm trước giữa kỳ:** CARTE, DSN, K1 tập lồng nhau, Babushkin nhãn theo mốc cố định, DANN, L2-SP, SHAP (QĐ2 review 24/10).
+**Không làm trước giữa kỳ:** CARTE, DSN, K1 tập lồng nhau, Babushkin nhãn theo mốc cố định, DANN, L2-SP, SHAP, phân tích độ nhạy khái niệm chung (V6 review 25/10), mô phỏng tỷ lệ dương giả của phép kiểm định.
