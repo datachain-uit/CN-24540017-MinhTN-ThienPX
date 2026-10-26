@@ -1,0 +1,41 @@
+# prereg_c1_do_nhay.yaml – Tiền đăng ký phân tích độ nhạy của căn chỉnh C1 (Review-2026-10-26, quyết định 2)
+# PHẢI commit trước lần chạy chính (c1_do_nhay.py không kèm --check-zs hay --shuffle-target).
+# Trước khi commit chỉ được chạy --check-zs (tính lại zero-shot đã công bố) và --shuffle-target (mức sàn).
+ngay_chot: "26/10/2026"
+commit_chot: ""                       # điền ở commit tiếp theo, trước lần chạy chính
+nguoi_thuc_hien: "Phạm Xuân Thiên (CauBe9x); Minh rà soát"
+ly_do: >-
+  EDA ngày 25/10 (Thiên) và kiểm tra của GVHD: C1 (QuantileTransformer, kb1_pair.Enc("rank")) đẩy giá trị nhỏ nhất và
+  lớn nhất của khái niệm ít bậc về ±5,2. Tỷ lệ dòng có |z| > 5: IBM evaluation 100%, satisfaction 51%, education 15%,
+  experience 15%; HR 14.999 pay 56%, tenure 25%; Job Change experience 20%. Tương quan hạng giữa điểm zero-shot dùng C1
+  và dùng C1_MID trên IBM: 0,88 (nguồn Job Change), 0,86 (nguồn HR 14.999). Các số này không dùng nhãn đích.
+thiet_ke_chinh_giu_nguyen: "C1 đã chốt giữ nguyên cho mọi phân tích chính của Cổng 0, KB1 và K2"
+bien_the: >-
+  C1_MID: với cột liên tục, z = Φ⁻¹((số giá trị < v + số giá trị ≤ v) / 2n), cắt trong [0,5/n; 1 − 0,5/n]; fit trên đúng
+  dữ liệu mà C1 fit (nguồn: toàn bộ miền nguồn; đích: phần train của từng lần chia, không dùng nhãn); giá trị thiếu điền
+  median của dữ liệu fit; cột nhị phân giữ nguyên như C1.
+mo_hinh_nguon: "LR(C = 1) như Cổng 0, học lại trên khái niệm của nguồn đã căn chỉnh bằng C1_MID"
+pham_vi: ["A→B", "B→A", "A→C", "C→A"]   # tập khái niệm chính: AB canon4; AC core; file chia Cổng 0; R = 30
+ghi_chu_K2_L0: "zero-shot của K2-L0 (đích A, nguồn B và C) trùng zero-shot Cổng 0 của B→A và C→A"
+phep_chinh:
+  so_sanh: "ZS_MID − ZS_C1, PR-AUC, bắt cặp theo lần chia"
+  so_phep: 4
+  kiem_dinh: "CI 95% hiệu chỉnh Nadeau–Bengio (0,25); Holm trên 4 phép"
+  ket_luan: "C1 ảnh hưởng đáng kể đến zero-shot khi |Δ| ≥ 0,02 và p sau Holm < 0,05"
+phep_phu:
+  - "ZS_MID − baseline chỉ dùng đích mạnh nhất ở k ∈ {10, 20, 50}: Cổng 0 (4 chiều) và K2-L0 (2 nguồn); Holm trong từng thiết lập; mô tả"
+  - "Cùng phép với ZS_C1 để đối chiếu; AUC-ROC; tương quan hạng giữa hai điểm zero-shot (không dùng nhãn)"
+quan_he_voi_ket_luan_da_chot: >-
+  Không thay đổi kết luận đã chốt của Cổng 0, KB1, K2 và họ TrAdaBoost. Nếu ảnh hưởng đáng kể, báo cáo như một đe doạ
+  đối với độ giá trị của các phép so sánh dùng C1 và đưa vào phần hạn chế.
+kiem_tra_truoc:
+  zero_shot: "c1_do_nhay.py --check-zs: ZS_C1 trùng Cổng 0 (lệch < 1e-9) ở cả hai cặp"
+  muc_san: "c1_do_nhay.py --shuffle-target --R 5: PR-AUC của ZS_C1 và ZS_MID xấp xỉ tỷ lệ dương"
+da_biet_truoc_khi_chot: >-
+  PR-AUC của ZS_C1 đã công bố (Cổng 0). KB1 đã có zero-shot khi không căn chỉnh (thang nguồn áp cho đích, mã hoá
+  "std"), 10 lần chia: B→A 0,275 so với 0,272 của C1; A→B 0,272 so với 0,328; C→A 0,175 so với 0,196; A→C 0,232 so
+  với 0,181. Tương quan hạng ZS_C1–ZS_MID (không dùng nhãn) ở trường ly_do và README. Chưa ai xem PR-AUC của ZS_MID
+  (GVHD chỉ chạy với nhãn xáo trộn). Trả lời câu 8.1 review 26/10 (deviations.md mục 20): (a) KB1 v2 có mã hoá std
+  (không căn chỉnh) và rank (C1), các số nêu trên; (b) K2 có ablation TB-HTL −C1 dùng điểm nguồn theo thang nguồn
+  (s_std) làm offset, PR-AUC của riêng điểm này không được ghi thành phương pháp zero-shot nhưng kết quả TBHTL_mC1 đã
+  được xem; (c) chưa từng tính zero-shot với C1_MID hay one-hot trên Cổng 0 hoặc K2.

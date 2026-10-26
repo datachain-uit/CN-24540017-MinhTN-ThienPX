@@ -29,3 +29,6 @@ wine_vivino_price.csv
 /*.docx
 /*.xlsx
 /*.zip
+# Review của GVHD (Word, gói mã tham khảo) và báo cáo ngày gửi GVHD: lưu trên máy, không đưa lên kho công khai
+Reviews/
+BaoCao/
