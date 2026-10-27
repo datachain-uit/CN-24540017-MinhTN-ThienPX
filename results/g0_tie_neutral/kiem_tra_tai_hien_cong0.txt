@@ -1,0 +1,4 @@
+AB: 48/48 dòng khớp, lệch tối đa 9.8e-17, dat_GO trùng: True, baseline trùng: True -> ĐẠT
+AC: 48/48 dòng khớp, lệch tối đa 9.7e-17, dat_GO trùng: True, baseline trùng: True -> ĐẠT
+AD: 48/48 dòng khớp, lệch tối đa 1.1e-16, dat_GO trùng: True, baseline trùng: True -> ĐẠT
+KẾT QUẢ: ĐẠT

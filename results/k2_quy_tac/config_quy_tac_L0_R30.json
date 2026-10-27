@@ -1,0 +1,9 @@
+{
+ "R": 30,
+ "splits_file": "prereg/splits_A_R30_M5.json",
+ "splits_sha256": "c0af5426d07c7ae9e1b6683d6a7181bd22b58cabf14a259d65b0d85c313c547b",
+ "code_sha256": "010f22d5a62510a13129e4e70600acfaa7c8ed9b5a27ef0167c892c58005907b",
+ "git_head": "756ebb1c8da69b764e78eb6a9a46f4404ef55c6c",
+ "git_dirty": false,
+ "started": "2026-10-26 13:16:11 +0000"
+}
