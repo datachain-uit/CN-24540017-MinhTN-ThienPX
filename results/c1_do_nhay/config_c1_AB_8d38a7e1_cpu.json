@@ -1,0 +1,13 @@
+{
+ "pair": "AB",
+ "R": 30,
+ "check_zs": false,
+ "shuffle_target": false,
+ "concept_set": "canon4",
+ "prereg_file_sha256": "42957958a84e5cb01fa49f671f8b71488fe7f415df3c0cbfc6fb908346819b4d",
+ "cfg": "8d38a7e1",
+ "code_sha256": "7dd38f94e0ceb205e7304bea61660e81a1d64e3431fb287102b6b215aa5eb253",
+ "git_head": "7d88d5f85a5fca61f32d8abf486d3e7a375757bb",
+ "git_dirty": false,
+ "started": "2026-10-27 21:30:17 +0700"
+}
