@@ -1,0 +1,13 @@
+{
+ "pair": "AC",
+ "R": 30,
+ "check_zs": true,
+ "shuffle_target": false,
+ "concept_set": "core",
+ "prereg_file_sha256": "fc7ba2d30cd03287087e91d0f9b1d89e710d5f60369674954b7ee42373fac987",
+ "cfg": "21360709",
+ "code_sha256": "7dd38f94e0ceb205e7304bea61660e81a1d64e3431fb287102b6b215aa5eb253",
+ "git_head": "a4c6825b98d0a603836a3a78bf9675e14cdd46c2",
+ "git_dirty": true,
+ "started": "2026-10-26 21:38:28 +0700"
+}
