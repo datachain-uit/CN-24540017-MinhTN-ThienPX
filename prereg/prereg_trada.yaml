@@ -1,0 +1,45 @@
+# prereg_trada.yaml – Tiền đăng ký họ so sánh TrAdaBoost (Review-2026-10-25, quyết định 3)
+# PHẢI commit trước lần chạy đầu tiên với nhãn thật (trada_run.py không kèm --check-zs hay --shuffle-target).
+# Trước khi commit chỉ được chạy --check-zs (đối chiếu zero-shot đã công bố) và --shuffle-target (mức sàn).
+ngay_chot: "28/10/2026"
+commit_chot: ""                       # điền ở commit tiếp theo, trước lần chạy chính
+can_cu: >-
+  Review-2026-10-25, quyết định 3. Thuật toán: Dai, Yang, Xue & Yu (2007), Boosting for transfer learning,
+  ICML 2007, tr. 193–200, DOI 10.1145/1273496.1273521.
+ly_do: >-
+  Công trình gần đề tài nhất (Pereira 2025, luận văn thạc sĩ UNICAMP, DOI 10.47749/t/unicamp.2025.1546748) dùng
+  TrAdaBoost giữa hai bộ dữ liệu nhân sự công khai và báo cáo F1 cao hơn Random Forest. Cần so sánh trực tiếp.
+pham_vi:
+  cong0: ["A→B", "B→A", "A→C", "C→A"]   # file chia Cổng 0; M = 1; k ∈ {10, 20, 50, 100, 200, 500}
+  k2_L0: ["B→A", "C→A"]                  # prereg/splits_A_R30_M5.json; M = 5; k ∈ {10, 20, 50, 100}
+khong_gian_dac_trung: >-
+  Khái niệm chung theo tập chính của cặp (AB: canon4; AC: core), căn chỉnh C1 ở cả hai miền như zero-shot;
+  C1 phía đích fit trên phần train của từng lần chia, không dùng nhãn.
+cau_hinh:
+  chinh: {ten: TRADA, khoi_tao: uniform, so_vong: 50, bo_hoc: "cây quyết định độ sâu 3", vong_cuoi: "ceil(N/2)…N"}
+  do_nhay: {ten: TRADA_BAL, khoi_tao: balanced}
+  diem_xep_hang: "tổng ln(1/β_t)·(P_t(y = 1 | x) − 1/2) qua các vòng cuối"
+  khong_chinh_sieu_tham_so: "mọi thay đổi sau khi xem kết quả ghi vào deviations.md và gọi là phiên bản mới"
+phep_chinh:
+  so_sanh: "TRADA − baseline chỉ dùng đích mạnh nhất cùng k (chọn sau khi xem, gồm TabPFN v2), k ∈ {10, 20, 50}"
+  so_phep: 18                         # 6 thiết lập × 3 mức k
+  kiem_dinh: "hiệu bắt cặp theo lần chia (K2: trung bình M lần rút); CI 95% hiệu chỉnh Nadeau–Bengio (0,25); Holm trên 18 phép"
+  dat_khi: "Δ ≥ 0,02 và p sau Holm < 0,05"
+  quan_he_voi_ket_luan_da_chot: >-
+    Không gộp vào họ Holm đã chốt của Cổng 0 và của K2; các kết luận đó giữ nguyên. Kết quả TRADA báo cáo riêng.
+  ket_luan_khi: "baseline của thiết lập đó đã có TabPFN v2"
+phep_phu:
+  - "TRADA − RF, TRADA − LR, TRADA − ZS theo PR-AUC, k ∈ {10, 20, 50, 100}; Holm trong nhóm phụ"
+  - "F1 tại ngưỡng theo tỷ lệ dương của k mẫu: TRADA − RF (mô tả); ở Cổng 0 dùng F1 từ phần bổ sung Cổng 0"
+  - "TRADA_BAL − baseline chỉ dùng đích mạnh nhất (độ nhạy theo cách khởi tạo)"
+kiem_tra_truoc:
+  zero_shot: "trada_run.py --check-zs: zero-shot tính lại trùng kết quả đã công bố (lệch < 1e-9)"
+  muc_san: "trada_run.py --shuffle-target --R 5: PR-AUC của TRADA xấp xỉ tỷ lệ dương của tập test"
+han_che_da_biet: >-
+  TrAdaBoost chỉ dùng không gian đặc trưng chung, không dùng cột riêng của đích. Ngưỡng của F1 ở đây
+  (theo tỷ lệ dương của k mẫu) có thể khác ngưỡng trong luận văn UNICAMP; phải ghi rõ khi so sánh.
+da_biet_truoc_khi_chot: >-
+  Trả lời câu hỏi 8 review 25/10: trước khi chốt, trong nhóm chưa ai chạy TrAdaBoost trên dữ liệu của đề tài, kể cả
+  chạy thử. GVHD đã chạy --check-zs và --shuffle-target (R = 3) trên bản sao kho, không chạy nhãn thật (README gói
+  mã review 25/10). Đã biết: zero-shot và baseline chỉ dùng đích của Cổng 0 và K2-L0 (results/g0_*, results/k2_v2);
+  kết quả độ nhạy C1 (41dc832): zero-shot với C1_MID cao hơn với C1 ở cả 4 chiều, đáng kể ở A→C (+0,031).
