@@ -36,11 +36,21 @@ Minh xác nhận phần 1 ngày 28/10/2026.
 
 ## 2. Phạm Xuân Thiên
 
-*(Thiên tự điền và tự commit bằng tài khoản `CauBe9x`; nếu không dùng công cụ AI cho phần nào thì ghi rõ “không dùng”.)*
+Thiên dùng công cụ AI cho **ba việc**: (1) sinh mã — tái hiện CARTE, notebook EDA bốn miền; (2) chạy các bước kiểm tra và điền tiền đăng ký cho hai phân tích dùng mã tham khảo của GVHD (độ nhạy C1, TrAdaBoost), trong đó mã của GVHD giữ nguyên, không sửa; (3) tra cứu tài liệu, lấy toàn văn, soạn và chỉnh văn bản — phiếu đọc, Bảng 1 mở rộng, bản giải trình, nhật ký, báo cáo ngày. Chi tiết theo file và commit ở bảng dưới.
+
+Công cụ: **Claude (Anthropic)**, dùng qua Claude Code trong VS Code; phiên bản mô hình thay đổi theo phiên làm việc (các phiên ngày 24/10–28/10/2026: Claude Opus 5.5). Các commit từ 25/10 có phần do công cụ sinh ra đều ghi dòng `Co-Authored-By:`.
 
 | Công cụ, phiên bản | Dùng cho | File, commit | Người kiểm tra | Cách kiểm tra |
 |---|---|---|---|---|
-| | Tái hiện CARTE (KB2b) | `kb2b_carte/` | | |
-| | EDA bốn miền | `eda/` — `b89d1d3`, `8823d07` | | |
-| | Phiếu đọc, Bảng 1 | `docs/phieu_doc/` | | |
-| | Nhật ký, giải trình | `docs/nhat_ky_tuan.md` | | |
+| Công cụ AI | **Sinh mã** tái hiện CARTE trên 3 bộ dữ liệu rượu (KB2b) | `kb2b_carte/` — `f65e85a` | Thiên | Chạy lại, đối chiếu với kết quả công bố của bài báo theo từng seed (`kb2b_carte/ket_qua/bang_so_sanh.csv`) |
+| Claude | **Sinh mã** notebook EDA bốn miền, gồm mục 6b (khái niệm của K2 sau C1) và 6c (đối chiếu Bảng A5.5a–b) | `eda/` — `b89d1d3`, `8823d07`, `d197041`, `8b0eeea` | Thiên | Số dòng, tỷ lệ dương khớp Bảng 12 báo cáo 22/10; AUC đơn biến tính lại khớp Bảng A5.5a–b 13/13; phát hiện ±5,2 của C1 được GVHD kiểm tra lại và xác nhận (review 26/10) |
+| Claude | **Chạy kiểm tra và điền tiền đăng ký** độ nhạy C1 trên mã tham khảo của GVHD (không sửa mã) | `prereg/prereg_c1_do_nhay.yaml`, `results/c1_do_nhay/`, `deviations.md` mục 21 — `1d99e32`, `7d88d5f`, `41dc832` | Thiên | `--check-zs` trùng Cổng 0 60/60; mức sàn trùng số GVHD; GVHD so mã trùng từng byte với mã tham khảo (review 27/10) |
+| Claude | **Chạy kiểm tra và điền tiền đăng ký** TrAdaBoost trên mã tham khảo của GVHD (không sửa mã) | `prereg/prereg_trada.yaml`, `results/trada/`, `deviations.md` mục 23 — `62f85fe`, `ac3193c`, commit nhật ký ngày 28/10 | Thiên | `--check-zs` trùng Cổng 0 và K2 ở 3 thiết lập (60/60 mỗi thiết lập); mức sàn trong khoảng GVHD đã chạy |
+| Claude | **Tra cứu tài liệu, lấy toàn văn, soạn** phiếu đọc và Bảng 1 mở rộng | `docs/phieu_doc/` — `b89d1d3`, `6c056db` | Thiên | Đối chiếu từng ô với toàn văn hoặc tóm tắt chính thức; ô chưa có nguồn ghi rõ lý do, không suy đoán |
+| Claude | **Soạn và chỉnh văn bản** bản giải trình, nhật ký tuần, nhật ký ngày, bảng việc, bảng phân công, bản khai báo này; báo cáo ngày gửi GVHD (file Word, không đưa lên kho) | `docs/giai_trinh_phan_viec_ThienPX.md`, `docs/nhat_ky_tuan.md`, `docs/nhat_ky_ngay.md`, `docs/viec_can_lam.md`, `docs/phan_cong.md`, `docs/khai_bao_cong_cu.md` — `54b28ce`, `d197041`, `8b0eeea`, `41dc832`, commit nhật ký ngày 28/10 | Thiên | Thiên đọc lại, đối chiếu với Git và file kết quả trước khi commit và gửi |
+
+**Lưu ý về bản giải trình ngày 24/10:** bản đó do công cụ soạn và đã ghi nhầm phần việc của Minh là của Thiên; Thiên đính chính ngày 25/10 (`54b28ce`) và chịu trách nhiệm về lỗi này.
+
+**Phần Thiên tự làm:** chạy notebook và các lệnh trên máy; commit và push bằng tài khoản `CauBe9x`; đọc review, quyết định thứ tự việc; chịu trách nhiệm về nội dung. Theo review 26/10 và 27/10, phần nhận định trong báo cáo 28/10 (mục 6–7) và đoạn tổng quan về luận văn UNICAMP do Thiên tự viết.
+
+Thiên xác nhận phần 2 ngày 28/10/2026.

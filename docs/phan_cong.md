@@ -38,11 +38,17 @@ Minh xác nhận các dòng trên ngày 28/10/2026. Hai dòng Cổng 0 với `--
 | Sản phẩm | Thư mục / file | Commit |
 |---|---|---|
 | Tái hiện CARTE trên 3 bộ dữ liệu rượu (KB2b), đối chiếu với kết quả công bố theo từng seed (GVHD ghi nhận ở review 18/10) | `kb2b_carte/code_thucnghiem_carte.py`, `kb2b_carte/Code_ThucNghiem_CARTE.ipynb`, `kb2b_carte/ket_qua/` | `f65e85a` (do Minh đẩy lên trong commit gộp) |
-| EDA bốn miền | `eda/eda_bon_mien.ipynb`, `eda/bang*.csv`, `eda/hinh/` | `b89d1d3`, `8823d07` |
-| Phiếu đọc 10 bài ưu tiên; cột phương pháp luận của Bảng 1 | `docs/phieu_doc/`, `docs/phieu_doc/bang1_phuong_phap_luan.csv` | `b89d1d3` (đang hoàn thiện, hạn 28/10) |
-| Nhật ký tuần | `docs/nhat_ky_tuan.md` | `e689490`, `b89d1d3` |
-| Việc theo review 24/10 (mục 6.5): EDA thêm miền D và khái niệm sau căn chỉnh C1 (25/10); 5 → 10 phiếu đọc (25/10, 28/10); TabPFN v2 cho K2 (30/10); CORAL ở L0, Cổng 0 với `--tie neutral` (04/11) | — | (chưa có) |
-| Việc đến 28/10: mục 6.4 review 22/10 (LightGBM, AdaBoost, Brier, ECE, F1, G-Mean, baseline đích chọn trước, XGBoost k nhỏ, xáo trộn nhãn đích), Plan.xlsx (M9), đề xuất hội nghị | — | (chưa có) |
+| EDA bốn miền: ba miền A–C; miền D, khái niệm của K2 sau C1, đối chiếu Bảng A5.5a–b; khôi phục ô tiêu đề notebook | `eda/eda_bon_mien.ipynb`, `eda/bang*.csv`, `eda/hinh/` | `b89d1d3`, `8823d07`, `d197041`, `8b0eeea` |
+| 10 phiếu đọc ưu tiên; Bảng 1 mở rộng (cột phương pháp luận) | `docs/phieu_doc/`, `docs/phieu_doc/bang1_phuong_phap_luan.csv` | `b89d1d3`, `6c056db` |
+| Dọn thư mục gốc; đính chính bản giải trình và nhật ký tuần (bỏ phần nhận nhầm việc của Minh) | `docs/giai_trinh_phan_viec_ThienPX.md`, `docs/nhat_ky_tuan.md` | `10207f4`, `54b28ce` |
+| Phân tích độ nhạy C1 (QĐ2 review 26/10): tiền đăng ký, kiểm tra đường ống, mức sàn, lần chạy chính, phân tích | `prereg/prereg_c1_do_nhay.yaml`, `c1_do_nhay.py`, `c1_do_nhay_eval.py` (mã tham khảo của GVHD), `results/c1_do_nhay/`, `deviations.md` mục 21 | `1d99e32` (A), `7d88d5f` (B), `41dc832` (kết quả) |
+| TrAdaBoost cho Cổng 0 và K2-L0 (QĐ3 review 25/10): tiền đăng ký, kiểm tra đường ống, mức sàn, lần chạy chính | `prereg/prereg_trada.yaml`, `tradaboost.py`, `trada_run.py`, `trada_eval.py` (mã tham khảo của GVHD), `results/trada/`, `deviations.md` mục 23 | `62f85fe` (A), `ac3193c` (B), kết quả: commit nhật ký ngày 28/10 của Thiên (mã bổ sung ở commit kế tiếp) |
+| Nhật ký tuần | `docs/nhat_ky_tuan.md` | `e689490`, `b89d1d3`, `54b28ce` |
+| Nhật ký ngày | `docs/nhat_ky_ngay.md` | `54b28ce` (24/10, ghi bù), `d197041` (25/10), `8b0eeea` (26/10), `41dc832` (27/10), commit nhật ký ngày 28/10 (mã bổ sung ở commit kế tiếp) |
+| Phiếu đọc [44] luận văn UNICAMP 2025 và dòng Bảng 1 (QĐ3 review 25/10; chậm một ngày so với hạn 27/10) | `docs/phieu_doc/[44]_Pereira_2025_UNICAMP.md`, `docs/phieu_doc/bang1_phuong_phap_luan.csv` | commit nhật ký ngày 28/10 của Thiên (mã bổ sung ở commit kế tiếp) |
+| Chưa làm: TabPFN v2 cho K2, phần bổ sung Cổng 0, Plan.xlsx, đề xuất hội nghị (30/10); phiếu đọc còn lại, đoạn tổng quan về luận văn, `trada_eval.py` khi có TabPFN v2 (04/11) | — | chưa làm |
+
+Thiên xác nhận các dòng trên ngày 28/10/2026. CORAL ở L0 và Cổng 0 với `--tie neutral` (ghi trong phần của Thiên theo review 24/10) đã chuyển cho Minh theo review 25/10 và 26/10 nên bỏ khỏi phần này.
 
 ## Chưa xác định
 
