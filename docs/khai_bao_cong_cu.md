@@ -15,7 +15,7 @@ Minh dùng công cụ AI cho **hai việc**: (1) sinh mã — thí nghiệm Cổ
 
 **Thay đổi từ ngày 26/10/2026** (review 26/10, mục 7.2 và 7.8; review 27/10, mục 7.2): phần nhận định trong báo cáo tiến độ, cột vướng mắc và việc tiếp trong nhật ký ngày, email gửi GVHD, luận văn và slide do Minh tự viết; công cụ AI chỉ chỉnh câu chữ, đối chiếu số liệu với file kết quả và lập bảng số liệu (kèm đường dẫn file, mã commit). Báo cáo tiến độ đến ngày 25/10, kể cả phần nhận định, có phần do công cụ soạn (dòng cuối của bảng).
 
-Công cụ: **Claude (Anthropic)**, dùng qua ứng dụng Claude; phiên bản mô hình thay đổi theo phiên làm việc (phiên ngày 24/10/2026: Claude Opus 5.5). Các phiên ngày 24/10–28/10/2026 dùng Claude Opus 5.5. Thời gian sử dụng: từ ngày **<<MINH ĐIỀN mốc bắt đầu>>** đến nay.
+Công cụ: **Claude (Anthropic)**, dùng qua ứng dụng Claude; phiên bản mô hình thay đổi theo phiên làm việc (các phiên ngày 24/10–28/10/2026: Claude Opus 5.5). Thời gian sử dụng: từ ngày 20/09/2026 đến nay.
 
 | Công cụ, phiên bản | Dùng cho | File, commit | Người kiểm tra | Cách kiểm tra |
 |---|---|---|---|---|
@@ -28,7 +28,7 @@ Công cụ: **Claude (Anthropic)**, dùng qua ứng dụng Claude; phiên bản 
 | Claude | **Sinh mã** phân tích độ nhạy Cổng 0 với quy tắc hoà trung tính (QĐ5 review 25/10) | `g0_tie_neutral_eval.py`, `results/g0_tie_neutral/` — `46dac1d` | Minh | `g0_tie_neutral_eval.py --check` sinh lại `g0_kiem_dinh_GO.csv` đã công bố của 3 cặp: 48/48 dòng mỗi cặp, lệch ≤ 1,1e-16; GVHD chạy độc lập, kết luận khớp (review 27/10) |
 | Claude | **Viết và chỉnh văn bản** tài liệu nội bộ: tiền đăng ký, đặc tả TB-HTL v0, nhật ký sai lệch, tệp quy ước cho trợ lý AI, bảng việc, bảng phân công, bản khai báo này, phản hồi review | `00_contributions.md`, `prereg/prereg_k2.yaml`, `docs/tbhtl_v0_spec.md`, `deviations.md` (mục 1–20, 22), `CLAUDE.md`, `docs/viec_can_lam.md`, `docs/phan_cong.md`, `docs/khai_bao_cong_cu.md`, `README.md` — `79a0a4c`, `d2f1ef5`, `0c84285`, `2a1bbb0`, `46b6770`, `756ebb1`, `46dac1d` | Minh | Minh đọc lại, đối chiếu với review và Git, chịu trách nhiệm nội dung; các quyết định thiết kế theo review của GVHD |
 | Claude | **Viết và chỉnh văn bản** báo cáo tiến độ và nhật ký ngày | Báo cáo Word đến 25/10 (`bao_cao/build.js`): công cụ soạn cả phần trình bày và nhận định. Từ 26/10: công cụ lập bảng số liệu và chỉnh câu chữ, Minh tự viết nhận định. Nhật ký ngày (`dbd3072`, `f1e39aa`, `a4c6825`, `7824905`): công cụ soạn cột “Đã làm”, “Kết quả” từ Git và file kết quả; Minh viết cột vướng mắc, việc tiếp. Email: Minh viết, có lúc tham khảo gợi ý ý chính của công cụ | Minh | Minh đối chiếu từng số với file kết quả và mã commit trước khi gửi |
-| **<<MINH ĐIỀN: Claude / không dùng>>** | Tái hiện Levin et al. (KB2), bản nháp LaTeX 11/10 | `kb2_levin/`, `paper/tbhtl.tex` — `f65e85a` | Minh | **<<MINH ĐIỀN cách kiểm tra>>** |
+| Claude (mã KB2); không dùng (LaTeX) | Tái hiện Levin et al. (KB2), bản nháp LaTeX 11/10 | `kb2_levin/`, `paper/tbhtl.tex` — `f65e85a` | Minh | Chạy `kb2_levin/` trên Colab, so với bài báo; bản nháp LaTeX Minh tự viết
 
 **Phần Minh tự làm:** chạy các thí nghiệm trên Colab và trên máy; quyết định thiết kế theo các review của GVHD; kiểm tra kết quả bằng `kiem_tra_tai_lap.py`; phân công và rà soát công việc trong nhóm (rà soát commit B độ nhạy C1 của Thiên, `7d88d5f`); viết nhận định trong báo cáo từ 26/10, cột vướng mắc và việc tiếp trong nhật ký, email gửi GVHD; commit và chịu trách nhiệm về nội dung.
 
