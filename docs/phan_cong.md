@@ -3,7 +3,7 @@
 Trả lời câu 2 mục 7 (review 18/10) và N5 (review 22/10). Mỗi dòng ghi người làm chính và commit chứa sản phẩm.
 **Lưu ý về tác giả commit:** kho Git được lập ngày 22/10; hai commit đầu (`d03cd28`, `f65e85a`) do Minh đẩy lên và **gộp sản phẩm của cả hai thành viên** làm trước ngày đó, nên tác giả commit của hai commit này không phản ánh đúng người làm. Bảng dưới đây là căn cứ phân công; từ 23/10 mỗi người commit bằng tài khoản của mình (Minh: `NhatMinh998`, Thiên: `CauBe9x`).
 
-Cập nhật: 24/10/2026. Mỗi thành viên tự xác nhận dòng của mình trước khi commit.
+Cập nhật: 28/10/2026 (phần của Minh; phần của Thiên do Thiên tự cập nhật). Mỗi thành viên tự xác nhận dòng của mình bằng một commit từ tài khoản của mình (review 26/10, mục 7.6; hạn 22:00 ngày 28/10 theo review 27/10).
 
 ## Tăng Nhật Minh (24540017)
 
@@ -21,7 +21,17 @@ Cập nhật: 24/10/2026. Mỗi thành viên tự xác nhận dòng của mình 
 | K2: mã chạy, phân tích, notebook TabPFN v2; kết quả K2 | `k2_run.py`, `k2_eval.py`, `notebooks/chay_TabPFN_v2_K2_Colab.ipynb`, `results/k2/` | `3112a8f`; kết quả lần chạy theo bản chốt 23/10: `48bf86a` |
 | Thăm dò TB-HTL dạng mạng nơ-ron (không dùng cho kết luận) | `tbhtl_thamdo_nn.py`, `tbhtl_thamdo_eval.py` | `79a0a4c` |
 | Sửa đổi K2 theo review 24/10 (áp bản vá của GVHD; F1, G-Mean; ghi tỷ lệ hoà; đổi tên lần chạy MLP; tài liệu tiền đăng ký; notebook TabPFN v2 cho 5 mức; kiểm tra tái lập bổ sung) | `k2_run.py`, `k2_eval.py`, `g0_pair.py`, `kiem_tra_tai_lap.py`, `prereg/prereg_k2.yaml`, `deviations.md` mục 9–14, `docs/khai_bao_cong_cu.md` | `0c84285` |
-| Kiểm tra mức sàn K2 (nhãn đích xáo trộn) | `k2_muc_san.py`, `results/k2_v2/*xao_tron_dich*`, `results/k2_v2/k2_muc_san.*` | commit sau `0c84285` |
+| Kiểm tra mức sàn K2 (nhãn đích xáo trộn) | `k2_muc_san.py`, `results/k2_v2/*xao_tron_dich*`, `results/k2_v2/k2_muc_san.*` | `a9727e0` |
+| Bảng phân công có mã commit; chặn dữ liệu ở thư mục gốc (`.gitignore`) | `docs/phan_cong.md`, `.gitignore` | `a3722ff` |
+| Kết quả K2 sơ bộ theo bản chốt 23/10 (30 lần chia × 5 lần rút, CPU); `deviations.md` mục 7–8 | `results/k2/` | `48bf86a` |
+| Đính chính thứ tự chạy kiểm tra mức sàn so với commit sửa đổi | `deviations.md` mục 15 | `2a1bbb0` |
+| K2 sau sửa đổi (5 mức, 30 × 5, hai nguồn; sơ bộ, chưa có TabPFN v2); sửa trình bày đặc tả TB-HTL (V9 review 25/10); tệp quy ước cho trợ lý AI; bảng việc cần làm; script lấy số liệu cho nhật ký | `results/k2_v2/`, `docs/tbhtl_v0_spec.md`, `deviations.md` mục 16, `CLAUDE.md`, `docs/viec_can_lam.md`, `tools/so_lieu_ngay.py` | `46b6770` |
+| Theo review 26/10: sửa tệp quy ước (quy tắc 2, chặn chạy nhãn thật trước `commit_chot`, khai nhận có minh chứng); lập lại bảng việc; ô suy biến, đường tham chiếu quy tắc, bỏ K2-XN, trả lời câu 8.1; sửa hai con số V6; mã đường tham chiếu quy tắc ở K2-L0 | `CLAUDE.md`, `docs/viec_can_lam.md`, `deviations.md` mục 17–20, `00_contributions.md`, `k2_quy_tac.py` | `756ebb1` |
+| Kết quả đường tham chiếu quy tắc ở K2-L0 (30 lần chia); Cổng 0 với quy tắc hoà trung tính (6 chiều) kèm trạng thái Git và kiểm tra tái hiện kết quả gốc; giờ chạy và giờ commit | `results/k2_quy_tac/`, `results/g0_tie_neutral/`, `g0_tie_neutral_eval.py`, `deviations.md` mục 22 | `46dac1d` |
+| Nhật ký ngày (phần của Minh) | `docs/nhat_ky_ngay.md` | `dbd3072` (24/10), `f1e39aa` (25/10), `a4c6825` (26/10), `7824905` (27/10) |
+| Rà soát commit B độ nhạy C1 của Thiên (`7d88d5f`): `commit_chot` `1d99e32`, mức sàn chạy sau commit A | nhận xét ghi ở dòng nhật ký 28/10 | commit nhật ký 28/10 |
+
+Minh xác nhận các dòng trên ngày 28/10/2026. Hai dòng Cổng 0 với `--tie neutral` và CORAL ở L0 ghi trong phần của Thiên (theo review 24/10) đã chuyển cho Minh theo review 25/10 (QĐ5) và 26/10 (QĐ5); Thiên tự sửa dòng đó trong phần của mình.
 
 ## Phạm Xuân Thiên (24540028)
 

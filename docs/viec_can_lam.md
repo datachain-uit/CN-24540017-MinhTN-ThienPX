@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 27/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
+Cập nhật: 28/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -17,11 +17,12 @@ Cập nhật: 27/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 25/10 | Sửa trình bày đặc tả TB-HTL (V9) | R25 V9 | `docs/tbhtl_v0_spec.md`, `deviations.md` 16 | ☑ | `46b6770` |
 | 26/10 | Sửa `CLAUDE.md` (quy tắc 2; không chạy nhãn thật trước `commit_chot`; khai nhận có minh chứng) và bảng việc này | R26 7.7 | `CLAUDE.md`, `docs/viec_can_lam.md` | ☑ | `756ebb1` |
 | 26/10 | Ghi chú ô suy biến (V5); sửa hai con số trong `00_contributions.md` (V6); ghi bỏ K2-XN; trả lời câu 8.1 | R26 V5, V6, 7.1, 8.1 | `deviations.md` 17–20 | ☑ | `756ebb1` |
-| 26/10 | Rà soát tiền đăng ký độ nhạy C1 của Thiên | R26 7.8 | nhận xét trên commit A của Thiên | GVHD đã rà soát thay (QĐ3 review 27/10); Minh rà soát commit B | |
-| 26–27/10 | Đường tham chiếu quy tắc ở K2-L0: commit mã + dòng `deviations.md` **trước**, rồi chạy 30 lần chia | R26 7.5 | `k2_quy_tac.py`, `results/k2_quy_tac/` | ☑ mã `756ebb1`; kết quả commit 27/10 | commit kết quả 27/10 |
-| 27/10 | Cổng 0 với `--tie neutral` (6 chiều) | R25 QĐ5 | `results/g0_tie_neutral/` | ☑ PIVOT không đổi 6 chiều; kết quả commit 27/10 | commit kết quả 27/10 |
+| 26/10 | Rà soát tiền đăng ký độ nhạy C1 của Thiên | R26 7.8 | nhận xét trên commit A của Thiên | GVHD đã rà soát commit A thay (QĐ3 review 27/10); Minh rà soát commit B: ☑ đạt (28/10, ghi ở nhật ký 28/10) | `7d88d5f` (commit được rà soát) |
+| 26–27/10 | Đường tham chiếu quy tắc ở K2-L0: commit mã + dòng `deviations.md` **trước**, rồi chạy 30 lần chia | R26 7.5 | `k2_quy_tac.py`, `results/k2_quy_tac/` | ☑ | mã `756ebb1`; kết quả `46dac1d` |
+| 27/10 | Cổng 0 với `--tie neutral` (6 chiều) | R25 QĐ5 | `results/g0_tie_neutral/` | ☑ PIVOT không đổi 6 chiều | `46dac1d` |
 | 28/10 | Báo cáo Word cập nhật theo R26 7.2 và R25 7.6 (Bảng 0 phản hồi review 18/10, 22/10, 24/10, 25/10, 26/10; trình tự chạy K2; bảng K2 sơ bộ; L0 so với quy tắc và mức trần KB1; hạn chế C1 và khái niệm chung; trích dẫn pháp lý; đặc tả TB-HTL). **Phần nhận định do Minh tự viết** | R26 7.2 | Báo cáo 28/10 | ☐ | |
-| 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☐ | |
+| 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☑ | commit xác nhận 28/10 |
+| 28/10 | Khai báo công cụ AI (phần của Minh) | R27 7.2 mục 8 | `docs/khai_bao_cong_cu.md` | ☑ | commit khai báo 28/10 |
 | 29–30/10 | CORAL ở L0 (mã và lần chạy) | R26 QĐ5 | `results/k2_v2/*CORAL*` | ☐ | |
 | 31/10–04/11 | Kết luận K2 (GO theo Holm, H5) khi có TabPFN v2; RQ6; CORAL | R26 7.8 | `k2_ket_luan.csv` chính thức | ☐ | |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
