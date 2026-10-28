@@ -2,7 +2,7 @@
 # PHẢI commit trước lần chạy đầu tiên với nhãn thật (trada_run.py không kèm --check-zs hay --shuffle-target).
 # Trước khi commit chỉ được chạy --check-zs (đối chiếu zero-shot đã công bố) và --shuffle-target (mức sàn).
 ngay_chot: "28/10/2026"
-commit_chot: ""                       # điền ở commit tiếp theo, trước lần chạy chính
+commit_chot: "62f85fe"                       # điền ở commit tiếp theo, trước lần chạy chính
 can_cu: >-
   Review-2026-10-25, quyết định 3. Thuật toán: Dai, Yang, Xue & Yu (2007), Boosting for transfer learning,
   ICML 2007, tr. 193–200, DOI 10.1145/1273496.1273521.

@@ -1,0 +1,22 @@
+{
+ "setting": "k2l0",
+ "pair": "k2l0",
+ "R": 5,
+ "M": 2,
+ "ks": null,
+ "inits": {
+  "TRADA": "uniform",
+  "TRADA_BAL": "balanced"
+ },
+ "shuffle_target": true,
+ "check_zs": false,
+ "n_rounds": 50,
+ "max_depth": 3,
+ "prereg_file_sha256": "d9f4bf3314bea69c3177d75e958136a9b688bfa5d567574984cf0cd838aceb88",
+ "cfg": "e327b101",
+ "code_sha256": "ab9eef287acf888f9acfb7fa75eed54ca86be232a7355c2fd7c7d2e88b477232",
+ "tradaboost_sha256": "23b4334718d376ff326def0eaf2cbe3e4c63e2d57756073212f56b4a9a4c6add",
+ "git_head": "62f85fe877f769d3f47a4d8bc8265025ca677425",
+ "git_dirty": false,
+ "started": "2026-10-28 21:08:30 +0700"
+}
