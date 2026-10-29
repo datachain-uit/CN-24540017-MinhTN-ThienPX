@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 28/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
+Cập nhật: 29/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -23,7 +23,7 @@ Cập nhật: 28/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 28/10 | Báo cáo Word cập nhật theo R26 7.2 và R25 7.6 (Bảng 0 phản hồi review 18/10, 22/10, 24/10, 25/10, 26/10; trình tự chạy K2; bảng K2 sơ bộ; L0 so với quy tắc và mức trần KB1; hạn chế C1 và khái niệm chung; trích dẫn pháp lý; đặc tả TB-HTL). **Phần nhận định do Minh tự viết** | R26 7.2 | Báo cáo 28/10 | ☐ | |
 | 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☑ | commit xác nhận 28/10 |
 | 28/10 | Khai báo công cụ AI (phần của Minh) | R27 7.2 mục 8 | `docs/khai_bao_cong_cu.md` | ☑ | commit khai báo 28/10 |
-| 29–30/10 | CORAL ở L0 (mã và lần chạy) | R26 QĐ5 | `results/k2_v2/*CORAL*` | ☐ | |
+| 29–30/10 | CORAL ở L0: commit A (mã, `deviations.md` mục 24) → `--check`, mức sàn → commit B → chạy chính | R26 QĐ5 | `k2_coral.py`, `results/k2_coral/`, `results/k2_v2/*CORAL*` | ◐ commit A 29/10 | |
 | 31/10–04/11 | Kết luận K2 (GO theo Holm, H5) khi có TabPFN v2; RQ6; CORAL | R26 7.8 | `k2_ket_luan.csv` chính thức | ☐ | |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
 
