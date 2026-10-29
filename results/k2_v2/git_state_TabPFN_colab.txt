@@ -1,0 +1,4 @@
+faa0f6be38fe71e93da363fd7de7817e248c627b
+Colab T4, bat dau: 2026-10-29 14:30:38 UTC; k2_run.py khong sua (ma bam ghi trong file cau hinh)
+Name: tabpfn
+Version: 2.1.3
