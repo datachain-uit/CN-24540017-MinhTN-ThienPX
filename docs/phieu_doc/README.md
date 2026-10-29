@@ -18,6 +18,7 @@ Chọn theo mức liên quan trực tiếp tới thí nghiệm của đề tài.
 | [32] | Domain Separation Networks | Gần TB-HTL nhất về tách biểu diễn chung/riêng | Đủ |
 | [33] | Daumé III – frustratingly easy DA | Baseline DAUME_LR trong Cổng 0 | Đủ |
 | [43] | De Vos et al. 2025 | Giao thức benchmark, nguồn các mô hình chỉ dùng đích | Đủ |
+| [44] | Pereira 2025, luận văn thạc sĩ UNICAMP | Gần đề tài nhất về câu hỏi: TrAdaBoost giữa hai bộ nhân sự công khai, ít nhãn đích (QĐ3 review 25/10) | Đủ (28/10) |
 
 Tình trạng 24/10: 10/10 phiếu đã lập, đã điền ngày đọc và thời gian đọc. Sáu phiếu đủ mục giao thức; bốn phiếu còn ô chờ toàn văn, nhưng không ô nào để trống hay suy đoán — mỗi ô ghi rõ cần gì và lấy ở đâu.
 
