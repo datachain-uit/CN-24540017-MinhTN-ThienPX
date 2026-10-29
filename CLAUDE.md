@@ -22,7 +22,7 @@ Kho mã của khóa luận *Ứng dụng học chuyển giao để dự đoán r
 | Dữ liệu, loại trùng | `data/README.md` (SHA-256), `hr_data.py`, `pairs.py` |
 | File chia | `splits.py` (Cổng 0), `splits_k2.py`, `prereg/splits_A_R30_M5.json` |
 | Cổng 0, ba cặp miền | `g0_23.py`, `g0_pair.py` (`--tie first` mặc định), `g0_decision.py`, `pairs_synthesis.py` |
-| K2 (RQ5, RQ6), TB-HTL v0 | `k2_run.py`, `k2_eval.py`, `k2_muc_san.py`, `docs/tbhtl_v0_spec.md`; kết quả `results/k2` (bản chốt 23/10), `results/k2_v2` (sau sửa đổi) |
+| K2 (RQ5, RQ6), TB-HTL v0, CORAL ở L0 | `k2_run.py`, `k2_coral.py` (deviations 24), `k2_eval.py`, `k2_muc_san.py`, `docs/tbhtl_v0_spec.md`; kết quả `results/k2` (bản chốt 23/10), `results/k2_v2` (sau sửa đổi) |
 | Đường tham chiếu K2-L0, độ nhạy C1, TrAdaBoost | `k2_quy_tac.py` (Minh), `c1_do_nhay.py` (Thiên), `tradaboost.py`, `trada_run.py` (Thiên); tiền đăng ký trong `prereg/` |
 | Thống kê | CI hiệu chỉnh Nadeau–Bengio (0,25), Holm, MDE: `k2_eval.py`, `mde_cong0.py`, `friedman_chieu.py` |
 | Tái lập | `TAI_LAP.md`, `tai_lap_bang.sh`, `kiem_tra_tai_lap.py` (phải TẤT CẢ ĐẠT trước khi commit) |

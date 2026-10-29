@@ -13,6 +13,8 @@ Mỗi (nguồn, mức lược đồ, phương pháp, k, lần chia): lấy trung
   (4) H5   : lợi ích = PR-AUC(phương pháp) − PR-AUC(PRESEL) cùng mức; hiệu L0 − L2 (chính), L0 − L1_core, L1_core − L2
              (xu hướng) cho TBHTL và RANKAVG_RF ở k ∈ {10, 20, 50}; Holm riêng cho từng loại (V3, review 24/10).
   (5) Tỷ lệ hoà khi chọn w (RANKAVG, RANKAVG_RF) và λ_s (TBHTL), phân bố w, λ_s theo k (V1); F1, G-Mean mô tả (V7).
+CORAL (chỉ ở L0, k2_coral.py, deviations.md mục 24) không dùng nhãn đích nên như ZS: k = "zero", so ở mọi k; thuộc họ GO,
+họ báo cáo và nhóm "chuyển giao tốt nhất" của RQ6 ở L0 như tiền đăng ký (transfer_L0_only). Thiếu file CORAL → kết quả như cũ.
 CI 95% hiệu chỉnh Nadeau–Bengio (0,25); Holm trong mỗi họ (nguồn × mức × họ so sánh); MDE (power 80%).
 """
 import glob, os, sys
@@ -26,8 +28,9 @@ import matplotlib.pyplot as plt
 RATIO = 0.25
 KS = ["10", "20", "50", "100"]
 TO = ["LR", "RF", "XGB", "XGB_SMALLK", "CAT", "STACK", "LightGBM", "AdaBoost", "TabPFN"]
-TR = ["ZS", "STK_LR", "STK_XGB", "OFF_XGB", "DAUME_LR", "RANKAVG", "ANCHOR_LR", "RANKAVG_RF", "TBHTL"]
+TR = ["ZS", "CORAL", "STK_LR", "STK_XGB", "OFF_XGB", "DAUME_LR", "RANKAVG", "ANCHOR_LR", "RANKAVG_RF", "TBHTL"]
 TB_ABL = ["TBHTL_mC1", "TBHTL_mC2", "TBHTL_mC4", "TBHTL_SHUF"]
+ZERO = {"ZS", "CORAL"}                 # phương pháp không dùng nhãn đích: một giá trị cho mọi k
 SRC_NAME = {"B": "Job Change → IBM", "C": "HR 14.999 → IBM"}
 
 
@@ -77,7 +80,7 @@ def main(folder):
     for src, lv in combos:
         T = combo_table(r, src, lv)
         pr = T.pr_auc.unstack("rep")
-        get = lambda m, k: pr.loc[(m, "zero" if m == "ZS" else k)] if (m, "zero" if m == "ZS" else k) in pr.index else None
+        get = lambda m, k: pr.loc[(m, "zero" if m in ZERO else k)] if (m, "zero" if m in ZERO else k) in pr.index else None
         for k in KS:
             cand = {m: get(m, k).mean() for m in TO if get(m, k) is not None}
             best_to = max(cand, key=cand.get)
@@ -98,7 +101,7 @@ def main(folder):
             for m in TO + ["PRESEL"] + TR + TB_ABL:
                 x = get(m, k)
                 if x is not None:
-                    kk = (m, "zero" if m == "ZS" else k)
+                    kk = (m, "zero" if m in ZERO else k)
                     curve_rows.append(dict(source=src, level=lv, k=int(k), method=m, pr_auc=x.mean(),
                                            **{c: T[c].unstack("rep").loc[kk].mean() for c in ["auc_roc", "brier", "ece", "f1", "gmean"]}))
     D = pd.DataFrame(out)
@@ -195,7 +198,7 @@ def main(folder):
                 ax.axis("off"); continue
             xs = np.arange(len(KS)); val = lambda m: [g[(g.method == m) & (g.k == int(k))].pr_auc.mean() for k in KS]
             to_best = [g[(g.k == int(k)) & g.method.isin(TO)].pr_auc.max() for k in KS]
-            tr_best = [g[(g.k == int(k)) & g.method.isin(TR[1:-1])].pr_auc.max() for k in KS]
+            tr_best = [g[(g.k == int(k)) & g.method.isin([m for m in TR if m not in ZERO | {"TBHTL"}])].pr_auc.max() for k in KS]
             ax.plot(xs, to_best, "k--", marker="o", label="Đích mạnh nhất (sau khi xem)")
             ax.plot(xs, val("PRESEL"), color="#7f7f7f", marker="s", label="Đích chọn trước (PRESEL)")
             ax.plot(xs, tr_best, color="#2a78d6", marker="D", label="Chuyển giao đơn giản tốt nhất")

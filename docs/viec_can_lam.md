@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 28/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
+Cập nhật: 29/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -23,7 +23,7 @@ Cập nhật: 28/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 28/10 | Báo cáo Word cập nhật theo R26 7.2 và R25 7.6 (Bảng 0 phản hồi review 18/10, 22/10, 24/10, 25/10, 26/10; trình tự chạy K2; bảng K2 sơ bộ; L0 so với quy tắc và mức trần KB1; hạn chế C1 và khái niệm chung; trích dẫn pháp lý; đặc tả TB-HTL). **Phần nhận định do Minh tự viết** | R26 7.2 | Báo cáo 28/10 | ☐ | |
 | 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☑ | commit xác nhận 28/10 |
 | 28/10 | Khai báo công cụ AI (phần của Minh) | R27 7.2 mục 8 | `docs/khai_bao_cong_cu.md` | ☑ | commit khai báo 28/10 |
-| 29–30/10 | CORAL ở L0 (mã và lần chạy) | R26 QĐ5 | `results/k2_v2/*CORAL*` | ☐ | |
+| 29–30/10 | CORAL ở L0: commit A (mã, `deviations.md` mục 24) → `--check`, mức sàn → commit B → chạy chính | R26 QĐ5 | `k2_coral.py`, `results/k2_coral/`, `results/k2_v2/*CORAL*` | ◐ commit A 29/10 | |
 | 31/10–04/11 | Kết luận K2 (GO theo Holm, H5) khi có TabPFN v2; RQ6; CORAL | R26 7.8 | `k2_ket_luan.csv` chính thức | ☐ | |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
 
@@ -35,11 +35,11 @@ Cập nhật: 28/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 25/10 | Dọn thư mục gốc; đính chính giải trình, nhật ký tuần | R25 V8, V3 | `git rm`, `docs/` | ☑ | `10207f4`, `54b28ce` |
 | 26/10 | Khôi phục ô tiêu đề notebook EDA từ `b89d1d3` | R26 V7 | `eda/eda_bon_mien.ipynb` | ☑ | `8b0eeea` |
 | 26/10 | Độ nhạy C1: `--check-zs` (ĐẠT) → commit A → mức sàn → commit B | R26 7.3 | `prereg/prereg_c1_do_nhay.yaml`, `c1_do_nhay*.py` | ☑ (commit A 26/10, commit B 27/10) | `1d99e32`, `7d88d5f` |
-| 26/10 | Phiếu đọc luận văn UNICAMP 2025 ([44]) và dòng Bảng 1 | R25 7.3, R26 7.4 | `docs/phieu_doc/` | ☐ chưa làm (toàn văn tải 27/10) | |
-| 27/10 | Độ nhạy C1 chạy chính; `c1_do_nhay_eval.py` | R26 7.3 | `results/c1_do_nhay/` | ☑ (27/10; mã commit bổ sung ở commit kế tiếp) | |
-| 27/10 | TrAdaBoost: `--check-zs` 3 thiết lập → commit A → mức sàn → commit B (gói mã review 25/10) | R25 7.3, R26 7.4 | `prereg/prereg_trada.yaml`, `tradaboost.py`, `trada_*.py` | ☐ | |
-| 28/10 | TrAdaBoost chạy chính; đoạn tổng quan về luận văn và đoạn kết quả C1 (Thiên tự viết) | R26 7.3, 7.4 | `results/trada/`, đoạn văn | ☐ | |
-| 28/10 | Khai báo công cụ AI (phần Thiên); xác nhận bảng phân công; phiếu đọc còn lại; Plan.xlsx; đề xuất 2–3 hội nghị | R25, R26 7.6 | `docs/` | ☐ | |
+| 26/10 | Phiếu đọc luận văn UNICAMP 2025 ([44]) và dòng Bảng 1 | R25 7.3, R26 7.4 | `docs/phieu_doc/` | ☑ (28/10, chậm một ngày) | commit nhật ký ngày 28/10 của Thiên; mã bổ sung ở commit kế tiếp |
+| 27/10 | Độ nhạy C1 chạy chính; `c1_do_nhay_eval.py` | R26 7.3 | `results/c1_do_nhay/` | ☑ (27/10) | `41dc832` |
+| 27/10 | TrAdaBoost: `--check-zs` 3 thiết lập → commit A → mức sàn → commit B (gói mã review 25/10) | R25 7.3, R26 7.4 | `prereg/prereg_trada.yaml`, `tradaboost.py`, `trada_*.py` | ☑ (làm ngày 28/10) | `62f85fe` (A), `ac3193c` (B) |
+| 28/10 | TrAdaBoost chạy chính; đoạn tổng quan về luận văn và đoạn kết quả C1 (Thiên tự viết) | R26 7.3, 7.4 | `results/trada/`, đoạn văn | ◐ lần chạy chính xong 28/10; đoạn văn chưa làm (đoạn tổng quan dời sang 04/11 theo R27 QĐ5) | commit nhật ký ngày 28/10 của Thiên |
+| 28/10 | Khai báo công cụ AI (phần Thiên); xác nhận bảng phân công; phiếu đọc còn lại; Plan.xlsx; đề xuất 2–3 hội nghị | R25, R26 7.6 | `docs/` | ◐ khai báo, xác nhận phân công: xong 28/10; phiếu đọc còn lại dời 04/11, Plan.xlsx và đề xuất hội nghị dời 30/10 (R27 QĐ5) | commit nhật ký ngày 28/10 của Thiên |
 | 30/10 | TabPFN v2 cho K2 (5 mức) trên Colab, ghi `git rev-parse HEAD` + `git status --porcelain` cạnh kết quả | R26 V7 | `results/k2_v2/*TabPFN*` | ☐ | |
 | 30/10 | Phần bổ sung Cổng 0 (LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean; xáo trộn nhãn B→A) | R22 6.4, R25 QĐ5 | `results/g0_*` | ☐ | |
 | 04/11 | `trada_eval.py`; bảng đối chiếu với luận văn | R26 7.4 | bảng | ☐ | |
