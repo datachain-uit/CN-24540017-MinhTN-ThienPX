@@ -1,0 +1,21 @@
+{
+ "prereg": "79a0a4cdb24e8178a5e63dc3c6b013791ed0fab2",
+ "method": "CORAL",
+ "level": "L0",
+ "eps": 1.0,
+ "R": 30,
+ "sources": [
+  "B",
+  "C"
+ ],
+ "mode": "kiem_tra_zs",
+ "cfg": "d4851e01",
+ "splits_file": "prereg/splits_A_R30_M5.json",
+ "splits_sha256": "c0af5426d07c7ae9e1b6683d6a7181bd22b58cabf14a259d65b0d85c313c547b",
+ "prereg_file_sha256": "c3e33d8500988913c879b3be079e5fb93dfca279e7a673fa4ec8592240495f20",
+ "code_sha256": "e559fbb35f055664807a5844f83e80efed3f473767f45e3ebaebd290cefa25e4",
+ "git_head": "9d27d4e19a896038cb2ed86ef6a135bef488a212",
+ "git_dirty": false,
+ "git_status": "",
+ "started": "2026-10-29 14:59:38 +0000"
+}

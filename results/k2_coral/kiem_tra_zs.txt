@@ -1,0 +1,1 @@
+Kiểm tra (căn chỉnh = I): 60/60 giá trị khớp ZS của results/k2_v2, lệch lớn nhất 8.3e-17 -> ĐẠT
