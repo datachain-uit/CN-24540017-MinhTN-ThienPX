@@ -1,0 +1,14 @@
+Đối chiếu k2_ket_luan.csv / k2_kiem_dinh.csv (lần chạy của nhóm, 30/10) với Phụ lục A4 review 30/10 (số GVHD làm tròn).
+B – L0        nhóm: CORAL@k=10 +0.087 p 0.005 p Holm 0.151 PIVOT (họ 30 phép) | A4: CORAL@k=10 +0.087 p 0.005 p Holm 0.15 PIVOT -> KHỚP
+B – L1        nhóm: RANKAVG_RF@k=10 +0.020 p 0.307 p Holm 1.000 PIVOT (họ 27 phép) | A4: RANKAVG_RF@k=10 +0.020 p 0.31 p Holm 1.0 PIVOT -> KHỚP
+B – L1_noAge  nhóm: RANKAVG_RF@k=10 +0.022 p 0.251 p Holm 1.000 PIVOT (họ 27 phép) | A4: RANKAVG_RF@k=10 +0.022 p 0.25 p Holm 1.0 PIVOT -> KHỚP
+B – L1_core   nhóm: RANKAVG_RF@k=10 +0.021 p 0.283 p Holm 1.000 PIVOT (họ 27 phép) | A4: RANKAVG_RF@k=10 +0.021 p 0.28 p Holm 1.0 PIVOT -> KHỚP
+B – L2        nhóm: RANKAVG_RF@k=10 +0.015 p 0.454 p Holm 1.000 PIVOT (họ 27 phép) | A4: RANKAVG_RF@k=10 +0.015 p 0.45 p Holm 1.0 PIVOT -> KHỚP
+C – L0        nhóm: DAUME_LR@k=20 +0.016 p 0.206 p Holm 1.000 PIVOT (họ 30 phép) | A4: DAUME_LR@k=20 +0.016 p 0.21 p Holm 1.0 PIVOT -> KHỚP
+C – L1        nhóm: DAUME_LR@k=50 -0.012 p 0.410 p Holm 0.927 PIVOT (họ 27 phép) | A4: DAUME_LR@k=50 -0.012 p 0.41 p Holm 0.93 PIVOT -> KHỚP
+C – L1_noAge  nhóm: DAUME_LR@k=50 -0.008 p 0.548 p Holm 0.949 PIVOT (họ 27 phép) | A4: DAUME_LR@k=50 -0.008 p 0.55 p Holm 0.95 PIVOT -> KHỚP
+C – L1_core   nhóm: DAUME_LR@k=50 -0.022 p 0.131 p Holm 0.690 PIVOT (họ 27 phép) | A4: DAUME_LR@k=50 -0.022 p 0.13 p Holm 0.69 PIVOT -> KHỚP
+C – L2        nhóm: RANKAVG_RF@k=10 -0.025 p 0.199 p Holm 0.618 PIVOT (họ 27 phép) | A4: RANKAVG_RF@k=10 -0.025 p 0.2 p Holm 0.62 PIVOT -> KHỚP
+CORAL cấu hình 1035e677 (trùng cấu hình GVHD ghi ở A4); PR-AUC trung bình nguồn B 0,293, nguồn C 0,186 (A4: 0,293; 0,186).
+k2_h5.csv, k2_hoa.csv, k2_tbhtl_lambda.csv, k2_presel_chon.csv: không đổi so với 46b6770 (git diff rỗng), như A4.
+KẾT QUẢ: KHỚP PHỤ LỤC A4

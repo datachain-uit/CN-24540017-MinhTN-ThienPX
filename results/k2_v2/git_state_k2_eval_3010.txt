@@ -1,0 +1,8 @@
+Lần chạy chính CORAL và k2_eval.py ngày 30/10/2026 (QĐ2 review 30/10), máy chủ đám mây dùng cùng trợ lý AI, giờ máy chạy UTC.
+Trạng thái Git ghi bằng lệnh trước khi chạy k2_eval.py:
+git rev-parse HEAD: 423dd08f622c604a7190eeb17d3fd8a3b06310fb  (commit B của CORAL)
+git status --porcelain (chỉ hai file kết quả CORAL vừa sinh, chưa có thay đổi nào trong mã):
+?? results/k2_v2/config_k2_1035e677_CORAL.json
+?? results/k2_v2/results_k2_1035e677_CORAL.csv
+k2_coral.py bắt đầu: 2026-10-30 14:04:40 +0000 (git_head 423dd08, git_dirty false; config_k2_1035e677_CORAL.json)
+k2_eval.py results/k2_v2 bắt đầu: 2026-10-30 14:04:48 +0000; đầu ra ghi đè k2_kiem_dinh.csv, k2_ket_luan.csv, k2_duong_cong.csv, k2_hinh_duong_cong.png, k2_eval.log

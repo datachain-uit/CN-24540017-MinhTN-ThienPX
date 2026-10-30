@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 29/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
+Cập nhật: 30/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -21,10 +21,12 @@ Cập nhật: 29/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 26–27/10 | Đường tham chiếu quy tắc ở K2-L0: commit mã + dòng `deviations.md` **trước**, rồi chạy 30 lần chia | R26 7.5 | `k2_quy_tac.py`, `results/k2_quy_tac/` | ☑ | mã `756ebb1`; kết quả `46dac1d` |
 | 27/10 | Cổng 0 với `--tie neutral` (6 chiều) | R25 QĐ5 | `results/g0_tie_neutral/` | ☑ PIVOT không đổi 6 chiều | `46dac1d` |
 | 28/10 | Báo cáo Word cập nhật theo R26 7.2 và R25 7.6 (Bảng 0 phản hồi review 18/10, 22/10, 24/10, 25/10, 26/10; trình tự chạy K2; bảng K2 sơ bộ; L0 so với quy tắc và mức trần KB1; hạn chế C1 và khái niệm chung; trích dẫn pháp lý; đặc tả TB-HTL). **Phần nhận định do Minh tự viết** | R26 7.2 | Báo cáo 28/10 | ☐ | |
-| 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☑ | commit xác nhận 28/10 |
-| 28/10 | Khai báo công cụ AI (phần của Minh) | R27 7.2 mục 8 | `docs/khai_bao_cong_cu.md` | ☑ | commit khai báo 28/10 |
-| 29–30/10 | CORAL ở L0: commit A (mã, `deviations.md` mục 24) → `--check`, mức sàn → commit B → chạy chính | R26 QĐ5 | `k2_coral.py`, `results/k2_coral/`, `results/k2_v2/*CORAL*` | ◐ commit A, `--check` và mức sàn ĐẠT, commit B 29/10; còn lần chạy chính | `f4b242e` (A) |
-| 31/10–04/11 | Kết luận K2 (GO theo Holm, H5) khi có TabPFN v2; RQ6; CORAL | R26 7.8 | `k2_ket_luan.csv` chính thức | ☐ | |
+| 28/10 | Xác nhận dòng của mình trong bảng phân công | R26 7.6 | `docs/phan_cong.md` | ☑ | `8a71fe5` |
+| 28/10 | Khai báo công cụ AI (phần của Minh) | R27 7.2 mục 8 | `docs/khai_bao_cong_cu.md` | ☑ | `c98e19a`, `72d112d` |
+| 29–30/10 | CORAL ở L0: commit A (mã, `deviations.md` mục 24) → `--check`, mức sàn → commit B → chạy chính | R26 QĐ5, R30 QĐ2 | `k2_coral.py`, `results/k2_coral/`, `results/k2_v2/*CORAL*` | ☑ chạy chính 30/10 sau commit B (mục 26); diễn giải theo V2, QĐ3 review 30/10 | `f4b242e` (A), `423dd08` (B), commit kết quả 30/10 |
+| 30/10 | Kết luận K2 chính thức (có TabPFN v2 `fc904d8` và CORAL): `k2_eval.py`, đối chiếu Phụ lục A4 review 30/10 | R30 QĐ2 | `results/k2_v2/k2_ket_luan.csv`, `doi_chieu_review3010_A4.txt` | ☑ PIVOT 10/10, khớp A4 | commit kết quả 30/10 |
+| 31/10–01/11 | `.gitattributes` (Phụ lục B2), ghi môi trường chạy vào cấu hình (B3); mục 1, 4, 5 của bản đủ | R30 V3, 7.2, 7.6 | `.gitattributes`, bản đủ | ☐ | |
+| 02–04/11 | Mục 0, 8, 10 của bản đủ (cùng Thiên); rà toàn văn; nộp 22:00 ngày 04/11 | R30 7.2 | Bản đủ 04/11 | ☐ | |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
 
 ## Phạm Xuân Thiên
@@ -50,7 +52,7 @@ Cập nhật: 29/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | Hạn | Việc | Trạng thái |
 |---|---|---|
 | hằng ngày | Mỗi người 1 dòng `docs/nhat_ky_ngay.md` trước 22:00 (dòng đầu sau mỗi review ghi “đã đọc review ngày …”); email ≤ 5 dòng do sinh viên tự viết, luân phiên người gửi | ◐ |
-| 28/10, 22:00 | Bảng phân công thống nhất, mỗi người một commit xác nhận dòng của mình (R26 7.6) | ☐ |
+| 28/10, 22:00 | Bảng phân công thống nhất, mỗi người một commit xác nhận dòng của mình (R26 7.6) | ☑ `8a71fe5` (Minh), `e1fb5f8` (Thiên) |
 | giữa kỳ (09–15/11) | Mỗi người tự trình bày phần mã mình commit (Minh: `k2_run.py`, `k2_eval.py`, TB-HTL v0, `k2_quy_tac.py`, CORAL; Thiên: EDA, `c1_do_nhay.py`, TrAdaBoost, bổ sung Cổng 0, TabPFN v2) | ☐ |
 
 **Không làm trước giữa kỳ:** CARTE, DSN, K1 tập lồng nhau, Babushkin nhãn theo mốc cố định, DANN, L2-SP, SHAP, phân tích độ nhạy khái niệm chung (V6 review 25/10), mô phỏng tỷ lệ dương giả của phép kiểm định.

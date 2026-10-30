@@ -39,17 +39,17 @@ source     method  k      so_sanh  delta_loi_ich  ci_lo  ci_hi  p_corrected  MDE
      C RANKAVG_RF 50 L1_core − L2          0.008 -0.036  0.051        0.719  0.062 30   1.000      False
 R = 30 lần chia, M = 5 lần rút; tổ hợp: [('B', 'L0'), ('B', 'L1'), ('B', 'L1_noAge'), ('B', 'L1_core'), ('B', 'L2'), ('C', 'L0'), ('C', 'L1'), ('C', 'L1_noAge'), ('C', 'L1_core'), ('C', 'L2')]
 
-source    level ket_luan phuong_phap_GO                trang_thai                       delta_tot_nhat_k50  MDE80_trung_vi
-     B       L0    PIVOT                sơ bộ – chưa có TabPFN v2         ZS@k=10: +0.073 [+0.020; +0.126]        0.039615
-     B       L1    PIVOT                sơ bộ – chưa có TabPFN v2 RANKAVG_RF@k=10: +0.020 [-0.020; +0.061]        0.049145
-     B L1_noAge    PIVOT                sơ bộ – chưa có TabPFN v2 RANKAVG_RF@k=10: +0.022 [-0.017; +0.061]        0.045556
-     B  L1_core    PIVOT                sơ bộ – chưa có TabPFN v2 RANKAVG_RF@k=10: +0.021 [-0.019; +0.061]        0.048586
-     B       L2    PIVOT                sơ bộ – chưa có TabPFN v2 RANKAVG_RF@k=10: +0.015 [-0.026; +0.056]        0.048779
-     C       L0    PIVOT                sơ bộ – chưa có TabPFN v2   DAUME_LR@k=50: +0.019 [-0.010; +0.047]        0.041633
-     C       L1    PIVOT                sơ bộ – chưa có TabPFN v2   DAUME_LR@k=50: -0.012 [-0.040; +0.017]        0.054653
-     C L1_noAge    PIVOT                sơ bộ – chưa có TabPFN v2   DAUME_LR@k=50: -0.008 [-0.036; +0.020]        0.057212
-     C  L1_core    PIVOT                sơ bộ – chưa có TabPFN v2   DAUME_LR@k=50: -0.022 [-0.050; +0.007]        0.055089
-     C       L2    PIVOT                sơ bộ – chưa có TabPFN v2 RANKAVG_RF@k=10: -0.025 [-0.065; +0.014]        0.060671
+source    level ket_luan phuong_phap_GO trang_thai                       delta_tot_nhat_k50  MDE80_trung_vi
+     B       L0    PIVOT                chính thức      CORAL@k=10: +0.087 [+0.028; +0.146]        0.044271
+     B       L1    PIVOT                chính thức RANKAVG_RF@k=10: +0.020 [-0.020; +0.061]        0.049145
+     B L1_noAge    PIVOT                chính thức RANKAVG_RF@k=10: +0.022 [-0.017; +0.061]        0.045556
+     B  L1_core    PIVOT                chính thức RANKAVG_RF@k=10: +0.021 [-0.019; +0.061]        0.048586
+     B       L2    PIVOT                chính thức RANKAVG_RF@k=10: +0.015 [-0.026; +0.056]        0.048779
+     C       L0    PIVOT                chính thức   DAUME_LR@k=20: +0.016 [-0.010; +0.042]        0.042668
+     C       L1    PIVOT                chính thức   DAUME_LR@k=50: -0.012 [-0.040; +0.017]        0.054653
+     C L1_noAge    PIVOT                chính thức   DAUME_LR@k=50: -0.008 [-0.036; +0.020]        0.057212
+     C  L1_core    PIVOT                chính thức   DAUME_LR@k=50: -0.022 [-0.050; +0.007]        0.055089
+     C       L2    PIVOT                chính thức RANKAVG_RF@k=10: -0.025 [-0.065; +0.014]        0.060671
 
 PR-AUC trung bình:
 k                             10     20     50     100
@@ -62,8 +62,10 @@ B      L0       LR          0.206  0.209  0.226  0.240
                 STACK       0.188  0.192  0.198  0.212
                 LightGBM    0.160  0.160  0.204  0.218
                 AdaBoost    0.191  0.195  0.218  0.232
+                TabPFN      0.199  0.206  0.233  0.254
                 PRESEL      0.201  0.200  0.214  0.230
                 ZS          0.279  0.279  0.279  0.279
+                CORAL       0.293  0.293  0.293  0.293
                 STK_LR      0.214  0.215  0.230  0.242
                 STK_XGB     0.160  0.200  0.210  0.219
                 OFF_XGB     0.279  0.230  0.217  0.220
@@ -84,6 +86,7 @@ B      L0       LR          0.206  0.209  0.226  0.240
                 STACK       0.233  0.254  0.306  0.355
                 LightGBM    0.160  0.160  0.258  0.335
                 AdaBoost    0.225  0.257  0.290  0.315
+                TabPFN      0.263  0.270  0.319  0.359
                 PRESEL      0.272  0.277  0.309  0.337
                 ZS          0.278  0.278  0.278  0.278
                 STK_LR      0.249  0.262  0.305  0.339
@@ -106,6 +109,7 @@ B      L0       LR          0.206  0.209  0.226  0.240
                 STACK       0.227  0.242  0.297  0.349
                 LightGBM    0.160  0.160  0.248  0.328
                 AdaBoost    0.225  0.255  0.289  0.312
+                TabPFN      0.258  0.268  0.313  0.355
                 PRESEL      0.269  0.275  0.307  0.331
                 ZS          0.278  0.278  0.278  0.278
                 STK_LR      0.247  0.262  0.304  0.336
@@ -128,6 +132,7 @@ B      L0       LR          0.206  0.209  0.226  0.240
                 STACK       0.233  0.254  0.306  0.355
                 LightGBM    0.160  0.160  0.258  0.335
                 AdaBoost    0.225  0.257  0.290  0.315
+                TabPFN      0.263  0.270  0.319  0.359
                 PRESEL      0.272  0.277  0.309  0.337
                 ZS          0.279  0.279  0.279  0.279
                 STK_LR      0.249  0.262  0.305  0.339
@@ -150,6 +155,7 @@ B      L0       LR          0.206  0.209  0.226  0.240
                 STACK       0.253  0.262  0.336  0.419
                 LightGBM    0.160  0.160  0.273  0.363
                 AdaBoost    0.214  0.263  0.311  0.353
+                TabPFN      0.275  0.295  0.343  0.400
                 PRESEL      0.293  0.301  0.347  0.390
                 ZS          0.279  0.279  0.279  0.279
                 STK_LR      0.270  0.283  0.343  0.399
@@ -172,8 +178,10 @@ C      L0       LR          0.229  0.240  0.256  0.266
                 STACK       0.207  0.217  0.234  0.253
                 LightGBM    0.160  0.160  0.239  0.250
                 AdaBoost    0.203  0.221  0.246  0.251
+                TabPFN      0.226  0.231  0.262  0.278
                 PRESEL      0.232  0.238  0.251  0.257
                 ZS          0.189  0.189  0.189  0.189
+                CORAL       0.186  0.186  0.186  0.186
                 STK_LR      0.228  0.237  0.255  0.266
                 STK_XGB     0.160  0.234  0.245  0.244
                 OFF_XGB     0.189  0.189  0.243  0.243
@@ -194,6 +202,7 @@ C      L0       LR          0.229  0.240  0.256  0.266
                 STACK       0.233  0.254  0.306  0.355
                 LightGBM    0.160  0.160  0.258  0.335
                 AdaBoost    0.225  0.257  0.290  0.315
+                TabPFN      0.263  0.270  0.319  0.359
                 PRESEL      0.272  0.277  0.309  0.337
                 ZS          0.192  0.192  0.192  0.192
                 STK_LR      0.243  0.261  0.306  0.340
@@ -216,6 +225,7 @@ C      L0       LR          0.229  0.240  0.256  0.266
                 STACK       0.227  0.242  0.297  0.349
                 LightGBM    0.160  0.160  0.248  0.328
                 AdaBoost    0.225  0.255  0.289  0.312
+                TabPFN      0.258  0.268  0.313  0.355
                 PRESEL      0.269  0.275  0.307  0.331
                 ZS          0.192  0.192  0.192  0.192
                 STK_LR      0.240  0.260  0.304  0.337
@@ -238,6 +248,7 @@ C      L0       LR          0.229  0.240  0.256  0.266
                 STACK       0.233  0.254  0.306  0.355
                 LightGBM    0.160  0.160  0.258  0.335
                 AdaBoost    0.225  0.257  0.290  0.315
+                TabPFN      0.263  0.270  0.319  0.359
                 PRESEL      0.272  0.277  0.309  0.337
                 ZS          0.189  0.189  0.189  0.189
                 STK_LR      0.243  0.261  0.306  0.340
@@ -260,6 +271,7 @@ C      L0       LR          0.229  0.240  0.256  0.266
                 STACK       0.253  0.262  0.336  0.419
                 LightGBM    0.160  0.160  0.273  0.363
                 AdaBoost    0.214  0.263  0.311  0.353
+                TabPFN      0.275  0.295  0.343  0.400
                 PRESEL      0.293  0.301  0.347  0.390
                 ZS          0.189  0.189  0.189  0.189
                 STK_LR      0.267  0.282  0.344  0.400
