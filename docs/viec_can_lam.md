@@ -43,7 +43,7 @@ Cập nhật: 30/10/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 28/10 | TrAdaBoost chạy chính; đoạn tổng quan về luận văn và đoạn kết quả C1 (Thiên tự viết) | R26 7.3, 7.4 | `results/trada/`, đoạn văn | ◐ lần chạy chính xong 28/10; đoạn văn chưa làm (đoạn tổng quan dời sang 04/11 theo R27 QĐ5) | `faa0f6b` |
 | 28/10 | Khai báo công cụ AI (phần Thiên); xác nhận bảng phân công; phiếu đọc còn lại; Plan.xlsx; đề xuất 2–3 hội nghị | R25, R26 7.6 | `docs/` | ◐ khai báo, xác nhận phân công: xong 28/10 (`e1fb5f8`); đề xuất hội nghị: xong 30/10 (`9fdaca8`); Plan.xlsx: chưa làm; phiếu đọc còn lại dời 04/11 (R27 QĐ5) | `e1fb5f8`, `9fdaca8` |
 | 30/10 | TabPFN v2 cho K2 (5 mức) trên Colab, ghi `git rev-parse HEAD` + `git status --porcelain` cạnh kết quả | R26 V7 | `results/k2_v2/*TabPFN*` | ☑ (29/10) | `fc904d8` |
-| 30/10 | Phần bổ sung Cổng 0 (LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean; xáo trộn nhãn B→A) | R22 6.4, R25 QĐ5 | `results/g0_*` | ☐ chưa làm, trễ hạn 30/10 (dự đoán thô Cổng 0 tải từ Drive tối 30/10); làm 31/10 | |
+| 30/10 | Phần bổ sung Cổng 0 (LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean; xáo trộn nhãn B→A) | R22 6.4, R25 QĐ5 | `results/g0_bo_sung/` | ☑ (31/10, trễ một ngày; trong hạn 01/11 của review 30/10) | `f3ae09e` (A), `0a92a58` (B); `1b26af6` (kết quả) |
 | 04/11 | `trada_eval.py`; bảng đối chiếu với luận văn | R26 7.4 | bảng | ☐ | |
 | 05–08/11 | Cùng Minh: slide giữa kỳ, dàn ý bài báo | R26 7.8 | slide, dàn ý | ☐ | |
 
