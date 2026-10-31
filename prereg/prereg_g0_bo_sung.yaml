@@ -1,0 +1,59 @@
+# prereg_g0_bo_sung.yaml – Tiền đăng ký phần bổ sung Cổng 0 (mục 6.4 review 22/10; M1, M7, M8 review 18/10;
+# hạn dời đến 22:00 ngày 01/11 theo QĐ1 review 30/10). PHẢI commit trước lần chạy với nhãn thật.
+# Trước khi commit chỉ được chạy: g0_bo_sung.py moi --check (tái hiện LR, RF đã công bố) và g0_bo_sung.py muc_san.
+ngay_chot: "31/10/2026"
+commit_chot: ""                       # điền ở commit tiếp theo (commit B), trước lần chạy chính
+nguoi_thuc_hien: "Phạm Xuân Thiên (CauBe9x)"
+can_cu: >-
+  Review 22/10 mục 6.4: LightGBM, AdaBoost trong G0-2 cho bốn đích; Brier, ECE, F1, G-Mean tại ngưỡng chọn trên k mẫu
+  cho mọi phương pháp, từ dự đoán thô; baseline đích chọn trước bằng kiểm định chéo (M1), báo cạnh baseline mạnh nhất
+  chọn sau; bộ tham số XGBoost cho k nhỏ (M7), báo cả hai bản; kiểm tra xáo trộn nhãn đích ít nhất cho B→A (M8).
+  Review 24/10 mục 7: dùng lại các hàm đã có trong k2_run.py. Review 30/10 mục 7.4: F1 của baseline Cổng 0 dùng cho bảng
+  đối chiếu TrAdaBoost với luận văn UNICAMP.
+quan_he_voi_ket_luan_da_chot: >-
+  Không thay đổi kết luận PIVOT đã chốt của Cổng 0, họ Holm của Cổng 0 hay baseline "đích mạnh nhất" đã dùng trong các
+  phép GO. Các phương pháp mới và các chỉ số mới chỉ báo cáo cạnh kết quả gốc (mô tả). Nếu một phương pháp mới cao hơn
+  baseline mạnh nhất đã dùng, báo cáo như phân tích độ nhạy của kết luận, không tính lại GO.
+pham_vi:
+  dich: [A, B, C, D]                  # bốn đích của ba cặp AB, AC, AD; file chia của Cổng 0 (A dùng chung cho ba cặp)
+  file_chia: {A: results/g0_23/splits_A_R30.json, B: results/g0_23/splits_B_R30.json,
+              C: results/g0_AC/splits_C_R30.json, D: results/g0_AD/splits_D_R30.json}
+  R: 30
+  k: ["10", "20", "50", "100", "200", "500", "full"]
+  dac_trung: "đủ đặc trưng của đích, tiền xử lý onehot_pre của g0_pair.py fit trên k mẫu (như G0-2)"
+phuong_phap_moi:
+  LightGBM: "k2_run.lgbm: LGBMClassifier mặc định, random_state = lần chia; mọi k"
+  AdaBoost: "k2_run.ada: AdaBoostClassifier mặc định, random_state = lần chia; mọi k"
+  XGB_SMALLK: "k2_run.xgb_small: tham số target_only_small_k của prereg_k2.yaml (n_estimators 100, max_depth 2, learning_rate 0,1, min_child_weight 0,01); chỉ k ≤ 50; báo cạnh XGB mặc định"
+  PRESEL: "k2_run.preselect: ứng viên LR, RF, XGB, CAT, LightGBM, AdaBoost; kiểm định chéo phân tầng min(3, n_dương, n_âm) fold trên k mẫu, PR-AUC; hoà hoặc < 2 fold → RF; k = 10 … 500 (không có k = toàn bộ)"
+chi_so:
+  chinh: "PR-AUC; phụ AUC-ROC (như Cổng 0)"
+  bo_sung: >-
+    Brier và ECE (10 khoảng đều, k2_run.brier_ece) trên xác suất: dùng trực tiếp với phương pháp cho xác suất; qua
+    sigmoid với phương pháp cho logit hoặc margin (ZS, ZS_SHUF, ANCHOR_LR, ANCHOR_LR_SHUF, OFF_XGB); không áp dụng với
+    phương pháp cho điểm hạng (RANKAVG, RANKAVG_RF và bản _SHUF). F1 và G-Mean (k2_run.f1_gmean_at_prior): gán dương cho
+    ceil(π̂·n) điểm cao nhất, π̂ = tỷ lệ dương của k mẫu (k = toàn bộ: của phần train); không có ở zero-shot.
+  phuong_phap_cu: >-
+    Tính từ dự đoán thô đã lưu khi chạy Cổng 0 (du_doan_tho_gate0.zip trên Drive, không đưa lên kho), các cặp AB, AC, AD
+    với tập khái niệm chính (không gồm AC_consistent). Điểm trong file dự đoán thô đã làm tròn 5 chữ số, nên PR-AUC tính
+    lại có thể lệch kết quả công bố tới khoảng 0,005; bảng báo cáo dùng PR-AUC đã công bố, các chỉ số mới lấy từ dự đoán thô.
+kiem_tra_truoc:
+  duong_ong: "g0_bo_sung.py moi --check: LR và RF tính lại bằng đường ống của script trùng Cổng 0 đã công bố (lệch < 1e-9)"
+  muc_san: >-
+    g0_bo_sung.py muc_san --R 5: chiều B→A, xáo trộn nhãn test (RandomState 12345 + lần chia) và nhãn trong k mẫu (giữ đủ
+    hai lớp), mọi phương pháp chỉ dùng đích và chuyển giao của Cổng 0 trừ TabPFN, cùng LightGBM, AdaBoost, XGB_SMALLK,
+    PRESEL; PR-AUC phải xấp xỉ tỷ lệ dương (0,16).
+bao_cao:
+  - "Đường cong học G0-2 của bốn đích có thêm LightGBM, AdaBoost, XGB_SMALLK, PRESEL; ghi rõ ô dự đoán hằng số (suy biến)"
+  - "PRESEL cạnh baseline đích mạnh nhất chọn sau khi xem kết quả, theo k và đích; tần suất mô hình được chọn"
+  - "Brier, ECE, F1, G-Mean theo phương pháp × k cho sáu chiều (mô tả, không kiểm định)"
+  - "Mức sàn B→A"
+da_biet_truoc_khi_chot: >-
+  PR-AUC, AUC-ROC của mọi phương pháp đã công bố của Cổng 0 (results/g0_*). Ở K2 (đích A, không phải Cổng 0): LightGBM ở
+  k = 10, 20 và XGBoost ở k = 10 cho dự đoán hằng số (deviations.md mục 17); PRESEL đã chạy ở K2 (k2_presel_chon.csv).
+  Chưa ai chạy LightGBM, AdaBoost, XGB_SMALLK hay PRESEL trên file chia của Cổng 0, và chưa ai tính Brier, ECE, F1, G-Mean
+  từ dự đoán thô của Cổng 0. Ngày 30/10 Thiên tải dự đoán thô và tính lại PR-AUC (chỉ PR-AUC, đã công bố) cho cặp AB, AC
+  để kiểm tra tệp (lệch tối đa 0,0047 do làm tròn).
+han_che_da_biet: >-
+  Brier, ECE của phương pháp cho logit tính sau sigmoid nên phản ánh cả độ lệch thang điểm; F1, G-Mean theo ngưỡng tỷ lệ
+  dương có thể khác ngưỡng của các bài khác (ví dụ ngưỡng 0,5 của luận văn UNICAMP).
