@@ -2,7 +2,7 @@
 # hạn dời đến 22:00 ngày 01/11 theo QĐ1 review 30/10). PHẢI commit trước lần chạy với nhãn thật.
 # Trước khi commit chỉ được chạy: g0_bo_sung.py moi --check (tái hiện LR, RF đã công bố) và g0_bo_sung.py muc_san.
 ngay_chot: "31/10/2026"
-commit_chot: ""                       # điền ở commit tiếp theo (commit B), trước lần chạy chính
+commit_chot: "f3ae09e"                       # điền ở commit tiếp theo (commit B), trước lần chạy chính
 nguoi_thuc_hien: "Phạm Xuân Thiên (CauBe9x)"
 can_cu: >-
   Review 22/10 mục 6.4: LightGBM, AdaBoost trong G0-2 cho bốn đích; Brier, ECE, F1, G-Mean tại ngưỡng chọn trên k mẫu
