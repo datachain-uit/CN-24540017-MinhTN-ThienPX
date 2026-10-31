@@ -1,0 +1,32 @@
+{
+ "che_do": "moi",
+ "target": "C",
+ "R": 30,
+ "ks": [
+  "10",
+  "20",
+  "50",
+  "100",
+  "200",
+  "500",
+  "full"
+ ],
+ "check": false,
+ "methods": [
+  "LightGBM",
+  "AdaBoost",
+  "XGB_SMALLK",
+  "PRESEL"
+ ],
+ "prereg_sha256": "766cd9cb71ce3d7e4e12f6553b43a7fb8a0b2ec8285640ea7fa75eeced2f31d5",
+ "code_sha256": "69ba2540b7011951febbaed0ea2e3fa077337d5b509f977509ab1be92eae039c",
+ "git_head": "0a92a589f9930076f85b5a4231c447c4a2d5af11",
+ "git_dirty": false,
+ "python": "3.12.10",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "machine": "AMD64",
+ "numpy": "2.2.6",
+ "sklearn": "1.7.2",
+ "pandas": "2.3.3",
+ "started": "2026-10-31 14:15:12 +0700"
+}
