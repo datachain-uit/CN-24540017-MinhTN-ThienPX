@@ -6,8 +6,9 @@ Không dùng nhãn (chỉ đặc trưng). Mô tả, không kiểm định. Với
     D_S = khái niệm chung L0 của nguồn sau C1; D_T = khái niệm chung L0 của IBM sau C1 fit trên phần train của lần chia
     (giống hệt k2_coral.py); C_S = cov(D_S) + I, C_T = cov(D_T[train]) + I; Δ = C_S − C_T
     toàn phần = ‖Δ‖_F; đường chéo = ‖diag(Δ)‖; ngoài đường chéo = ‖Δ − diag(Δ)‖_F;
-    tỷ trọng đường chéo = ‖diag(Δ)‖² / ‖Δ‖_F²; kèm phương sai từng khái niệm ở hai miền.
-Kiểm tra: ‖Δ‖_F trung bình phải trùng cột cov_gap của results/k2_v2/results_k2_1035e677_CORAL.csv (3,51; 21,31).
+    tỷ trọng đường chéo = ‖diag(Δ)‖² / ‖Δ‖_F²; kèm phương sai từng khái niệm sau C1 ở hai miền (đường chéo của cov, đã trừ I;
+    sửa theo V2 review 01/11 – bản 5afb0e2 ghi đường chéo của cov + I).
+Kiểm tra (dừng chương trình nếu lệch ≥ 1e-9): ‖Δ‖_F trung bình phải trùng cột cov_gap của results/k2_v2/results_k2_1035e677_CORAL.csv (3,51; 21,31).
 
     python k2_tach_hiep_phuong_sai.py --data A=data/WA_Fn-UseC_-HR-Employee-Attrition.csv B=data/aug_train.csv C=data/HR_comma_sep.csv
 Ghi results/k2_coral/tach_hiep_phuong_sai.csv (theo lần chia), tach_hiep_phuong_sai_tom_tat.csv, phuong_sai_khai_niem.csv
@@ -59,14 +60,16 @@ def main():
             tot = np.linalg.norm(D); dia = np.linalg.norm(dg); off = np.linalg.norm(D - np.diag(dg))
             rows.append(dict(source=s, rep=r, toan_phan=tot, duong_cheo=dia, ngoai_duong_cheo=off, ty_trong_duong_cheo=dia ** 2 / tot ** 2))
             for j, c in enumerate(order):
-                var_rows.append(dict(source=s, rep=r, khai_niem=c, phuong_sai_nguon_cong1=Cs[j, j], phuong_sai_IBM_cong1=Ct[j, j]))
+                var_rows.append(dict(source=s, rep=r, khai_niem=c, phuong_sai_nguon_sau_C1=Cs[j, j] - 1, phuong_sai_IBM_sau_C1=Ct[j, j] - 1))
     R_ = pd.DataFrame(rows); V = pd.DataFrame(var_rows)
     R_.to_csv(f"{OUT}/tach_hiep_phuong_sai.csv", index=False)
     T = R_.groupby("source")[["toan_phan", "duong_cheo", "ngoai_duong_cheo", "ty_trong_duong_cheo"]].mean()
     T.to_csv(f"{OUT}/tach_hiep_phuong_sai_tom_tat.csv")
-    V.groupby(["source", "khai_niem"])[["phuong_sai_nguon_cong1", "phuong_sai_IBM_cong1"]].mean().to_csv(f"{OUT}/phuong_sai_khai_niem.csv")
+    V.groupby(["source", "khai_niem"])[["phuong_sai_nguon_sau_C1", "phuong_sai_IBM_sau_C1"]].mean().to_csv(f"{OUT}/phuong_sai_khai_niem.csv")
     cg = pd.read_csv("results/k2_v2/results_k2_1035e677_CORAL.csv").groupby("source").cov_gap.mean()
-    print(T.round(4).to_string()); print("Kiểm tra với cov_gap của CORAL:", (T.toan_phan - cg).abs().max())
+    lech = (T.toan_phan - cg).abs().max()
+    print(T.round(4).to_string()); print("Kiểm tra với cov_gap của CORAL:", lech)
+    assert lech < 1e-9, "toàn phần khác cov_gap của CORAL"
 
 
 if __name__ == "__main__":

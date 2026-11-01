@@ -6,8 +6,9 @@ tools/moi_truong.py — Ghi môi trường chạy, trạng thái Git đầy đ�
     json.dump(dict(..., **trang_thai_git(), **moi_truong(), code_sha256_lf=sha256_lf(__file__)), ...)
 
 moi_truong(): Python, nền tảng máy, NumPy, scikit-learn, SciPy, pandas, XGBoost, LightGBM, CatBoost.
-trang_thai_git(): git_head; git_dirty = True nếu có file đã theo dõi bị sửa HOẶC file .py/.yaml/.yml chưa theo dõi
-  (env_state() cũ bỏ qua file chưa theo dõi, review 31/10 V1); git_chua_commit = danh sách các file đó.
+trang_thai_git(): git_head; git_dirty = True nếu có file đã theo dõi bị sửa HOẶC file .py/.yaml/.yml chưa theo dõi, kể cả
+  trong thư mục mới và tên có dấu cách, dấu tiếng Việt (V1 review 01/11, Phụ lục B1); git_chua_commit = danh sách các file đó.
+  Phép thử: python tools/thu_moi_truong.py (phải in TẤT CẢ ĐẠT).
 sha256_lf(path): SHA-256 sau khi đổi CRLF → LF (cùng nội dung → cùng mã băm trên mọi hệ điều hành).
 Mã do Claude (Anthropic) sinh, khai báo ở docs/khai_bao_cong_cu.md.
 """
@@ -29,14 +30,19 @@ def moi_truong():
 
 
 def trang_thai_git():
+    """Bản sửa theo Phụ lục B1 review 01/11: --untracked-files=all (không gộp thư mục mới), core.quotePath=false
+    (tên có dấu tiếng Việt không bị mã hoá bát phân), bỏ ngoặc kép quanh tên có dấu cách, đọc UTF-8."""
     try:
         head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() or None
-        lines = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True).stdout.splitlines()
+        out = subprocess.run(["git", "-c", "core.quotePath=false", "status", "--porcelain", "--untracked-files=all"],
+                             capture_output=True, text=True, encoding="utf-8").stdout
     except Exception:
         return dict(git_head=None, git_dirty=None, git_chua_commit=None)
+    lines = out.splitlines()
+    ten = lambda l: l[3:].strip().strip('"')
     sua = [l for l in lines if not l.startswith("??")]
-    moi = [l for l in lines if l.startswith("??") and l.rstrip().endswith((".py", ".yaml", ".yml"))]
-    return dict(git_head=head, git_dirty=bool(sua or moi), git_chua_commit=[l[3:] for l in sua + moi])
+    moi = [l for l in lines if l.startswith("??") and ten(l).endswith((".py", ".yaml", ".yml"))]
+    return dict(git_head=head, git_dirty=bool(sua or moi), git_chua_commit=[ten(l) for l in sua + moi])
 
 
 def sha256_lf(path):
