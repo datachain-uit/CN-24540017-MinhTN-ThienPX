@@ -1,0 +1,20 @@
+{
+ "R": 30,
+ "splits_file": "prereg/splits_A_R30_M5.json",
+ "splits_sha256": "c0af5426d07c7ae9e1b6683d6a7181bd22b58cabf14a259d65b0d85c313c547b",
+ "code_sha256_lf": "2366ddb1199b6b69df1576265ee3ae94cfd6b36c5acca682d2aefaf92e06523e",
+ "git_head": "d51db741a33cf22862aebfbf6ac021d50ad48124",
+ "git_dirty": false,
+ "git_chua_commit": [],
+ "python": "3.13.16",
+ "platform": "Linux-6.18.44-fc-v185-x86_64-with-glibc2.39",
+ "machine": "x86_64",
+ "numpy": "2.5.3",
+ "sklearn": "1.9.1",
+ "scipy": "1.18.1",
+ "pandas": "3.0.5",
+ "xgboost": "3.4.1",
+ "lightgbm": "4.7.0",
+ "catboost": "1.2.10",
+ "started": "2026-11-01 08:14:15 +0000"
+}
