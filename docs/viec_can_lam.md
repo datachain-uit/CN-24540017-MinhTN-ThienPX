@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 01/11/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
+Cập nhật: 02/11/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -26,8 +26,8 @@ Cập nhật: 01/11/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 29–30/10 | CORAL ở L0: commit A (mã, `deviations.md` mục 24) → `--check`, mức sàn → commit B → chạy chính | R26 QĐ5, R30 QĐ2 | `k2_coral.py`, `results/k2_coral/`, `results/k2_v2/*CORAL*` | ☑ chạy chính 30/10 sau commit B (mục 26); diễn giải theo V2, QĐ3 review 30/10 | `f4b242e` (A), `423dd08` (B), `b61ccb3` (kết quả) |
 | 30/10 | Kết luận K2 chính thức (có TabPFN v2 `fc904d8` và CORAL): `k2_eval.py`, đối chiếu Phụ lục A4 review 30/10 | R30 QĐ2 | `results/k2_v2/k2_ket_luan.csv`, `doi_chieu_review3010_A4.txt` | ☑ PIVOT 10/10, khớp A4 | `b61ccb3` |
 | 31/10–01/11 | `.gitattributes` (Phụ lục B2), ghi môi trường chạy vào cấu hình (B3, B2 R31) | R30 V3, R31 V1 | `.gitattributes`, `tools/moi_truong.py` | ☑ `.gitattributes` có từ `a3722ff`; môi trường: deviations 31; sửa `trang_thai_git()` theo R01/11 (deviations 33); pip freeze: `results/moi_truong/pip_freeze_minh.txt` | `5afb0e2`, `d51db74` |
-| 01/11 | Script tách khoảng cách hiệp phương sai: commit mã → chạy → commit kết quả | R31 V3, 7.2 | `k2_tach_hiep_phuong_sai.py`, `results/k2_coral/tach_hiep_phuong_sai*.csv` | ☑ kết quả chạy sau `d51db74` (deviations 34) | `5afb0e2`, `d51db74`, commit kết quả 01/11 |
-| 01/11 | SHA-256, kích thước, mã tệp Drive, cấu hình sinh `du_doan_tho_gate0.zip` vào `data/README.md` (trả lời câu 8.1 R31) | R31 V3, B3 | `data/README.md` | ☑ hai bản trên Drive, mã băm, nguồn gốc (deviations 35) | commit 01/11 |
+| 01/11 | Script tách khoảng cách hiệp phương sai: commit mã → chạy → commit kết quả | R31 V3, 7.2 | `k2_tach_hiep_phuong_sai.py`, `results/k2_coral/tach_hiep_phuong_sai*.csv` | ☑ kết quả chạy sau `d51db74` (deviations 34) | `5afb0e2`, `d51db74`, `650a8b9` |
+| 01/11 | SHA-256, kích thước, mã tệp Drive, cấu hình sinh `du_doan_tho_gate0.zip` vào `data/README.md` (trả lời câu 8.1 R31) | R31 V3, B3 | `data/README.md` | ☑ hai bản trên Drive, mã băm, nguồn gốc (deviations 35); danh mục mã băm từng file, tên tệp (deviations 36, R01/11 chiều V1) | `ee8eef3` |
 | 31/10–01/11 | Mục 1, 4, 5 của bản đủ | R30 7.2, R31 7.2 | bản đủ 04/11 | ◐ bảng số đã soạn; nhận định Minh tự viết | |
 | 02–04/11 | Mục 0, 8, 10 của bản đủ (cùng Thiên); bảng mức tái lập; rà toàn văn theo bảng kiểm 7.3 R01/11; nộp 22:00 ngày 04/11 | R30 7.2, R31 7.2–7.3, R01/11 7.3 | Bản đủ 04/11 | ☐ | |
 | 04/11 | Cập nhật cột kết luận RQ1–RQ6 trong `00_contributions.md` theo kết quả chính thức, mỗi ô ghi file và mã commit | R01/11 QĐ4, V3 | `00_contributions.md` | ☐ | |
