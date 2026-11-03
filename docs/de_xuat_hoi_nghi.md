@@ -31,3 +31,9 @@ Người lập: Phạm Xuân Thiên, 30/10/2026; tra cứu có công cụ AI h�
 - ECML PKDD 2027: <https://ecmlpkdd.org/2027/>; hạn ADS 2026: <https://ecmlpkdd.org/2026/submissions-ads-track/>; hạng CORE: <https://portal.core.edu.au/conf-ranks/491/>
 - IJCNN 2027: <https://ijcnn.org/2027/authors/call-for-papers>, <https://ijcnn.org/2027/call-for-workshops>
 - IDA 2027: <https://easychair.org/cfp/IDA2027>
+
+## Hội nghị đã chọn
+
+TAIMMA 2027, đợt 2: nộp bài full ngày 20/11/2026, khuôn LNCS, tối đa 15 trang (theo review 01/11 và 02/11 của GVHD). Kế hoạch: bản thảo v1 ngày 13/11, v2 ngày 18/11, nộp qua CMT ngày 19–20/11 sau khi GVHD duyệt. Ba hội nghị ở bảng trên là đề xuất ngày 30/10, trước khi GVHD chốt.
+
+Đính chính ngày ECML PKDD 2027 (V3 review 31/10): chưa làm, vì Thiên chưa có bản Review-2026-10-31.
