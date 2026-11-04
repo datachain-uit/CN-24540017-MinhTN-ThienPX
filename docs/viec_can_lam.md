@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 03/11/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
+Cập nhật: 04/11/2026 (dòng của Minh; dòng của Thiên do Thiên tự cập nhật trạng thái).
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -33,7 +33,7 @@ Cập nhật: 03/11/2026 (dòng của Minh; dòng của Thiên do Thiên tự c�
 | 02–04/11 | Mục 0, 8, 10 của bản đủ (cùng Thiên); bảng mức tái lập; rà toàn văn theo bảng kiểm 7.3 R01/11; nộp 22:00 ngày 04/11 | R30 7.2, R31 7.2–7.3, R01/11 7.3 | Bản đủ 04/11 | ☐ | |
 | 04/11 | Cập nhật cột kết luận RQ1–RQ6 trong `00_contributions.md` theo kết quả chính thức, mỗi ô ghi file và mã commit | R01/11 QĐ4, V3 | `00_contributions.md` | ☑ (03/11; RQ1–RQ7, deviations 39) | `36f0599` |
 | 03/11 | Sửa `data/README.md` theo V2: ngày nhận tệp (tối 30/10), tệp đầu vào chính xác (`a0866dbb…`), hai file kb1v2 khác mã băm; đính chính deviations 35 | R02/11 V2, QĐ3, câu 8 | `data/README.md`, `deviations.md` 39 | ☑ | `36f0599` |
-| 03–04/11 | Tỷ lệ dòng ở hai đầu cho mục 5 bản đủ (mã Phụ lục B4 R01/11 chiều): commit mã → chạy trên kho sạch → commit kết quả | R01/11 chiều V3, B4 | `k2_ty_le_bien.py`, `results/k2_coral/ty_le_bien_sau_C1.csv` | ◐ mã đã commit; chạy sáng 04/11 | mã `36f0599` |
+| 03–04/11 | Tỷ lệ dòng ở hai đầu cho mục 5 bản đủ (mã Phụ lục B4 R01/11 chiều): commit mã → chạy trên kho sạch → commit kết quả | R01/11 chiều V3, B4 | `k2_ty_le_bien.py`, `results/k2_coral/ty_le_bien_sau_C1.csv` | ☑ chạy trên kho sạch ở `58be588` (`git_dirty` false) | mã `36f0599`; kết quả `aec973b` |
 | 03/11 | Thay Plan.xlsx trên Drive bằng bản của Thiên (Quản lý phiên bản → Tải phiên bản mới lên, giữ mã tệp) | R02/11 7.2 | Plan.xlsx trên Drive | ☐ chờ bản của Thiên (cột hạn chế, liên hệ với đề tài chưa xong) | |
 | 05–08/11 | Dàn ý tiếng Anh trên Overleaf trước 08:00 ngày 05/11 (thay `docs/dan_y_bai_bao.md`, R02/11 7.4); sửa bài theo góp ý; script sinh T4 và tải nguồn Overleaf vào `paper/taimma2027/` (22:00 ngày 08/11); tài khoản CMT | R31 7.6–7.7, R01/11 QĐ5, 7.4–7.5, R02/11 QĐ4, 7.4 | dàn ý, LaTeX | ☐ | |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
