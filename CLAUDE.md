@@ -15,6 +15,7 @@ Kho mã của khóa luận *Ứng dụng học chuyển giao để dự đoán r
 8. Thành viên phải **tự giải thích được** mã và kết quả mình commit (kiểm tra ở buổi giữa kỳ). Trợ lý giải thích khi được hỏi, không chỉ đưa mã.
 9. **Khai nhận có minh chứng** (review 26/10, mục 7.6): mọi khai nhận phần việc kèm mã commit hoặc minh chứng kiểm tra được; việc chưa làm ghi "chưa làm"; không ghi chung chung kiểu "commit kết quả". Dòng nhật ký đầu tiên sau mỗi review ghi "đã đọc review ngày …".
 10. **`deviations.md` và `docs/nhat_ky_ngay.md` chỉ thêm dòng** (câu 8.2 review 30/10). Trợ lý không gửi bản thay thế cả file dựng từ bản sao cũ: trước khi sửa hoặc đóng gói phải `git pull --no-rebase`; trước mỗi commit chạy `git diff deviations.md docs/nhat_ky_ngay.md` và kiểm tra không có dòng bắt đầu bằng “-” (ngoài dòng tiêu đề diff). Đính chính ghi ở dòng mới.
+11. **Không tự ghi lại file đã theo dõi để đổi kiểu xuống dòng** (V1 review 02/11). Nếu cần chuẩn hoá thì làm theo Phụ lục B1 review 02/11 và ghi vào `deviations.md`.
 
 ## Bản đồ kho
 
