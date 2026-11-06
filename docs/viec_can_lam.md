@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 06/11/2026 (dòng của Thiên); 04/11/2026 (dòng của Minh). Dòng của Thiên do Thiên tự cập nhật trạng thái.
+Cập nhật: 06/11/2026 (dòng của Minh và dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -28,14 +28,14 @@ Cập nhật: 06/11/2026 (dòng của Thiên); 04/11/2026 (dòng của Minh). D�
 | 31/10–01/11 | `.gitattributes` (Phụ lục B2), ghi môi trường chạy vào cấu hình (B3, B2 R31) | R30 V3, R31 V1 | `.gitattributes`, `tools/moi_truong.py` | ☑ `.gitattributes` có từ `a3722ff`; môi trường: deviations 31; sửa `trang_thai_git()` theo R01/11 (deviations 33); pip freeze: `results/moi_truong/pip_freeze_minh.txt` | `5afb0e2`, `d51db74` |
 | 01/11 | Script tách khoảng cách hiệp phương sai: commit mã → chạy → commit kết quả | R31 V3, 7.2 | `k2_tach_hiep_phuong_sai.py`, `results/k2_coral/tach_hiep_phuong_sai*.csv` | ☑ kết quả chạy sau `d51db74` (deviations 34) | `5afb0e2`, `d51db74`, `650a8b9` |
 | 01/11 | SHA-256, kích thước, mã tệp Drive, cấu hình sinh `du_doan_tho_gate0.zip` vào `data/README.md` (trả lời câu 8.1 R31) | R31 V3, B3 | `data/README.md` | ☑ hai bản trên Drive, mã băm, nguồn gốc (deviations 35); danh mục mã băm từng file, tên tệp (deviations 36, R01/11 chiều V1) | `ee8eef3`, `d2326a1` |
-| 31/10–01/11 | Mục 1, 4, 5 của bản đủ | R30 7.2, R31 7.2 | bản đủ 04/11 | ◐ bảng số đã soạn; nhận định Minh tự viết | |
+| 31/10–01/11 | Mục 1, 4, 5 của bản đủ | R30 7.2, R31 7.2 | bản đủ 06/11 | ◐ bảng số cập nhật đến `aec973b`, đã ghép toàn văn cùng mục 2, 3, 6, 7, 9 của Thiên; nhận định Minh tự viết, hạn thứ Sáu 06/11 | |
 | 02/11 | Phép thử 7 trường hợp; `tools/kiem_ma_commit.py`; sửa 4 ô mã commit; đính chính “7 trường hợp” (deviations 36) | R01/11 chiều V2, QĐ5 | `tools/thu_moi_truong.py`, `tools/kiem_ma_commit.py` | ☑ | `d2326a1` |
-| 02–04/11 | Mục 0, 8, 10 của bản đủ (cùng Thiên); bảng mức tái lập; rà toàn văn theo bảng kiểm 7.3 R01/11; nộp 22:00 ngày 04/11 | R30 7.2, R31 7.2–7.3, R01/11 7.3 | Bản đủ 04/11 | ☐ | |
+| 02/11–06/11 | Mục 0, 8, 10 của bản đủ (cùng Thiên); bảng mức tái lập; rà toàn văn theo bảng kiểm 7.3 R01/11; nộp bản đủ (GVHD dời hạn từ 04/11 sang thứ Sáu 06/11) | R30 7.2, R31 7.2–7.3, R01/11 7.3 | Bản đủ 06/11 | ◐ đã ghép mục 0–10; bảng mức tái lập còn 2 ô; chưa rà chéo | |
 | 04/11 | Cập nhật cột kết luận RQ1–RQ6 trong `00_contributions.md` theo kết quả chính thức, mỗi ô ghi file và mã commit | R01/11 QĐ4, V3 | `00_contributions.md` | ☑ (03/11; RQ1–RQ7, deviations 39) | `36f0599` |
 | 03/11 | Sửa `data/README.md` theo V2: ngày nhận tệp (tối 30/10), tệp đầu vào chính xác (`a0866dbb…`), hai file kb1v2 khác mã băm; đính chính deviations 35 | R02/11 V2, QĐ3, câu 8 | `data/README.md`, `deviations.md` 39 | ☑ | `36f0599` |
 | 03–04/11 | Tỷ lệ dòng ở hai đầu cho mục 5 bản đủ (mã Phụ lục B4 R01/11 chiều): commit mã → chạy trên kho sạch → commit kết quả | R01/11 chiều V3, B4 | `k2_ty_le_bien.py`, `results/k2_coral/ty_le_bien_sau_C1.csv` | ☑ chạy trên kho sạch ở `58be588` (`git_dirty` false) | mã `36f0599`; kết quả `aec973b` |
-| 03/11 | Thay Plan.xlsx trên Drive bằng bản của Thiên (Quản lý phiên bản → Tải phiên bản mới lên, giữ mã tệp) | R02/11 7.2 | Plan.xlsx trên Drive | ☐ chờ bản của Thiên (cột hạn chế, liên hệ với đề tài chưa xong) | |
-| 05–08/11 | Dàn ý tiếng Anh trên Overleaf trước 08:00 ngày 05/11 (thay `docs/dan_y_bai_bao.md`, R02/11 7.4); sửa bài theo góp ý; script sinh T4 và tải nguồn Overleaf vào `paper/taimma2027/` (22:00 ngày 08/11); tài khoản CMT | R31 7.6–7.7, R01/11 QĐ5, 7.4–7.5, R02/11 QĐ4, 7.4 | dàn ý, LaTeX | ☐ | |
+| 03/11 | Thay Plan.xlsx trên Drive bằng bản của Thiên (Quản lý phiên bản → Tải phiên bản mới lên, giữ mã tệp) | R02/11 7.2 | Plan.xlsx trên Drive | ◐ đã nhận bản của Thiên (05/11, ghi ở `f3305af`); thay trên Drive sau khi Minh kiểm tra | |
+| 05–08/11 | Dàn ý tiếng Anh trên Overleaf trước 08:00 ngày 05/11 (thay `docs/dan_y_bai_bao.md`, R02/11 7.4); sửa bài theo góp ý; script sinh T4 và tải nguồn Overleaf vào `paper/taimma2027/` (22:00 ngày 08/11); tài khoản CMT | R31 7.6–7.7, R01/11 QĐ5, 7.4–7.5, R02/11 QĐ4, 7.4 | dàn ý, LaTeX | ◐ khung dàn ý (mẫu IEEE của nhóm, dự án Conf) đưa lên Overleaf tối 04/11; gạch đầu dòng tiếng Anh sinh viên tự viết; hỏi GVHD giữ mẫu IEEE hay đổi sang LNCS | |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
 
 ## Phạm Xuân Thiên
