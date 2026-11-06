@@ -8,7 +8,7 @@ Người lập: Phạm Xuân Thiên, 30/10/2026; tra cứu có công cụ AI h�
 
 | | ECML PKDD 2027, Applied Data Science Track | IJCNN 2027 | IDA 2027 |
 |---|---|---|---|
-| Thời gian, địa điểm | 20–24/09/2027, Eindhoven | 14–18/06/2027, Cape Town | 21–23/04/2027, Pisa (địa điểm chưa chốt) |
+| Thời gian, địa điểm | 30/08–03/09/2027, Eindhoven (đính chính theo mục 4.4 review 31/10; bản 30/10 ghi nhầm 20–24/09) | 14–18/06/2027, Cape Town | 21–23/04/2027, Pisa (địa điểm chưa chốt) |
 | Hạn nộp | Chưa công bố; các năm trước khoảng giữa tháng 3 (2026: 12/03, tóm tắt 05/03) | 31/01/2027 (một trang của ban tổ chức ghi 15/01/2027, cần xác nhận) | Tóm tắt 28/11/2026, bài 05/12/2026 |
 | Cách giữa kỳ ≥ 4 tuần | Đạt (khoảng 4 tháng) | Đạt (khoảng 11 tuần) | **Không đạt** (khoảng 3 tuần) |
 | Xếp hạng CORE | A (CORE2023, giữ ở ICORE2026) | Chưa xác minh | Chưa xác minh |
@@ -34,6 +34,6 @@ Người lập: Phạm Xuân Thiên, 30/10/2026; tra cứu có công cụ AI h�
 
 ## Hội nghị đã chọn
 
-TAIMMA 2027, đợt 2: nộp bài full ngày 20/11/2026, khuôn LNCS, tối đa 15 trang (theo review 01/11 và 02/11 của GVHD). Kế hoạch: bản thảo v1 ngày 13/11, v2 ngày 18/11, nộp qua CMT ngày 19–20/11 sau khi GVHD duyệt. Ba hội nghị ở bảng trên là đề xuất ngày 30/10, trước khi GVHD chốt.
+TAIMMA 2027, đợt 2: nộp bài full ngày 20/11/2026; kỷ yếu Springer CCIS, mẫu LNCS, 12–15 trang (quyết định 4, mục 7.6 review 31/10; review 01/11 và 02/11). Kế hoạch: bản thảo v1 ngày 13/11, v2 ngày 18/11, nộp qua CMT ngày 19–20/11 sau khi GVHD duyệt. Ba hội nghị ở bảng trên là đề xuất ngày 30/10, trước khi GVHD chốt.
 
-Đính chính ngày ECML PKDD 2027 (V3 review 31/10): chưa làm, vì Thiên chưa có bản Review-2026-10-31.
+Đính chính ngày ECML PKDD 2027: đã sửa ở bảng trên ngày 06/11/2026, sau khi có bản Review-2026-10-31.
