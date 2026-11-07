@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 06/11/2026 (dòng của Minh và dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
+Cập nhật: 07/11/2026 (dòng của Thiên); 06/11/2026 (dòng của Minh). Dòng của Thiên do Thiên tự cập nhật trạng thái.
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -54,7 +54,7 @@ Cập nhật: 06/11/2026 (dòng của Minh và dòng của Thiên). Dòng của 
 | 30/10 | TabPFN v2 cho K2 (5 mức) trên Colab, ghi `git rev-parse HEAD` + `git status --porcelain` cạnh kết quả | R26 V7 | `results/k2_v2/*TabPFN*` | ☑ (29/10) | `fc904d8` |
 | 30/10 | Phần bổ sung Cổng 0 (LightGBM, AdaBoost, XGBoost k nhỏ, PRESEL, Brier, ECE, F1, G-Mean; xáo trộn nhãn B→A) | R22 6.4, R25 QĐ5 | `results/g0_bo_sung/` | ☑ (31/10, trễ một ngày; trong hạn 01/11 của review 30/10) | `f3ae09e` (A), `0a92a58` (B); `1b26af6` (kết quả) |
 | 04/11 | `trada_eval.py`; bảng đối chiếu với luận văn | R26 7.4 | bảng | ☑ `trada_eval.py` chạy lại với TabPFN v2 cho K2-L0 (31/10); bảng đối chiếu trong mục 7 bản đủ (05/11, hạn 04/11) | `d8c535a`, `03677a2` |
-| 05–08/11 | Cùng Minh: slide giữa kỳ, dàn ý bài báo | R26 7.8 | slide, dàn ý | ☐ | |
+| 05–08/11 | Cùng Minh: slide giữa kỳ, dàn ý bài báo | R26 7.8 | slide, dàn ý | ◐ `paper/taimma2027/scripts/bang_bai_bao.py` sinh T1, T5, T6 phần C1, PRESEL (07/11); dàn ý phần của Thiên đã soạn, chưa đưa lên Overleaf; slide chưa làm | `c17796a` |
 
 ## Cả nhóm
 
