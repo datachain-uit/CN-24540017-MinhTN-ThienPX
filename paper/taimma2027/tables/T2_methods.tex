@@ -1,0 +1,12 @@
+% source: prereg/prereg_k2.yaml, commit a9727e0
+\begin{tabular}{ll}
+\hline
+Group & Methods \\
+\hline
+Target-only & LR, RF, XGB, CAT, STACK, TabPFN, LightGBM, AdaBoost; PRESEL (pre-selected by CV on the $k$ labels) \\
+Transfer & ZS, STK\_LR, STK\_XGB, OFF\_XGB, DAUME\_LR, RANKAVG, ANCHOR\_LR, RANKAVG\_RF \\
+Transfer, L0 only & CORAL \\
+Theory-guided (RQ6) & TB-HTL v0 (docs/tbhtl\_v0\_spec.md) \\
+Control (shuffled source labels) & ZS\_SHUF, STK\_LR\_SHUF, RANKAVG\_SHUF, ANCHOR\_LR\_SHUF, RANKAVG\_RF\_SHUF \\
+\hline
+\end{tabular}

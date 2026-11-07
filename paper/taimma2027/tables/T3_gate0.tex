@@ -1,0 +1,16 @@
+% source: results/tong_hop_cap/mde_cong0_bang.csv, commit 79a0a4c
+% source: results/g0_23/g0_kiem_dinh_GO.csv, commit d03cd28
+% source: results/g0_AC/g0_kiem_dinh_GO.csv, commit d03cd28
+% source: results/g0_AD/g0_kiem_dinh_GO.csv, commit d03cd28
+\begin{tabular}{llrlrlr}
+\hline
+Direction & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & Decision & MDE$_{80}$ \\
+\hline
+B$\to$A & RANKAVG\_RF, $k=10$ & $+$0.004 & [$-$0.043, $+$0.051] & 1.000 & PIVOT & 0.073 \\
+A$\to$B & RANKAVG, $k=10$ & $+$0.012 & [$-$0.047, $+$0.070] & 1.000 & PIVOT & 0.050 \\
+C$\to$A & DAUME\_LR, $k=50$ & $-$0.021 & [$-$0.100, $+$0.059] & 1.000 & PIVOT & 0.098 \\
+A$\to$C & RANKAVG\_RF, $k=50$ & $-$0.088 & [$-$0.239, $+$0.062] & 0.728 & PIVOT & 0.275 \\
+D$\to$A$^{\dagger}$ & RANKAVG\_RF, $k=10$ & $+$0.012 & [$-$0.052, $+$0.075] & 1.000 & PIVOT & 0.087 \\
+A$\to$D$^{\dagger}$ & ZS, $k=10$ & $+$0.034 & [$-$0.020, $+$0.088] & 1.000 & PIVOT & 0.076 \\
+\hline
+\end{tabular}
