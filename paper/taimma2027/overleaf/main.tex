@@ -1,0 +1,224 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor,colortbl}
+\usepackage{hyperref}
+\usepackage{balance} % optional 
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Define the macro
+% Black symbols
+\newcommand{\Yes}{\ding{51}}      % ✓
+\newcommand{\No}{\ding{55}}       % ✗
+\newcommand{\Partly}{\LEFTcircle} % ◐ 
+\newcommand{\Unclear}{\textbf{?}} % ?
+
+% Color symbols
+\newcommand{\YesC}{\textcolor{green!60!black}{\Yes}}
+\newcommand{\NoC}{\textcolor{red!70!black}{\No}}
+\newcommand{\PartlyC}{\textcolor{orange!80!black}{\Partly}}
+\newcommand{\UnclearC}{\textcolor{gray!70!black}{\Unclear}}
+
+% For rows in table
+\newcolumntype{M}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\todoSV}[1]{\textcolor{red}{[#1]}}
+\newcommand{\src}[1]{\textcolor{blue}{\scriptsize[src: #1]}}
+    
+\begin{document}
+
+\title{TITLE}
+
+\author{
+    \IEEEauthorblockN{\todoSV{Authors -- approved by supervisor}}
+    \IEEEauthorblockA{University of Information Technology, VNU-HCM, Ho Chi Minh City, Vietnam}
+}
+
+\maketitle
+
+\begin{abstract}
+ABSTRACT
+\end{abstract}
+
+\begin{IEEEkeywords}
+Artificial Intelligence, Big Data, Data Quality.
+\end{IEEEkeywords}
+
+\section{Introduction}  % ~1,5 trang · Minh
+% Nội dung cần có: dự đoán nghỉ việc khi đích ít nhãn và lược đồ khác nguồn;
+% khoảng trống của công trình gần nhất (cùng thuộc tính, không có baseline chỉ
+% dùng nhãn đích, đánh giá trên chính miền đích đã huấn luyện); câu hỏi nghiên
+% cứu; đóng góp (giao thức đánh giá; khi nào chuyển giao có ích/có hại).
+% Nguồn: 00_contributions.md mục 1, 3 (36f0599); phiếu đọc [44].
+\begin{itemize}
+  \item \todoSV{Problem and motivation}
+  \item \todoSV{Gap in the closest prior work [44]}
+  \item \todoSV{Research questions RQ1, RQ2, RQ4, RQ5, RQ6 (RQ3, RQ7 after mid-term: not in paper)}
+  \item \todoSV{Contributions (TB-HTL is one method in the comparison, not the main contribution)}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Related Work}  % ~1 trang · Thiên
+% Dự đoán nghỉ việc bằng học máy; học chuyển giao cho dữ liệu bảng và miền
+% không đồng nhất; mô hình nền cho dữ liệu bảng (TabPFN v2) làm baseline;
+% phương pháp đánh giá so sánh. Nguồn: docs/phieu_doc/, bảng tổng quan.
+\begin{itemize}
+  \item \todoSV{Attrition prediction with ML}
+  \item \todoSV{Transfer learning for tabular / heterogeneous domains}
+  \item \todoSV{Tabular foundation models as baselines}
+  \item \todoSV{Evaluation methodology}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Data and Problem Setting}  % ~1,5 trang · Thiên
+% Bốn miền: số dòng sau loại trùng, tỷ lệ dương, tính chất (thật, hư cấu,
+% mô phỏng); khái niệm chung; mức lược đồ L0–L2; căn chỉnh C1;
+% input → output → metric. Nguồn: data/README.md, eda/ (d197041);
+% docs/ban_du/ban_du_muc_2_Thien.md (9c804eb). Bảng T1.
+\begin{itemize}
+  \item \todoSV{Four domains (Table T1)} \src{eda/bang1\_tong\_quan\_mien.csv, d197041}
+  \item \todoSV{Shared concepts and schema levels L0--L2} \src{prereg/k2\_khai\_niem.json}
+  \item \todoSV{Alignment C1 and its $\pm5.2$ issue (link to Sect.~7)}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Compared Methods}  % ~1,5 trang · Minh
+% Bảng phương pháp: chỉ dùng đích (gồm TabPFN v2, PRESEL); chuyển giao (ZS,
+% STK, OFF-XGB, DAUME-LR, RANKAVG, ANCHOR-LR, CORAL, TrAdaBoost); TB-HTL v0
+% ở mức đủ để tái lập. Nguồn: g0_pair.py, k2_run.py, k2_coral.py,
+% trada_run.py, docs/tbhtl_v0_spec.md. Bảng T2.
+\begin{itemize}
+  \item \todoSV{Target-only baselines incl. TabPFN v2, PRESEL (Table T2)}
+  \item \todoSV{Transfer baselines incl. CORAL (L0 only) and TrAdaBoost}
+  \item \todoSV{TB-HTL v0 in enough detail to reproduce}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Experimental Protocol}  % ~1,5 trang · Minh
+% Cổng 0 và K2; file chia, k, R × M; PR-AUC và chỉ số phụ; quy tắc GO;
+% Nadeau–Bengio, Holm, MDE; tiền đăng ký, danh sách sai lệch; mức tái lập.
+% Nguồn: prereg/prereg_k2.yaml (d2f1ef5, sửa đổi 0c84285);
+% prereg/splits_A_R30_M5.json; deviations.md (1–39); bảng mức tái lập (bản đủ mục 8).
+\begin{itemize}
+  \item \todoSV{Gate 0 and K2 scenarios; splits, $k$, $R \times M$}
+  \item \todoSV{Metrics: PR-AUC (primary); AUC-ROC, Brier, ECE, F1, G-Mean}
+  \item \todoSV{GO rule; corrected CI, Holm, MDE}
+  \item \todoSV{Pre-registration, deviations, reproducibility levels}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Results}  % ~3 trang · Minh (Cổng 0, K2); Thiên (TrAdaBoost)
+% Theo từng RQ (Bảng 5 review 31/10). Bảng sinh bằng scripts/bang_bai_bao.py
+% từ CSV đã commit; không gõ số bằng tay.
+\subsection{RQ1: zero-label cross-domain ranking}
+% Một đoạn có số, không làm bảng. Nguồn: results/kb1_v2, kb1_AC (d03cd28).
+\begin{itemize}\item \todoSV{RQ1 paragraph}\end{itemize}
+\subsection{RQ2, RQ4: Gate 0}
+% Hình F1 (g0_bang_duong_cong.csv); Bảng T3 (g0_kiem_dinh_GO.csv;
+% tong_hop_cap/mde_cong0_bang.csv) – d03cd28, 79a0a4c.
+\begin{itemize}\item \todoSV{Gate 0 result with MDE (Fig.~F1, Table T3)}\end{itemize}
+\subsection{RQ5, RQ6: feature-poor target (K2)}
+% Bảng T4: k2_ket_luan.csv, k2_kiem_dinh.csv (b61ccb3); k2_h5.csv (46b6770).
+\begin{table*}[!t]\centering\scriptsize
+\caption{\todoSV{K2 results caption}}
+\input{tables/T4_k2}
+\end{table*}
+\begin{itemize}\item \todoSV{K2 GO, H5, RQ6 (Table T4)}\end{itemize}
+\subsection{TrAdaBoost}
+% Bảng T5: results/trada/trada_kiem_dinh.csv (d8c535a).
+\begin{itemize}\item \todoSV{TrAdaBoost: 18 tests (Table T5)}\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Sensitivity Analyses}  % ~1 trang · Thiên (C1, PRESEL); Minh (hoà, CORAL)
+% Bảng T6: c1_do_nhay/c1_phep_chinh.csv (41dc832); g0_tie_neutral/
+% g0_tie_neutral_ket_luan.csv (46dac1d); g0_bo_sung/results_moi_*.csv
+% (1b26af6); k2_coral/tach_hiep_phuong_sai_tom_tat.csv (650a8b9);
+% k2_coral/ty_le_bien_sau_C1.csv (aec973b).
+\begin{itemize}
+  \item \todoSV{C1 vs C1\_MID (exploratory)}
+  \item \todoSV{Neutral tie rule}
+  \item \todoSV{PRESEL vs post-hoc best target baseline}
+  \item \todoSV{CORAL at L0 mainly rescales variances distorted by C1}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Discussion}  % ~1 trang · cả hai
+\begin{itemize}
+  \item \todoSV{When transfer might help, given current evidence}
+  \item \todoSV{Why results are negative; MDE and effect sizes}
+  \item \todoSV{Implications for HR analytics}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Limitations and Ethics}  % ~0,5 trang · cả hai (bản đủ mục 8, 9)
+\begin{itemize}
+  \item \todoSV{Fictional/simulated data; manual concept mapping; censored labels (domain D, exploratory)}
+  \item \todoSV{Personal data and legal aspects}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Conclusion; Code and Data}  % ~0,5 trang · cả hai
+\begin{itemize}
+  \item \todoSV{Answer each RQ}
+  \item \todoSV{Repository link; how to reproduce (TAI\_LAP.md)}
+\end{itemize}
+
+% =====================================================================
+% PHẦN NỘI BỘ – xoá trước khi nộp
+% =====================================================================
+\section*{Internal: planned tables and figures}
+% Theo mục 7.4 review 01/11; tối đa 6 bảng + 2 hình trong phần chính.
+\begin{table*}[!t]\centering\scriptsize
+\begin{tabular}{@{}llll@{}}
+\toprule
+ID & RQ & Source file (commit) & Owner \\
+\midrule
+T1 & -- & eda/bang1\_tong\_quan\_mien.csv (d197041); data/README.md & Thiên \\
+T2 & -- & g0\_pair.py, k2\_run.py, trada\_run.py, docs/tbhtl\_v0\_spec.md & Minh \\
+F1 & RQ2, RQ4 & results/g0\_23, g0\_AC: g0\_bang\_duong\_cong.csv (d03cd28) & Minh \\
+T3 & RQ2, RQ4 & g0\_kiem\_dinh\_GO.csv; tong\_hop\_cap/mde\_cong0\_bang.csv & Minh \\
+T4 & RQ5, RQ6 & k2\_ket\_luan.csv, k2\_kiem\_dinh.csv (b61ccb3); k2\_h5.csv (46b6770) & Minh \\
+T5 & RQ2 & results/trada/trada\_kiem\_dinh.csv (d8c535a) & Thiên \\
+T6 & sens. & c1\_phep\_chinh.csv; g0\_tie\_neutral; g0\_bo\_sung; tach\_hiep\_phuong\_sai & Thiên, Minh \\
+F2 & RQ5 & results/k2\_v2/k2\_duong\_cong.csv (if space) & Minh \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section*{Internal: consistency table (Table 5, review 31/10)}
+\begin{table*}[!t]\centering\scriptsize
+\begin{tabular}{@{}lll@{}}
+\toprule
+RQ & Table/Fig. & Current conclusion: source (commit) \\
+\midrule
+RQ1 & text & \todoSV{conclusion} -- results/kb1\_v2, kb1\_AC (d03cd28) \\
+RQ2 & F1, T3, T5 & \todoSV{conclusion} -- g0\_kiem\_dinh\_GO.csv (d03cd28); trada\_kiem\_dinh.csv (d8c535a) \\
+RQ4 & F1, T3 & \todoSV{conclusion} -- g0\_kiem\_dinh\_GO.csv (d03cd28); c1\_phep\_chinh.csv (41dc832) \\
+RQ5 & T4, F2 & \todoSV{conclusion} -- k2\_ket\_luan.csv (b61ccb3); k2\_h5.csv (46b6770) \\
+RQ6 & T4 & \todoSV{conclusion} -- k2\_kiem\_dinh.csv (b61ccb3) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+CONTENT \cite{nguyen2025data}
+\section*{Acknowledgment}
+This research is funded by ...
+
+\balance
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}
