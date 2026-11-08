@@ -77,10 +77,12 @@ Artificial Intelligence, Big Data, Data Quality.
 % không đồng nhất; mô hình nền cho dữ liệu bảng (TabPFN v2) làm baseline;
 % phương pháp đánh giá so sánh. Nguồn: docs/phieu_doc/, bảng tổng quan.
 \begin{itemize}
-  \item \todoSV{Attrition prediction with ML}
-  \item \todoSV{Transfer learning for tabular / heterogeneous domains}
-  \item \todoSV{Tabular foundation models as baselines}
-  \item \todoSV{Evaluation methodology}
+  \item Attrition prediction with ML: most studies train and test on one dataset (mostly IBM) and report Accuracy or F1; leakage risks such as resampling before splitting. \src{docs/phieu\_doc/bang1\_phuong\_phap\_luan.csv, 6c056db}
+  \item Transfer for tabular and heterogeneous domains: Levin et al.\ (task transfer within one table), CARTE (column-name graphs, needs similar labels), CORAL, Daum\'e III, TrAdaBoost. \src{docs/phieu\_doc/ [11], [24], [33]}
+  \item Tabular foundation model as a strong target-only baseline: TabPFN v2. \src{docs/phieu\_doc/ [25]}
+  \item Closest work: Pereira (2025) thesis, TrAdaBoost between two HR datasets; differs in feature space, de-duplication, label budget, missing target-only baseline, evaluation on the training target domain. \src{docs/phieu\_doc/[44], faa0f6b}
+  \item Evaluation methodology: corrected resampled $t$-test (Nadeau--Bengio), Holm correction, MDE.
+  \item \todoSV{Prose written by the student for draft v1}
 \end{itemize}
 
 % ---------------------------------------------------------------------
@@ -90,10 +92,17 @@ Artificial Intelligence, Big Data, Data Quality.
 % input → output → metric. Nguồn: data/README.md, eda/ (d197041);
 % docs/ban_du/ban_du_muc_2_Thien.md (9c804eb). Bảng T1.
 \begin{itemize}
-  \item \todoSV{Four domains (Table T1)} \src{eda/bang1\_tong\_quan\_mien.csv, d197041}
-  \item \todoSV{Shared concepts and schema levels L0--L2} \src{prereg/k2\_khai\_niem.json}
-  \item \todoSV{Alignment C1 and its $\pm5.2$ issue (link to Sect.~7)}
+  \item Four public domains (Table~\ref{tab:t1}): rows after de-duplication, positive rate, nature (fictional, real, simulated, censored label). \src{eda/bang1\_tong\_quan\_mien.csv, d197041}
+  \item De-duplicate before splitting so that no employee appears in both train and test; HR 14,999 loses 3,008 rows (20.1\%). \src{data/README.md}
+  \item Shared concepts and schema levels L0--L2; tenure has opposite effect directions in IBM and HR 14,999 (single-feature AUC 0.355 vs.\ 0.690). \src{prereg/k2\_khai\_niem.json; eda/bang3\_chieu\_tac\_dong.csv, d197041}
+  \item Alignment C1: rank-to-normal per domain without labels; rows exactly at the minimum or maximum are pushed to $\pm5.2$, so variance after C1 grows with the share of such rows (link to Sect.~7). \src{eda/bang5\_khai\_niem\_sau\_C1.csv; k2\_coral/ty\_le\_bien\_sau\_C1.csv}
+  \item Input $\to$ output $\to$ metric: $k$ labelled target rows plus a labelled source $\to$ attrition score $\to$ PR-AUC (primary; not comparable across domains with different positive rates).
+  \item \todoSV{Prose written by the student for draft v1}
 \end{itemize}
+\begin{table}[!t]\centering\scriptsize
+\caption{\todoSV{Four domains caption}}\label{tab:t1}
+\input{tables/T1_domains}
+\end{table}
 
 % ---------------------------------------------------------------------
 \section{Compared Methods}  % ~1,5 trang · Minh
@@ -140,7 +149,19 @@ Artificial Intelligence, Big Data, Data Quality.
 \begin{itemize}\item \todoSV{K2 GO, H5, RQ6 (Table T4)}\end{itemize}
 \subsection{TrAdaBoost}
 % Bảng T5: results/trada/trada_kiem_dinh.csv (d8c535a).
-\begin{itemize}\item \todoSV{TrAdaBoost: 18 tests (Table T5)}\end{itemize}
+\begin{table}[!t]\centering\scriptsize
+\caption{\todoSV{TrAdaBoost caption}}\label{tab:t5}
+\input{tables/T5_tradaboost}
+
+\medskip
+\input{tables/T5_mde}
+\end{table}
+\begin{itemize}
+  \item 18 pre-registered tests (Gate 0 four directions, K2-L0 two sources, $k \le 50$): none passed; 15 significantly worse than the strongest target-only baseline; the other three are reported with MDE$_{80}$ (Table~\ref{tab:t5}). \src{results/trada/trada\_kiem\_dinh.csv, d8c535a}
+  \item Cells closest to the thesis (A$\to$C, $k$ = 100--500): TrAdaBoost below RF and TabPFN v2 in PR-AUC and F1. \src{results/trada/results\_trada\_AC\_ac4aaa4c\_cpu.csv, faa0f6b; g0\_bo\_sung/chi\_so\_tu\_du\_doan\_tho.csv, 1b26af6}
+  \item Gate 0 supplement: LightGBM, AdaBoost, XGB\_SMALLK, PRESEL do not exceed the strongest baseline at $k \le 50$; constant-prediction cells marked degenerate. \src{results/g0\_bo\_sung/results\_moi\_[A-D].csv, 1b26af6; deviations.md 40}
+  \item \todoSV{Prose written by the student for draft v1}
+\end{itemize}
 
 % ---------------------------------------------------------------------
 \section{Sensitivity Analyses}  % ~1 trang · Thiên (C1, PRESEL); Minh (hoà, CORAL)
@@ -149,11 +170,19 @@ Artificial Intelligence, Big Data, Data Quality.
 % (1b26af6); k2_coral/tach_hiep_phuong_sai_tom_tat.csv (650a8b9);
 % k2_coral/ty_le_bien_sau_C1.csv (aec973b).
 \begin{itemize}
-  \item \todoSV{C1 vs C1\_MID (exploratory)}
+  \item C1 vs.\ C1\_MID for zero-shot: PR-AUC rises in all four directions, only A$\to$C meets the fixed criterion; Gate 0 PIVOT unchanged; the comparison with the one-feature rule at L0 is exploratory (Table~\ref{tab:t6c1}). \src{results/c1\_do\_nhay/c1\_phep\_chinh.csv, c1\_phep\_phu.csv, 41dc832}
   \item \todoSV{Neutral tie rule}
-  \item \todoSV{PRESEL vs post-hoc best target baseline}
+  \item PRESEL vs.\ post hoc best target-only baseline: lower in all 12 cells at $k \le 50$, so post hoc selection is optimistic and the GO test is strict for transfer (Table~\ref{tab:t6presel}). \src{results/g0\_bo\_sung, 1b26af6}
   \item \todoSV{CORAL at L0 mainly rescales variances distorted by C1}
 \end{itemize}
+\begin{table}[!t]\centering\scriptsize
+\caption{\todoSV{C1\_MID minus C1 caption}}\label{tab:t6c1}
+\input{tables/T6_c1}
+\end{table}
+\begin{table}[!t]\centering\scriptsize
+\caption{\todoSV{PRESEL minus post hoc best caption}}\label{tab:t6presel}
+\input{tables/T6_presel}
+\end{table}
 
 % ---------------------------------------------------------------------
 \section{Discussion}  % ~1 trang · cả hai
