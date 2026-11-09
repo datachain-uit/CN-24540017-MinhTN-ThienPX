@@ -1,7 +1,7 @@
 """Sinh bảng cho bài TAIMMA 2027 từ kết quả đã commit (mục 7.5 review 01/11, Phụ lục B4).
     python paper/taimma2027/scripts/bang_bai_bao.py        # chạy ở thư mục gốc của kho
 Ghi tables/T*.tex; dòng đầu mỗi file ghi file nguồn và mã commit. Không sửa số trên Overleaf.
-T1, T5, phần C1 và PRESEL của T6: Thiên. T2, T3, T4 (kèm H5), phần hoà và CORAL của T6: Minh (hàm t2, t3, t4, t4_h5, t6_hoa, t6_coral).
+T1, T5, phần C1 và PRESEL của T6: Thiên. T2, T3, T4 (kèm RQ6, H5), phần hoà và CORAL của T6: Minh (hàm t2, t3, t4, t4_rq6, t4_h5, t6_hoa, t6_coral). Bảng vừa khổ một cột LNCS, không dùng table* (QĐ1, mục 7.3 review 07/11).
 """
 import json, os, subprocess
 import pandas as pd
@@ -125,7 +125,7 @@ def t2():
             r"Transfer, L0 only & " + ", ".join(ten_pp(x) for x in m["transfer_L0_only"]),
             r"Theory-guided (RQ6) & TB-HTL v0 (docs/tbhtl\_v0\_spec.md)",
             r"Control (shuffled source labels) & " + ", ".join(ten_pp(x) for x in m["control"])]
-    ghi("T2_methods", [src], "ll", r"Group & Methods", dong)
+    ghi("T2_methods", [src], "@{}lp{8.0cm}@{}", r"Group & Methods", dong)
 
 
 def t3():
@@ -150,22 +150,31 @@ def t3():
 
 
 def t4():
-    """K2: theo nguồn × mức — kết luận, Δ tốt nhất ở k ≤ 50 (họ GO), MDE80 trung vị, khoảng TB-HTL − chuyển giao tốt nhất."""
+    """K2: theo nguồn × mức — kết luận, Δ tốt nhất ở k ≤ 50 (họ GO), CI, Holm p, MDE80 trung vị."""
     kl_src, kd_src = "results/k2_v2/k2_ket_luan.csv", "results/k2_v2/k2_kiem_dinh.csv"
     kl = pd.read_csv(kl_src).set_index(["source", "level"])
     kd = pd.read_csv(kd_src, dtype={"k": str})
     go = kd[kd.ho.str.startswith("GO") & kd.k.isin(["10", "20", "50"])]
-    rq6 = kd[kd.ho.str.startswith("RQ6: TB-HTL") & kd.k.isin(["10", "20", "50"])]
     dong = []
     for (ng, lv), r in kl.iterrows():
         g = go[(go.source == ng) & (go.level == lv)]
         b = g.loc[g.delta.idxmax()]
-        t = rq6[(rq6.source == ng) & (rq6.level == lv)]
         dong.append(f"{TEN[ng]} & {lv.replace('_', chr(92) + '_')} & {r.ket_luan} & {ten_pp(b.method)}, $k={b.k}$ & {so(b.delta)} & "
-                    f"[{so(b.ci_lo)}, {so(b.ci_hi)}] & {p_txt(b.p_holm_GO)} & {r.MDE80_trung_vi:.3f} & "
-                    f"{so(t.delta.min())} to {so(t.delta.max())}")
-    ghi("T4_k2", [kl_src, kd_src], "lllllllrl",
-        r"Source & Level & Decision & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & MDE$_{80}$ & TB-HTL $-$ best transfer", dong)
+                    f"[{so(b.ci_lo)}, {so(b.ci_hi)}] & {p_txt(b.p_holm_GO)} & {r.MDE80_trung_vi:.3f}")
+    ghi("T4_k2", [kl_src, kd_src], "@{}lllllllr@{}",
+        r"Source & Level & Decision & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & MDE$_{80}$", dong)
+
+
+def t4_rq6():
+    """RQ6: TB-HTL − chuyển giao tốt nhất ở k ≤ 50, theo nguồn × mức: khoảng Δ và số phép có ý nghĩa sau Holm."""
+    src = "results/k2_v2/k2_kiem_dinh.csv"
+    kd = pd.read_csv(src, dtype={"k": str})
+    rq6 = kd[kd.ho.str.startswith("RQ6: TB-HTL") & kd.k.isin(["10", "20", "50"])]
+    dong = []
+    for (ng, lv), t in rq6.groupby(["source", "level"], sort=False):
+        dong.append(f"{TEN[ng]} & {lv.replace('_', chr(92) + '_')} & {so(t.delta.min())} & {so(t.delta.max())} & "
+                    f"{int((t.p_holm < 0.05).sum())}/{len(t)}")
+    ghi("T4_rq6", [src], "llrrr", r"Source & Level & min $\Delta$ & max $\Delta$ & Holm $p<0.05$", dong)
 
 
 def t4_h5():
@@ -193,7 +202,7 @@ def t6_coral():
     ghi("T6_coral", [src], "lrrrr", r"Source & $\|C_S-C_T\|_F$ & Diag. & Off-diag. & Diag. share$^{\ast}$", dong)
 
 
-BANG = [t1, t2, t3, t4, t4_h5, t5, t5_mde, t6_c1, t6_presel, t6_hoa, t6_coral]
+BANG = [t1, t2, t3, t4, t4_rq6, t4_h5, t5, t5_mde, t6_c1, t6_presel, t6_hoa, t6_coral]
 
 if __name__ == "__main__":
     for b in BANG:
