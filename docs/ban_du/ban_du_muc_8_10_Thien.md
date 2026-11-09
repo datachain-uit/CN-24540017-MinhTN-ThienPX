@@ -12,6 +12,8 @@
 
 **Mức tái lập.** Xem Bảng 8.1. Độ nhạy C1 trùng từng giá trị; TrAdaBoost và phần bổ sung Cổng 0 chạy trên máy cá nhân chỉ tái lập được về thống kê, cùng kết luận. Kiểm tra đường ống đích B trên máy Thiên lệch 2,25e-7, vượt ngưỡng 1e-9, kể cả khi đã dùng đúng phiên bản gói; lần chạy trên Linux của GVHD đạt, nên khác biệt nằm ở nền tảng, chưa tách được thành phần cụ thể (`deviations.md` mục 29, 38, 42, 43).
 
+**Dòng thêm vào Bảng 8.1 (V6 review 07/11):** Kiểm tra đường ống đích B | Linux (GVHD, review 31/10 A3): 42/42, lệch lớn nhất 8,3e-17, ĐẠT; Windows (máy Thiên, 31/10, 05/11, 06/11): lệch 2,25e-7 ở một giá trị, KHÔNG ĐẠT ngưỡng 1e-9 | `33b16ef`, `8d0cda7` | Cùng phiên bản gói, khác nền tảng; GVHD khép việc tìm nguyên nhân (quyết định 5 review 07/11) | Coi là đạt theo lần chạy của GVHD (`deviations.md` 38, 42, 43)
+
 **Các mục deviations liên quan đến kết quả được trích:** 2 (A↔D thăm dò), 17 (ô suy biến K2), 21 (độ nhạy C1), 23 và 27 (TrAdaBoost, máy chạy), 24 và 26 (CORAL), 28–30 (phần bổ sung Cổng 0), 37 (đính chính, lệch PR-AUC 0,0107), 38 và 41–43 (đích B, CRLF, môi trường), 39 (tệp đầu vào), 40 (ô suy biến F1, G-Mean).
 
 ### Bảng 10.2. Hướng 2 – Thiên

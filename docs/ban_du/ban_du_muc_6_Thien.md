@@ -2,7 +2,7 @@
 
 C1 chuyển các giá trị của mỗi khái niệm thành thứ hạng rồi ánh xạ sang phân phối chuẩn. Khi đó những giá trị thấp nhất và cao nhất luôn bị đẩy về hai cực −5,2 và +5,2. Điều này làm dữ liệu bị méo, đặc biệt khi nhiều dòng rơi đúng vào giá trị nhỏ nhất hoặc lớn nhất, vì những người cùng giá trị không còn được phân bố hợp lý ở giữa. Tất cả các phương pháp chuyển giao trong đề tài đều dùng dữ liệu đã qua bước C1. Nếu C1 làm sai lệch dữ liệu đầu vào thì kết quả đánh giá các phương pháp cũng có thể bị ảnh hưởng, khiến khó xác định hiệu quả thực sự của từng phương pháp.
 
-Nhóm xây dựng phiên bản sửa lỗi C1_MID, trong đó những người có cùng giá trị được xếp ở vị trí giữa thay vì bị đẩy về hai cực, và đăng ký trước phép so sánh (commit A `1d99e32`, commit B `7d88d5f`). Kết quả cho thấy điểm số tăng ở cả bốn chiều (Bảng 6.1), nhưng chỉ chiều A→C có mức tăng đủ lớn và đạt tiêu chí đã chốt (|Δ| ≥ 0,02 và p sau Holm < 0,05): PR-AUC tăng từ 0,180 lên 0,211. Chiều B→A cũng tăng nhưng chưa đủ bằng chứng để khẳng định có cải thiện (p sau Holm 0,097).
+Nhóm xây dựng phiên bản sửa lỗi C1_MID, trong đó những người có cùng giá trị được xếp ở vị trí giữa thay vì bị đẩy về hai cực, và đăng ký trước phép so sánh (commit A `1d99e32`, commit B `7d88d5f`). Kết quả cho thấy điểm trung bình cao hơn ở cả bốn chiều (Bảng 6.1), nhưng chỉ A→C đạt cả Δ ≥ 0,02 và p sau Holm < 0,05: PR-AUC tăng từ 0,180 lên 0,211. Ở A→B, Δ có ý nghĩa nhưng chỉ +0,008, dưới ngưỡng 0,02; ở C→A, khoảng tin cậy chứa 0. Chiều B→A cũng tăng nhưng chưa đủ bằng chứng để khẳng định có cải thiện (p sau Holm 0,097).
 
 **Bảng 6.1.** ZS_MID − ZS_C1 theo PR-AUC, 30 lần chia Cổng 0 (`results/c1_do_nhay/c1_phep_chinh.csv`, `41dc832`).
 

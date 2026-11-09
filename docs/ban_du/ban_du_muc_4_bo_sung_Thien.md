@@ -19,7 +19,7 @@ Phần này thêm LightGBM, AdaBoost, XGB_SMALLK (k ≤ 50) và PRESEL cho bốn
 | C | 50 | CAT 0,791 | PRESEL 0,741 | 0,741 | −0,050 |
 | D | 10 | RF 0,536 | PRESEL 0,529 | 0,529 | −0,007 |
 | D | 20 | RF 0,538 | PRESEL 0,535 | 0,535 | −0,004 |
-| D | 50 | LR 0,569 | LightGBM 0,564 | 0,559 | −0,010 |
+| D | 50 | LR 0,569 | AdaBoost 0,564 | 0,559 | −0,010 |
 
 Ở 0/12 ô, phương pháp mới cao hơn baseline mạnh nhất đã dùng, nên kết luận PIVOT của Cổng 0 không đổi. PRESEL thấp hơn baseline mạnh nhất chọn sau ở cả 12 ô, trung bình 0,019. Trên 720 ô, PRESEL chọn RF 29,2 %, CAT 24,4 %, LR 24,0 %, XGB 9,9 %, AdaBoost 8,2 %, LightGBM 4,3 %. Danh sách ứng viên của PRESEL không có TabPFN v2 và STACK.
 
