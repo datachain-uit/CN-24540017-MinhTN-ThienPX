@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 09/11/2026 (dòng của Minh và dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
+Cập nhật: 10/11/2026 (dòng của Minh và dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -40,6 +40,7 @@ Cập nhật: 09/11/2026 (dòng của Minh và dòng của Thiên). Dòng của 
 | 09/11 | Mục 8 ý 4 (Δ lớn nhất ở k = 20); H_B và tiêu chí (3) theo hiệu của hiệu, H_A theo hiệu bắt cặp ở Hướng 1 | R07/11 V1, V3, 7.2 (3) | bản đủ 09/11 (Word) | ☑ số đối chiếu `k2_kiem_dinh.csv` | `b61ccb3` |
 | 08/11 | Bảng vừa khổ LNCS (T4 tách T4_k2, T4_rq6; T2 xuống dòng); văn bản bài ra khỏi kho công khai (gỡ `paper/taimma2027/overleaf/`) | R07/11 QĐ1, QĐ4, 7.3, Phụ lục B1 | `paper/taimma2027/` | ☑ trễ một ngày (09/11) | `c48414d` |
 | 08/11 | Chuyển Overleaf sang LNCS (mẫu chính thức của Springer), gộp dàn ý của Thiên; bản sao mốc lên Drive | R07/11 QĐ1, 7.3 | Overleaf (dự án Conf), Drive | ◐ khung LNCS đã soạn, chưa đưa lên Overleaf (mất mạng 08/11) | |
+| 10/11 | Bản đủ cập nhật cho báo cáo giữa kỳ: ghép phần Thiên tự viết lại (4.5, mục 8, Hướng 2), cập nhật bảng phản hồi mục 0 | R07/11 QĐ3, 7.2; lịch báo cáo giữa kỳ 09–15/11 | bản đủ 10/11 (Word, gửi GVHD) | ☑ ghép từ kho đến `a9bbc15`; rà chéo theo bảng kiểm chưa xong | `a9bbc15` |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ☐ | |
 
 ## Phạm Xuân Thiên
