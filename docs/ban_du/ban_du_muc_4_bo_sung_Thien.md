@@ -1,6 +1,6 @@
 ### 4.5 Phần bổ sung Cổng 0 (mô tả, không kiểm định)
 
-Phần này thêm LightGBM, AdaBoost, XGB_SMALLK (k ≤ 50) và PRESEL cho bốn đích, tính Brier, ECE, F1, G-Mean cho các phương pháp cũ từ dự đoán thô, và kiểm tra mức sàn B→A. Mã `g0_bo_sung.py`, tiền đăng ký `prereg/prereg_g0_bo_sung.yaml`, commit A `f3ae09e`, commit B `0a92a58`, kết quả `1b26af6`.
+Phần này thêm bốn mô hình chỉ dùng dữ liệu đích là LightGBM, AdaBoost, XGB_SMALLK (k ≤ 50) và PRESEL, các chỉ số Brier, ECE, F1, G-Mean, và một phép kiểm tra mức sàn. Không mô hình nào là phương pháp chuyển giao: phần này chỉ làm mốc so sánh chặt hơn và bổ sung F1 để đối chiếu được với luận văn UNICAMP (mục 7). Mã `g0_bo_sung.py`, tiền đăng ký `prereg/prereg_g0_bo_sung.yaml`, commit A `f3ae09e`, commit B `0a92a58`, kết quả `1b26af6`.
 
 **Hình 4.1.** Đường cong PR-AUC theo k. Dấu x là ô suy biến, đường chấm là tỷ lệ dương của tập test (`docs/ban_du/hinh_g0_bo_sung.png`, sinh bằng `docs/ban_du/ve_hinh_g0_bo_sung.py` từ `results/g0_bo_sung/`, `1b26af6`).
 
@@ -21,7 +21,9 @@ Phần này thêm LightGBM, AdaBoost, XGB_SMALLK (k ≤ 50) và PRESEL cho bốn
 | D | 20 | RF 0,538 | PRESEL 0,535 | 0,535 | −0,004 |
 | D | 50 | LR 0,569 | AdaBoost 0,564 | 0,559 | −0,010 |
 
-Ở 0/12 ô, phương pháp mới cao hơn baseline mạnh nhất đã dùng, nên kết luận PIVOT của Cổng 0 không đổi. PRESEL thấp hơn baseline mạnh nhất chọn sau ở cả 12 ô, trung bình 0,019. Trên 720 ô, PRESEL chọn RF 29,2 %, CAT 24,4 %, LR 24,0 %, XGB 9,9 %, AdaBoost 8,2 %, LightGBM 4,3 %. Danh sách ứng viên của PRESEL không có TabPFN v2 và STACK.
+So từng dòng của Bảng 4.3, không ô nào trong 12 ô có phương pháp mới vượt baseline mạnh nhất; ví dụ đích A, k = 10, PRESEL đạt 0,301 so với 0,321 của RF. Vì vậy kết luận PIVOT của Cổng 0 giữ nguyên.
+
+PRESEL thấp hơn baseline mạnh nhất từ 0,004 đến 0,050. Baseline mạnh nhất được chọn sau khi đã nhìn kết quả trên tập test nên được lợi, tương tự xem đáp án rồi mới chọn bài; PRESEL phải chọn trước và chỉ dựa vào k mẫu, nên thấp hơn một chút là bình thường, không phải do mô hình kém.
 
 **Bảng 4.4.** Chỉ số phụ ở k = 50, trung bình 30 lần chia, chỉ để mô tả (`chi_so_tu_du_doan_tho.csv`, `results_moi_[A-D].csv`, `1b26af6`). Điểm phương pháp cũ làm tròn 5 chữ số (`deviations.md` mục 37b).
 
@@ -36,8 +38,6 @@ Phần này thêm LightGBM, AdaBoost, XGB_SMALLK (k ≤ 50) và PRESEL cho bốn
 | D | LR | 0,569 | 0,293 | 0,195 | 0,552 | 0,537 |
 | D | PRESEL | 0,559 | 0,302 | 0,198 | 0,546 | 0,531 |
 
-Ô suy biến (`deviations.md` mục 40): LightGBM dự đoán hằng số ở mọi lần chia với k = 10, 20 của cả bốn đích (8 ô); XGB và STK_XGB ở k = 10 tại 5 cặp đích (10 ô); PRESEL ở 1 lần (đích D, k = 20, chọn LightGBM). Với tham số mặc định, LightGBM cần ít nhất 20 mẫu ở mỗi lá nên không tách được nút khi k ≤ 20. Các ô này không báo F1, G-Mean.
+Với tham số mặc định, LightGBM cần ít nhất 20 mẫu ở mỗi lá, nên với 10–20 mẫu không chia được nhánh nào. Mọi người nhận cùng một điểm, AUC-ROC bằng 0,5; F1 ở các ô này chỉ phụ thuộc thứ tự dòng nên không có ý nghĩa, và được ghi là suy biến (`deviations.md` mục 40). Số ô suy biến: LightGBM k = 10, 20 ở bốn đích (8 ô); XGB và STK_XGB k = 10 ở năm cặp đích (10 ô); PRESEL một lần (đích D, k = 20).
 
-Mức sàn B→A với nhãn đích xáo trộn: PR-AUC trung bình 0,171–0,186 ở 17 phương pháp, tỷ lệ dương 0,160, không có dấu hiệu rò rỉ nhãn (`results/g0_bo_sung/results_muc_san_BA.csv`, `deviations.md` mục 29).
-
-Kiểm tra đường ống: đích A, D 420/420, đích C 42/42 trùng Cổng 0; đích B lệch 2,25e-7 ở một giá trị trên máy Thiên, vượt ngưỡng 1e-9. Theo quyết định 2 review 31/10 phép kiểm được coi là đạt theo lần chạy của GVHD; nguyên nhân nêu ở `deviations.md` mục 42, 43.
+Khi nhãn đích đã bị xáo trộn, mô hình không còn gì để học: PR-AUC ở mức sàn B→A là 0,171–0,186, sát tỷ lệ dương 0,160, tức bằng mức đoán ngẫu nhiên. Vậy đường ống không bị rò rỉ nhãn (`results/g0_bo_sung/results_muc_san_BA.csv`, `deviations.md` mục 29).
