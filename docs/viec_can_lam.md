@@ -63,6 +63,10 @@ Cập nhật: 09/11/2026 (dòng của Minh và dòng của Thiên). Dòng của 
 | 03/11 | Mục deviations mới cho ý (a): kiểm tra đích B theo lần chạy của GVHD | R02/11 7.2 (3) | `deviations.md` mục 38 | ☑ (03/11); đính chính nguyên nhân ở mục 42, 43 | `51aca7e`, `33b16ef`, `8d0cda7` |
 | 03/11 | `de_xuat_hoi_nghi.md`: hội nghị đã chọn TAIMMA 2027; đính chính ngày ECML PKDD 2027 | R02/11 7.2 (4) | `docs/de_xuat_hoi_nghi.md` | ☑ TAIMMA 03/11; ECML 06/11 (nhận review 31/10 ngày 06/11) | `51aca7e`, `8d0cda7` |
 | 03/11 | Bảng việc, nhật ký 03/11; `tools/kiem_ma_commit.py` trước khi đẩy | R02/11 7.2 (5) | `docs/` | ☑ (03/11) | `51aca7e` |
+| 09/11 | Ô D, k = 50 Bảng 4.3 thành AdaBoost 0,564; tự viết lại câu chữ tiểu mục 4.5 | R07/11 7.2 (1) | `docs/ban_du/ban_du_muc_4_bo_sung_Thien.md` | ☑ ô D 09/11; câu chữ 10/11, trễ một ngày | `44fa1f4`, `fb4860b` |
+| 09/11 | Tự viết lại Hướng 2 (Bảng 10.2) và phần sự kiện mục 8 | R07/11 7.2 (4) | `docs/ban_du/ban_du_muc_8_10_Thien.md` | ☑ (10/11, trễ một ngày) | `fb4860b` |
+| 09/11 | Sửa câu mục 2 và mục 6; thêm dòng kiểm tra đích B vào Bảng 8.1 và mục 8 | R07/11 7.2 (5) | `docs/ban_du/` | ☑ (09/11; câu mục 8 viết lại 10/11) | `44fa1f4` |
+| 09/11 | Rà chéo bản đủ theo bảng kiểm, mỗi dòng ghi tên người rà; khai báo công cụ đến ngày nộp | R07/11 7.2 (6) | bản đủ, `docs/khai_bao_cong_cu.md` | ◐ khai báo cập nhật 10/11; rà chéo chưa làm | |
 | 05–08/11 | Cùng Minh: slide giữa kỳ, dàn ý bài báo | R26 7.8 | slide, dàn ý | ◐ `paper/taimma2027/scripts/bang_bai_bao.py` sinh T1, T5, T6 phần C1, PRESEL (07/11); dàn ý phần của Thiên điền vào `paper/taimma2027/overleaf/main.tex` (08/11), chưa đồng bộ lên Overleaf; slide chưa làm | `c17796a`, `4835e9e` |
 
 ## Cả nhóm
