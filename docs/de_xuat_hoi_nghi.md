@@ -34,6 +34,6 @@ Người lập: Phạm Xuân Thiên, 30/10/2026; tra cứu có công cụ AI h�
 
 ## Hội nghị đã chọn
 
-TAIMMA 2027, đợt 2: nộp bài full ngày 20/11/2026; kỷ yếu Springer CCIS, mẫu LNCS, 12–15 trang (quyết định 4, mục 7.6 review 31/10; review 01/11 và 02/11). Kế hoạch: bản thảo v1 ngày 13/11, v2 ngày 18/11, nộp qua CMT ngày 19–20/11 sau khi GVHD duyệt. Ba hội nghị ở bảng trên là đề xuất ngày 30/10, trước khi GVHD chốt.
+TAIMMA 2027, đợt 2: nộp bài full ngày 20/11/2026 (Hạn vòng 2: 20/11/2026, theo GVHD, quyết định 1 review 12/11); kỷ yếu Springer CCIS, mẫu LNCS, 12–15 trang (quyết định 4, mục 7.6 review 31/10; review 01/11 và 02/11). Kế hoạch: bản thảo v1 ngày 13/11, v2 ngày 18/11, nộp qua CMT ngày 19–20/11 sau khi GVHD duyệt. Ba hội nghị ở bảng trên là đề xuất ngày 30/10, trước khi GVHD chốt.
 
 Đính chính ngày ECML PKDD 2027: đã sửa ở bảng trên ngày 06/11/2026, sau khi có bản Review-2026-10-31.
