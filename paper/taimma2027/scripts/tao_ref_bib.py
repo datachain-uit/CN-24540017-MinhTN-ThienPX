@@ -11,6 +11,24 @@ SRC = "bao_cao/refs.js"
 OUT = "paper/taimma2027/tables/refs_nhom.bib"
 
 
+# Tên đủ cho các mục "và cộng sự" (kế hoạch 14–16/11 review 12/11), tra ngày 14/11/2026; khoá giữ nguyên.
+DU_TEN = {
+    "mohiuddin2023retention": ("Mohiuddin, Karishma and Alam, Mirza Ariful and Alam, Mirza Mohtashim and Welke, Pascal and "
+                               "Martin, Michael and Lehmann, Jens and Vahdati, Sahar", "repositum.tuwien.at/handle/20.500.12708/189541; dblp conf/cikm/MohiuddinAAW00V23"),
+    "alali2026integrating": ("AL-Ali, Maytha and Alwateer, Majed and Alsaedi, Shatha Abed and Balaha, Hossam Magdy and "
+                             "Badawy, Mahmoud and Elhosseini, Mostafa A.", "zuscholars.zu.ac.ae/works/7853; TODO: đối chiếu trang Scientific Reports và DOI"),
+    "hegselmann2023tabllm": ("Hegselmann, Stefan and Buendia, Alejandro and Lang, Hunter and Agrawal, Monica and "
+                             "Jiang, Xiaoyi and Sontag, David", "proceedings.mlr.press/v206/hegselmann23a.html"),
+    "zhu2023xtab": ("Zhu, Bingzhao and Shi, Xingjian and Erickson, Nick and Li, Mu and Karypis, George and Shoaran, Mahsa",
+                    "proceedings.mlr.press/v202/zhu23k.html"),
+    "qu2025tabicl": ("Qu, Jingang and Holzm{\\\"u}ller, David and Varoquaux, Ga{\\\"e}l and Le Morvan, Marine", "arxiv.org/abs/2502.05564; ICML 2025"),
+    "han2024large": ("Han, Sungwon and Yoon, Jinsung and Arik, Sercan O. and Pfister, Tomas", "proceedings.mlr.press/v235/han24f.html"),
+    "gardner2024large": ("Gardner, Josh and Perdomo, Juan C. and Schmidt, Ludwig", "neurips.cc/virtual/2024/poster/94842"),
+    "yan2024making": ("Yan, Jiahuan and Zheng, Bo and Xu, Hongxia and Zhu, Yiheng and Chen, Danny and Sun, Jimeng and "
+                      "Wu, Jian and Chen, Jintai", "proceedings.iclr.cc/paper_files/paper/2024 (668563ef...)"),
+}
+
+
 def commit_cua(path):
     return subprocess.run(["git", "log", "-1", "--format=%h", "--", path], capture_output=True, text=True).stdout.strip()
 
@@ -59,7 +77,10 @@ def mot_muc(so, dong):
     x = re.search(r"DOI: (\S+?)\.?$", con)
     if x: f["doi"] = x.group(1)
     k = khoa(ten, nam, tieu_de)
-    dau = f"% [{so}] {SRC}" + ("  TODO: bổ sung đủ tên tác giả trước khi nộp" if khac else "")
+    dau = f"% [{so}] {SRC}" + ("  TODO: bổ sung đủ tên tác giả trước khi nộp" if khac and k not in DU_TEN else "")
+    if k in DU_TEN:
+        f["author"], nguon = DU_TEN[k]
+        dau += f"  Tên đủ theo: {nguon}"
     f = {a: (b.replace("&", r"\&") if a in ("journal", "booktitle") else b) for a, b in f.items()}
     than = ",\n".join(f"  {a} = {{{b}}}" for a, b in f.items())
     return k, f"{dau}\n@{loai}{{{k},\n{than}\n}}"
