@@ -12,11 +12,12 @@ OUT = "paper/taimma2027/tables/refs_nhom.bib"
 
 
 # Tên đủ cho các mục "và cộng sự" (kế hoạch 14–16/11 review 12/11), tra ngày 14/11/2026; khoá giữ nguyên.
+# Phần tử thứ ba (nếu có): trường bổ sung mà refs.js chưa có, ví dụ DOI.
 DU_TEN = {
     "mohiuddin2023retention": ("Mohiuddin, Karishma and Alam, Mirza Ariful and Alam, Mirza Mohtashim and Welke, Pascal and "
                                "Martin, Michael and Lehmann, Jens and Vahdati, Sahar", "repositum.tuwien.at/handle/20.500.12708/189541; dblp conf/cikm/MohiuddinAAW00V23"),
     "alali2026integrating": ("AL-Ali, Maytha and Alwateer, Majed and Alsaedi, Shatha Abed and Balaha, Hossam Magdy and "
-                             "Badawy, Mahmoud and Elhosseini, Mostafa A.", "zuscholars.zu.ac.ae/works/7853; TODO: đối chiếu trang Scientific Reports và DOI"),
+                             "Badawy, Mahmoud and Elhosseini, Mostafa A.", "nature.com/articles/s41598-026-36424-2 (Sci. Rep. 16, Art. 6344; tra 15/11)", {"doi": "10.1038/s41598-026-36424-2"}),
     "hegselmann2023tabllm": ("Hegselmann, Stefan and Buendia, Alejandro and Lang, Hunter and Agrawal, Monica and "
                              "Jiang, Xiaoyi and Sontag, David", "proceedings.mlr.press/v206/hegselmann23a.html"),
     "zhu2023xtab": ("Zhu, Bingzhao and Shi, Xingjian and Erickson, Nick and Li, Mu and Karypis, George and Shoaran, Mahsa",
@@ -79,7 +80,9 @@ def mot_muc(so, dong):
     k = khoa(ten, nam, tieu_de)
     dau = f"% [{so}] {SRC}" + ("  TODO: bổ sung đủ tên tác giả trước khi nộp" if khac and k not in DU_TEN else "")
     if k in DU_TEN:
-        f["author"], nguon = DU_TEN[k]
+        f["author"], nguon, *them = DU_TEN[k]
+        if them:
+            f.update(them[0])
         dau += f"  Tên đủ theo: {nguon}"
     f = {a: (b.replace("&", r"\&") if a in ("journal", "booktitle") else b) for a, b in f.items()}
     than = ",\n".join(f"  {a} = {{{b}}}" for a, b in f.items())
