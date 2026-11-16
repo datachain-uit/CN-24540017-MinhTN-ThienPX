@@ -70,6 +70,7 @@ Công cụ: **Claude (Anthropic)**, dùng qua Claude Code trong VS Code; phiên 
 | Claude | **Quét toàn văn** bản đủ 10/11 theo bảng kiểm dòng 4 (từ cấm, kết luận âm kèm MDE) để Thiên rà phần của Minh; Thiên đọc kết quả và báo Minh | `docs/nhat_ky_ngay.md` dòng 12/11 | Thiên | Đọc lại từng câu bị đánh dấu trong bản đủ |
 | Claude | **Đọc PDF bản v1 trên Overleaf, kiểm số** phần của Thiên với file nguồn, chỉ ra hai gạch đầu dòng không khớp nguồn (không viết câu thay); **tra tên tác giả** 8 mục bib (PMLR, ICLR, NeurIPS, TU Wien, ZU Scholars) và sửa `tao_ref_bib.py` | `7f97e59`; `docs/nhat_ky_ngay.md` dòng 14/11 | Thiên | Mở từng nguồn ghi trong dòng chú thích của mục bib; đối chiếu số với CSV |
 | Claude | **Tra DOI** mục [10] trên trang Nature, sửa `tao_ref_bib.py`; **dựng bản đủ 15/11** bằng script: đổi tiêu đề, thay cụm từ ở mục 1.1 đúng nguyên văn V1 review 12/11, ghi chú đầu file (không viết câu nhận định nào) | `78019c7`; `docs/nhat_ky_ngay.md` dòng 15/11 | Thiên | Mở DOI; so mục 1.1 với V1 review 12/11 |
+| Claude | **Sửa script bib** (ngoặc nhọn cho họ có tiền tố, DOI TrAdaBoost, tra trang trên scilit.net, mlanthology.org); soạn dòng nhật ký 16/11 gồm đính chính `f93f553` | `9fef6de`; `docs/nhat_ky_ngay.md` dòng 16/11 | Thiên | Mở nguồn ghi trong dòng chú thích mục bib |
 
 **Lưu ý về bản giải trình ngày 24/10:** bản đó do công cụ soạn và đã ghi nhầm phần việc của Minh là của Thiên; Thiên đính chính ngày 25/10 (`54b28ce`) và chịu trách nhiệm về lỗi này.
 
