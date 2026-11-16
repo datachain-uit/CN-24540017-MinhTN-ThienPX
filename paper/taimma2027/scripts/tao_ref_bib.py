@@ -79,6 +79,7 @@ def mot_muc(so, dong):
     if x: f["doi"] = x.group(1)
     k = khoa(ten, nam, tieu_de)
     dau = f"% [{so}] {SRC}" + ("  TODO: bổ sung đủ tên tác giả trước khi nộp" if khac and k not in DU_TEN else "")
+    f["author"] = re.sub(r"\b(De|Van) ([A-Z]\w+)", r"{\1 \2}", f["author"])   # {De Vos}, {Van Belle}: B2 review 16/11
     if k in DU_TEN:
         f["author"], nguon, *them = DU_TEN[k]
         if them:
@@ -102,10 +103,10 @@ def main():
     phieu = "docs/phieu_doc/[44]_Pereira_2025_UNICAMP.md"
     b = re.search(r"```bibtex\n(.+?)```", open(phieu, encoding="utf-8").read(), flags=re.S).group(1).strip()
     ra.append(f"% Luận văn UNICAMP 2025, {phieu} (commit {commit_cua(phieu)}); QĐ3 review 25/10\n{b}")
-    ra.append("% TrAdaBoost, bài gốc của tradaboost.py; QĐ3 review 25/10. TODO: đối chiếu trang với bản chính thức\n"
+    ra.append("% TrAdaBoost, bài gốc của tradaboost.py; QĐ3 review 25/10. Trang và DOI đối chiếu ngày 16/11: scilit.net, mlanthology.org/icml/2007/dai2007icml-boosting\n"
               "@inproceedings{dai2007boosting,\n  author = {Dai, Wenyuan and Yang, Qiang and Xue, Gui-Rong and Yu, Yong},\n"
               "  title = {{Boosting for transfer learning}},\n  booktitle = {Proc. 24th Int. Conf. on Machine Learning (ICML)},\n"
-              "  pages = {193--200},\n  year = {2007}\n}")
+              "  pages = {193--200},\n  year = {2007},\n  doi = {10.1145/1273496.1273521}\n}")
     with open(OUT, "w", encoding="utf-8", newline="\n") as fo:
         fo.write("\n\n".join(ra) + "\n")
     print(len(muc) + 2, "mục ->", OUT)
