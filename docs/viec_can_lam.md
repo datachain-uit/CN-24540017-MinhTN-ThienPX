@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 15/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
+Cập nhật: 16/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -43,10 +43,14 @@ Cập nhật: 15/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). D�
 | 10/11 | Bản đủ cập nhật cho báo cáo giữa kỳ: ghép phần Thiên tự viết lại (4.5, mục 8, Hướng 2), cập nhật bảng phản hồi mục 0 | R07/11 QĐ3, 7.2; lịch báo cáo giữa kỳ 09–15/11 | bản đủ 10/11 (Word, gửi GVHD) | ☑ ghép từ kho đến `a9bbc15`; rà chéo theo bảng kiểm chưa xong | `a9bbc15` |
 | 05–08/11 | Cùng Thiên: slide giữa kỳ, dàn ý bài báo (sinh viên tự viết) | R26 7.8 | slide, dàn ý | ◐ dàn ý thay bằng bản thảo trên Overleaf; slide chuyển sang dòng 15/11 (R12/11 7.5) | |
 | 13/11 | Bản thảo v1 phần của Minh: Introduction, Methods, Protocol (luật GO theo từng kịch bản), Results (Cổng 0, K2, RQ6), khối tác giả, chú thích bảng | R12/11 7.4, QĐ2, QĐ4, V1 | Overleaf (dự án Conf) | ◐ tiêu đề, khối tác giả, Introduction 13/11; các mục còn lại lên Overleaf 15/11 (trễ hai ngày) | |
-| 13/11 | Bản sao Overleaf lên Drive của nhóm; trả lời câu hỏi 1, 3 review 12/11 | R12/11 7.4, mục 8 | Drive, email | ☐ | |
+| 13/11 | Bản sao Overleaf lên Drive của nhóm; trả lời câu hỏi 1, 3 review 12/11 | R12/11 7.4, mục 8; R16/11 V5, câu 1 | Drive, email, `docs/de_xuat_hoi_nghi.md` | ◐ câu 1, 3 trả lời qua email 15/11, 21:21; nguồn câu 1 ghi vào `de_xuat_hoi_nghi.md` (16/11); bản sao 15/11 sai tên quy ước (V5), bản 18/11 đặt đúng tên | |
 | 14–16/11 | Discussion, Conclusion (cùng Thiên); sửa theo góp ý của GVHD | R12/11 7.5 | Overleaf | ◐ bản nháp lên Overleaf 15/11; chờ phần của Thiên | |
-| 15/11 | Slide giữa kỳ (nếu Khoa có lịch trình bày, báo GVHD ngay) | R12/11 7.5 | slide | ☐ | |
-| 18/11 | Bản đủ sửa V1 (dòng “GO (Cổng 0)” Bảng 1.3, cùng Thiên), V4 (mục 8 ý 1); `00_contributions.md` sửa H2; bản thảo v2 | R12/11 QĐ4, QĐ6, V1, V4 | bản đủ, `00_contributions.md`, Overleaf | ◐ câu hỏi chính mục 1.1 theo V1 (Thiên, 15/11) | |
+| 16/11 | Sửa bài theo review 16/11 mục 7.2 việc 1–5, 10, 12: tóm tắt (tiêu chí GO đủ, câu chẩn đoán), đóng góp (iii) theo QĐ4, trích hai công trình Pereira, cấu hình mô hình, mốc chốt luật Cổng 0 (07/10, pre-specified), đánh số RQ1–RQ5, H4 → H3 “descriptive comparison”, quy tắc đếm ô suy biến, tiêu đề, tên tác giả, tác giả liên hệ, bỏ ô ẩn danh và hai mục Internal | R16/11 V1, V4, QĐ4 | Overleaf | ◐ bản sửa soạn 16/11, Minh đưa lên Overleaf | |
+| 16/11 | Khai báo công cụ theo quyết định 2 review 16/11 (bỏ câu “bài sẽ có đoạn khai báo”) | R16/11 QĐ2 | `docs/khai_bao_cong_cu.md` | ◐ sửa 16/11 | |
+| 17/11 | Gộp còn sáu bảng (khung), cân trang; rà phần của Thiên theo bảng kiểm dòng 1, 4 | R16/11 V3, 7.2 việc 9 | Overleaf | ◐ khung sáu bảng 16/11 (T4_rq6, T4_h5, T6_tie, T6_coral viết thành câu; T6_c1 và T6_presel chung một bảng) | |
+| 15/11 | Slide giữa kỳ (chỉ làm khi Khoa có lịch trình bày, báo GVHD ngay) | R12/11 7.5; R16/11 7.3 | slide | ☐ chưa có lịch của Khoa | |
+| 18/11 | Bản thảo v2 hoàn chỉnh trước 22:00: không quá 15 trang, 0 lỗi, 0 cảnh báo; bản sao `taimma2027_overleaf_2026-11-18.zip` lên Drive; chạy lại script bảng trên kho sạch | R16/11 QĐ1, QĐ6, 7.3 | Overleaf, Drive | ☐ | |
+| 24/11 | Bản đủ: dòng “GO (Cổng 0)” Bảng 1.3 (cùng Thiên), mục 8 ý 1; `00_contributions.md` sửa H2, ghi bảng đối chiếu số RQ cũ và mới | R12/11 V1, V4; R16/11 QĐ5, V4 | bản đủ, `00_contributions.md` | ◐ câu hỏi chính mục 1.1 theo V1 (Thiên, 15/11) | |
 | 24/11 | Hướng 1: biên TOST ±0,02, báo MDE của D | R12/11 V4 | bản đủ | ☐ | |
 
 ## Phạm Xuân Thiên
