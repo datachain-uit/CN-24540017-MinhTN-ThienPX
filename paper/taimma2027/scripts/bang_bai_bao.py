@@ -1,7 +1,7 @@
 """Sinh bảng cho bài TAIMMA 2027 từ kết quả đã commit (mục 7.5 review 01/11, Phụ lục B4).
     python paper/taimma2027/scripts/bang_bai_bao.py        # chạy ở thư mục gốc của kho
 Ghi tables/T*.tex; dòng đầu mỗi file ghi file nguồn và mã commit. Không sửa số trên Overleaf.
-T1, T5, phần C1 và PRESEL của T6: Thiên. T2, T3, T4 (kèm RQ6, H5), phần hoà và CORAL của T6: Minh (hàm t2, t3, t4, t4_rq6, t4_h5, t6_hoa, t6_coral). Bảng vừa khổ một cột LNCS, không dùng table* (QĐ1, mục 7.3 review 07/11).
+T1, T5, phần C1 và PRESEL của T6: Thiên. T2, T3, T4 (kèm RQ6, H5), phần hoà và CORAL của T6: Minh (hàm t2, t3, t4, t4_rq6, t4_h5, t6_hoa, t6_coral; cột "Excl. ≥0.02" của T3, T4 qua hàm loai_tru, deviations 46). Bảng vừa khổ một cột LNCS, không dùng table* (QĐ1, mục 7.3 review 07/11).
 """
 import json, os, subprocess
 import pandas as pd
@@ -120,16 +120,27 @@ def t2():
     import yaml
     src = "prereg/prereg_k2.yaml"
     m = yaml.safe_load(open(src, encoding="utf-8"))["methods"]
-    dong = [r"Target-only & " + ", ".join(ten_pp(x) for x in m["target_only"]) + r"; PRESEL (pre-selected by CV on the $k$ labels)",
+    ten_to = {"TabPFN": "TabPFN v2"}  # tên phiên bản như trong bài (review 20/11)
+    dong = [r"Target-only & " + ", ".join(ten_to.get(x, ten_pp(x)) for x in m["target_only"]) + r"; PRESEL (pre-selected by CV on the $k$ labels)",
             r"Transfer & " + ", ".join(ten_pp(x) for x in m["transfer"]),
             r"Transfer, L0 only & " + ", ".join(ten_pp(x) for x in m["transfer_L0_only"]),
-            r"Theory-guided (RQ6) & TB-HTL v0 (docs/tbhtl\_v0\_spec.md)",
+            r"Theory-guided (RQ5) & TB-HTL v0",  # RQ6 cũ đổi số thành RQ5 trong bài (review 16/11)
             r"Control (shuffled source labels) & " + ", ".join(ten_pp(x) for x in m["control"])]
     ghi("T2_methods", [src], "@{}lp{8.0cm}@{}", r"Group & Methods", dong)
 
 
+EXCL = r"\shortstack{Excl.\\$\ge$0.02}"  # tiêu đề hai dòng để Bảng 4 vừa khổ một cột LNCS
+
+
+def loai_tru(g, nguong=0.02):
+    """Cột "Excl. ≥0.02" (V1 review 20/11; deviations 46): số phép có cận trên CI 95% hiệu chỉnh < 0,02 trên số phép k ≤ 50.
+    Tương đương kiểm định một phía H0: Δ ≥ 0,02 ở mức 2,5%; đọc thăm dò, không thuộc tiền đăng ký."""
+    return f"{int((g.ci_hi < nguong).sum())}/{len(g)}"
+
+
 def t3():
-    """Cổng 0: Δ tốt nhất (chuyển giao − đích mạnh nhất) ở k ≤ 50, CI, Holm p, kết luận GO/PIVOT, MDE80 trung vị theo k."""
+    """Cổng 0: Δ tốt nhất (chuyển giao − đích mạnh nhất) ở k ≤ 50, CI, Holm p, kết luận GO/PIVOT, MDE80 trung vị theo k,
+    số phép loại trừ lợi ích ≥ 0,02."""
     mde_src = "results/tong_hop_cap/mde_cong0_bang.csv"
     mde = pd.read_csv(mde_src).set_index("chieu")
     nguon, dong = [mde_src], []
@@ -144,25 +155,28 @@ def t3():
             m80 = mde.loc[ch, ["10", "20", "50"]].median()
             tham_do = r"$^{\dagger}$" if "D" in (ng, dich) else ""
             dong.append(f"{chieu(ng, dich)}{tham_do} & {ten_pp(b.method)}, $k={b.k}$ & {so(b.delta)} & "
-                        f"[{so(b.ci_lo)}, {so(b.ci_hi)}] & {p_txt(b.p_holm)} & {'GO' if g.dat_GO.any() else 'PIVOT'} & {m80:.3f}")
-    ghi("T3_gate0", nguon, "llrlrlr",
-        r"Direction & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & Decision & MDE$_{80}$", dong)
+                        f"[{so(b.ci_lo)}, {so(b.ci_hi)}] & {p_txt(b.p_holm)} & {'GO' if g.dat_GO.any() else 'PIVOT'} & {m80:.3f} & {loai_tru(g)}")
+    ghi("T3_gate0", nguon, "llrlrlrr",
+        r"Direction & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & Decision & MDE$_{80}$ & " + EXCL, dong)
 
 
 def t4():
-    """K2: theo nguồn × mức — kết luận, Δ tốt nhất ở k ≤ 50 (họ GO), CI, Holm p, MDE80 trung vị."""
+    """K2: theo nguồn × mức — kết luận, Δ tốt nhất ở k ≤ 50 (họ GO), CI, Holm p, MDE80 trung vị, số phép loại trừ lợi ích ≥ 0,02."""
     kl_src, kd_src = "results/k2_v2/k2_ket_luan.csv", "results/k2_v2/k2_kiem_dinh.csv"
     kl = pd.read_csv(kl_src).set_index(["source", "level"])
     kd = pd.read_csv(kd_src, dtype={"k": str})
     go = kd[kd.ho.str.startswith("GO") & kd.k.isin(["10", "20", "50"])]
-    dong = []
+    # Nguồn ghi thành dòng nhóm (không còn cột Source) để bảng 9 cột thành 8 cột, vừa khổ một cột LNCS (deviations 46).
+    dong, truoc = [], None
     for (ng, lv), r in kl.iterrows():
+        if ng != truoc:
+            dong.append(rf"\multicolumn{{8}}{{@{{}}l}}{{\textit{{Source: {TEN[ng]}}}}}"); truoc = ng
         g = go[(go.source == ng) & (go.level == lv)]
         b = g.loc[g.delta.idxmax()]
-        dong.append(f"{TEN[ng]} & {lv.replace('_', chr(92) + '_')} & {r.ket_luan} & {ten_pp(b.method)}, $k={b.k}$ & {so(b.delta)} & "
-                    f"[{so(b.ci_lo)}, {so(b.ci_hi)}] & {p_txt(b.p_holm_GO)} & {r.MDE80_trung_vi:.3f}")
-    ghi("T4_k2", [kl_src, kd_src], "@{}lllllllr@{}",
-        r"Source & Level & Decision & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & MDE$_{80}$", dong)
+        dong.append(f"{lv.replace('_', chr(92) + '_')} & {r.ket_luan} & {ten_pp(b.method)}, $k={b.k}$ & {so(b.delta)} & "
+                    f"[{so(b.ci_lo)}, {so(b.ci_hi)}] & {p_txt(b.p_holm_GO)} & {r.MDE80_trung_vi:.3f} & {loai_tru(g)}")
+    ghi("T4_k2", [kl_src, kd_src], "@{}llllllrr@{}",
+        r"Level & Decision & Best transfer & $\Delta$ & 95\% CI & Holm $p$ & MDE$_{80}$ & " + EXCL, dong)
 
 
 def t4_rq6():
