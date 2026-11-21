@@ -1,0 +1,43 @@
+{
+ "muc_dich": "Cổng 0: chuyển giao − PRESEL (V2 review 20/11; deviations 46)",
+ "ratio": 0.25,
+ "ks": [
+  "10",
+  "20",
+  "50"
+ ],
+ "phuong_phap": [
+  "ZS",
+  "STK_LR",
+  "STK_XGB",
+  "OFF_XGB",
+  "DAUME_LR",
+  "RANKAVG",
+  "ANCHOR_LR",
+  "RANKAVG_RF"
+ ],
+ "git_head": "4bb4e313ee274fbe2205288aed50c113508acca3",
+ "git_dirty": false,
+ "git_status": "",
+ "python": "3.13.4",
+ "pandas": "2.2.3",
+ "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+ "started": "2026-11-21 16:37:30 +0700",
+ "nguon": [
+  "results/g0_23/results_g0_23_44c64e04_TabPFN.csv",
+  "results/g0_23/results_g0_23_44c64e04_extra.csv",
+  "results/g0_23/results_g0_23_6f2142bf_cpu.csv",
+  "results/g0_23/results_g0_AB_76199ef8_tbhtl.csv",
+  "results/g0_23/results_g0_AB_8cbc7623_rankrf.csv",
+  "results/g0_bo_sung/results_moi_A.csv",
+  "results/g0_bo_sung/results_moi_B.csv",
+  "results/g0_AC/results_g0_AC_49df37eb_TabPFN.csv",
+  "results/g0_AC/results_g0_AC_49df37eb_cpu.csv",
+  "results/g0_AC/results_g0_AC_49df37eb_rankrf.csv",
+  "results/g0_bo_sung/results_moi_C.csv",
+  "results/g0_AD/results_g0_AD_083937b0_TabPFN.csv",
+  "results/g0_AD/results_g0_AD_083937b0_cpu.csv",
+  "results/g0_AD/results_g0_AD_083937b0_rankrf.csv",
+  "results/g0_bo_sung/results_moi_D.csv"
+ ]
+}
