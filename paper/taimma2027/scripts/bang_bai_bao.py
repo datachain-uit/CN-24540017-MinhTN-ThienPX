@@ -202,7 +202,22 @@ def t6_coral():
     ghi("T6_coral", [src], "lrrrr", r"Source & $\|C_S-C_T\|_F$ & Diag. & Off-diag. & Diag. share$^{\ast}$", dong)
 
 
-BANG = [t1, t2, t3, t4, t4_rq6, t4_h5, t5, t5_mde, t6_c1, t6_presel, t6_hoa, t6_coral]
+def t1_chieu():
+    """Khối chiều tác động của khái niệm chung (Thiên; deviations 45, V3 review 20/11). Mô tả, không kiểm định."""
+    src = "eda/bang3_chieu_tac_dong.csv"
+    d = pd.read_csv(src, encoding="utf-8-sig")
+    dong = []
+    for cap, m in [("AB", "B"), ("AC", "C")]:
+        x = d[(d.cap == cap)].dropna(subset=["A_auc_don", f"{m}_auc_don"])
+        for _, r in x.iterrows():
+            a, b = r["A_auc_don"], r[f"{m}_auc_don"]
+            cung = "yes" if (a - 0.5) * (b - 0.5) > 0 else "no"
+            dong.append(f"A--{m} & {r['khai_niem'].replace('_', chr(92) + '_')} & {a:.3f} & {b:.3f} & {cung}")
+    ghi("T1_direction", [src], "llrrl",
+        r"Pair & Concept & AUC (IBM) & AUC (other) & Same direction", dong)
+
+
+BANG = [t1, t1_chieu, t2, t3, t4, t4_rq6, t4_h5, t5, t5_mde, t6_c1, t6_presel, t6_hoa, t6_coral]
 
 if __name__ == "__main__":
     for b in BANG:
