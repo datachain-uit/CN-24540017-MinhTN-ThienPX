@@ -59,7 +59,10 @@ def main():
                     cand = zs if m == "ZS" else rk[rk.method == m].set_index("rep").pr_auc
                     if not len(cand):
                         continue
+                    # Kiểm tra ghép theo lần chia (Phụ lục A2 review 21/11): mỗi rep một dòng, đủ R = 30 cặp
+                    assert cand.index.is_unique and base.index.is_unique, (dich, k, m)
                     d = (cand - base).dropna()
+                    assert len(d) == 30, (dich, k, m, len(d))
                     mean, lo, hi, pv = corrected(d.to_numpy())
                     dong.append(dict(cap=cap, source=NGUON[(cap, dich)], target=dich, k=k, method=m,
                                      presel_pr=base.mean(), method_pr=cand.mean(), delta=mean, ci_lo=lo, ci_hi=hi,
