@@ -52,25 +52,25 @@ Cập nhật: 24/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). D�
 | 18/11 | Bản thảo v2 hoàn chỉnh trước 22:00: không quá 15 trang, 0 lỗi, 0 cảnh báo; bản sao `taimma2027_overleaf_2026-11-18.zip` lên Drive; chạy lại script bảng trên kho sạch | R16/11 QĐ1, QĐ6, 7.3 | Overleaf, Drive | ◐ xong 18/11 trên Overleaf: 0 lỗi, 14 trang, 6 bảng; 1 cảnh báo amsmath từ `llncs.cls`; bản sao Drive; script bảng chạy lại sạch ở `436b3ac`; chờ GVHD kiểm 19/11 |  |
 | 19/11 | Sửa theo kiểm tra vòng cuối của GVHD; điền đủ thông tin ba tác giả trên CMT, GVHD là tác giả liên hệ | R16/11 QĐ1, 7.3 | Overleaf, CMT | ☐ chuyển hạn theo R20/11 QĐ6: GVHD kiểm vòng cuối 28–29/11 | |
 | 20/11 | Nộp bài qua CMT sau khi GVHD duyệt | R16/11 QĐ1 | CMT | ☐ chuyển hạn theo R20/11 QĐ6: nộp 30/11 | |
-| 24/11 | Bản đủ: dòng “GO (Cổng 0)” Bảng 1.3 (cùng Thiên), mục 8 ý 1; `00_contributions.md` sửa H2, ghi bảng đối chiếu số RQ cũ và mới | R12/11 V1, V4; R16/11 QĐ5, V4 | bản đủ, `00_contributions.md` | ◐ câu hỏi chính mục 1.1 theo V1 (Thiên, 15/11) | |
+| 24/11 | Bản đủ: dòng “GO (Cổng 0)” Bảng 1.3 (cùng Thiên), mục 8 ý 1; `00_contributions.md` sửa H2, ghi bảng đối chiếu số RQ cũ và mới | R12/11 V1, V4; R16/11 QĐ5, V4 | bản đủ, `00_contributions.md` | ◐ câu hỏi chính mục 1.1 theo V1 (Thiên, 15/11); Bảng 1.3, mục 8 ý 1: bản đủ 24/11 gửi GVHD; `00_contributions.md` sửa H2, tách luật GO, thêm mục 7 đối chiếu số RQ (cùng nhật ký 24/11, bổ sung) | |
 | 21/11 | Sửa `t2()`: RQ6 → RQ5, “TabPFN v2” (T2 trùng bản nộp 20/11) | R20/11 6.4 | `bang_bai_bao.py`, `tables/T2_methods.tex` | ☑ mã 21/11; bảng sinh lại cùng nhật ký 21/11 | `4bb4e31` |
 | 21/11 | Việc 1 (số): cột “Excl. ≥0.02” ở Bảng 3, 4; đối chiếu Phụ lục A1 | R20/11 V1, 6.2 việc 1 | `bang_bai_bao.py` (`loai_tru`), T3, T4; deviations 46 | ☑ khớp A1 (Cổng 0 50/96 bốn hướng chính; K2 211/276); bảng sinh lại cùng nhật ký 21/11 | `4bb4e31` |
 | 21/11 | Việc 2 (số): Cổng 0, chuyển giao − PRESEL; đối chiếu Phụ lục A2 | R20/11 V2, 6.2 việc 2 | `paper/taimma2027/scripts/g0_presel.py`, `results/g0_bo_sung/g0_presel_*`; deviations 46 | ☑ khớp A2 (0/144 đạt; lớn nhất +0,032 ở A→B); kết quả commit cùng nhật ký 21/11 | `4bb4e31` |
 | 21/11 | Hồ sơ 20/11 lên Overleaf; thay T2, T3, T4 bằng bản sinh từ kho; câu định nghĩa cột mới trong chú thích Bảng 3, 4 | R20/11 6.4 | Overleaf | ◐ hồ sơ, T2–T4 lên Overleaf 21/11; câu định nghĩa cột mới: bản nháp 24/11 | |
 | 22/11 | Script Hình 1 (đường học, PDF vector); đối chiếu Phụ lục A4 | R20/11 V4, QĐ4, 6.2 việc 5 | `paper/taimma2027/scripts/hinh1_duong_hoc.py`, `paper/taimma2027/figures/`; deviations 47 | ☑ 24/11 (trễ hai ngày); khớp A4; hình commit cùng nhật ký 24/11 | `555a118` |
-| 23/11 | Câu Protocol (định nghĩa, Phụ lục C2) và Results cho việc 1, 2 (Phụ lục C3) | R20/11 6.2 việc 1, 2 | Overleaf | ◐ bản nháp 24/11 (trễ một ngày) | |
-| 24/11, 22:00 | Hướng 1 (TOST ±0,02, dùng lại việc 1; MDE của D); đọc Lakens 2017, Ben-David và cs. 2010 | R20/11 QĐ2, QĐ6 | bản đủ, phiếu đọc | ☐ | |
-| 25/11, 22:00 | Tóm tắt, Introduction, Discussion, Limitations, Ethics, Conclusion (việc 4, 5, 8–11) | R20/11 6.2 | Overleaf | ◐ bản nháp 24/11 | |
-| 22/11 | Xoá 6 tệp không dùng trên Overleaf (refs_nhom.bib, refs_extra.bib, T4_h5, T4_rq6, T6_coral, T6_tie) | R21/11 QĐ2, V3 | Overleaf | ☐ | |
+| 23/11 | Câu Protocol (định nghĩa, Phụ lục C2) và Results cho việc 1, 2 (Phụ lục C3) | R20/11 6.2 việc 1, 2 | Overleaf | ◐ lên Overleaf 24/11 (trễ một ngày; mốc History “Truoc 24-11”); chờ GVHD đọc | |
+| 24/11, 22:00 | Hướng 1 (TOST ±0,02, dùng lại việc 1; MDE của D); đọc Lakens 2017, Ben-David và cs. 2010 | R20/11 QĐ2, QĐ6 | bản đủ, phiếu đọc | ◐ Hướng 1 xong (bản đủ 24/11, deviations 48); đọc Lakens, Ben-David: chưa ghi nhận | `e750410` |
+| 25/11, 22:00 | Tóm tắt, Introduction, Discussion, Limitations, Ethics, Conclusion (việc 4, 5, 8–11) | R20/11 6.2 | Overleaf | ◐ lên Overleaf 24/11; chờ GVHD đọc | |
+| 22/11 | Xoá 6 tệp không dùng trên Overleaf (refs_nhom.bib, refs_extra.bib, T4_h5, T4_rq6, T6_coral, T6_tie) | R21/11 QĐ2, V3 | Overleaf | Xong 24/11 trên Overleaf (trễ hai ngày; không có commit) | |
 | 22/11 | Kiểm tra ghép theo lần chia trong `g0_presel.py`; chạy lại, kết quả không đổi | R21/11 Phụ lục A2 | `paper/taimma2027/scripts/g0_presel.py`; deviations 47 | ☑ 24/11; hai CSV kết quả không đổi | `555a118` |
 | 22/11 | Trả lời câu hỏi 1 (lịch sử Overleaf sau 20:03 ngày 18/11), 3 (ORCID) | R21/11 mục 8 | email | ☐ | |
-| 25/11, 22:00 | Câu Discussion về biến thể A–C bỏ tenure (Phụ lục C2) | R21/11 QĐ4 | Overleaf | ◐ bản nháp 24/11 | |
+| 25/11, 22:00 | Câu Discussion về biến thể A–C bỏ tenure (Phụ lục C2) | R21/11 QĐ4 | Overleaf | ◐ lên Overleaf 24/11 | |
 | 25/11, 22:00 | ORCID của Minh (nếu có) gửi GVHD | R21/11 QĐ3 (e) | email | ☐ | |
 | 26/11 | Lượt đọc toàn bài: Minh kiểm nhóm B, C của Phụ lục B (tác giả, tài trợ, cấu trúc mã nguồn) | R21/11 QĐ6 | Overleaf | ☐ | |
 | 26/11 | Rút gọn theo mục 6.3, không quá 15 trang; rà chéo với Thiên | R20/11 6.3, 6.4 | Overleaf | ☐ | |
 | 27/11, 22:00 | Bản cuối: 0 lỗi, chỉ còn cảnh báo `\vec`; `cmt_fields.txt`; bản sao Drive | R20/11 6.2 việc 13, 6.4 | Overleaf, Drive | ☐ | |
 | 30/11 | Nộp qua CMT sau khi GVHD duyệt; email xác nhận kèm mã bài | R20/11 QĐ6 | CMT | ☐ | |
-| 24/11 | Hướng 1: biên TOST ±0,02, báo MDE của D | R12/11 V4 | bản đủ | ☐ | |
+| 24/11 | Hướng 1: biên TOST ±0,02, báo MDE của D | R12/11 V4 | bản đủ; `huong1_mde_D.py`, `results/k2_coral/huong1_mde_D.csv`; deviations 48 | ☑ MDE80 của D 0,027 (B), 0,020 (C) khi ρ = 0; kết quả commit cùng nhật ký 24/11 (bổ sung) | `e750410` |
 
 ## Phạm Xuân Thiên
 

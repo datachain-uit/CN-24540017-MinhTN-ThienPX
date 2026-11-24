@@ -1,0 +1,17 @@
+{
+ "muc_dich": "MDE thiết kế cho Hướng 1 (V4 review 12/11; deviations 48)",
+ "ratio": 0.25,
+ "rho": [
+  0.0,
+  0.5,
+  0.75
+ ],
+ "nguon": "results/k2_v2 (k2_eval.load, combo_table)",
+ "git_head": "e750410df362e6d06cc8ec8e4672fc5d08b8de54",
+ "git_dirty": false,
+ "git_status": "",
+ "python": "3.13.5",
+ "pandas": "2.3.3",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "started": "2026-11-24 18:10:53 +0700"
+}
