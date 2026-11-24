@@ -1,0 +1,17 @@
+{
+ "muc_dich": "Hình 1, đường học PR-AUC theo k (V4 review 20/11-2; deviations 47)",
+ "git_head": "555a11884b1d42d3e698e14f5e00d5e0ac0de6f5",
+ "git_dirty": false,
+ "git_status": "",
+ "nguon": [
+  "results/g0_23/g0_bang_duong_cong.csv",
+  "results/g0_23\\results_g0_23_6f2142bf_cpu.csv",
+  "results/g0_AC/g0_bang_duong_cong.csv",
+  "results/g0_AC\\results_g0_AC_49df37eb_cpu.csv"
+ ],
+ "python": "3.13.5",
+ "pandas": "2.3.3",
+ "matplotlib": "3.10.8",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "started": "2026-11-24 16:20:50 +0700"
+}
