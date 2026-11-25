@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 24/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
+Cập nhật: 25/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -66,7 +66,7 @@ Cập nhật: 24/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). D�
 | 22/11 | Trả lời câu hỏi 1 (lịch sử Overleaf sau 20:03 ngày 18/11), 3 (ORCID) | R21/11 mục 8 | email | ☐ | |
 | 25/11, 22:00 | Câu Discussion về biến thể A–C bỏ tenure (Phụ lục C2) | R21/11 QĐ4 | Overleaf | ◐ lên Overleaf 24/11 | |
 | 25/11, 22:00 | ORCID của Minh (nếu có) gửi GVHD | R21/11 QĐ3 (e) | email | ☐ | |
-| 26/11 | Lượt đọc toàn bài: Minh kiểm nhóm B, C của Phụ lục B (tác giả, tài trợ, cấu trúc mã nguồn) | R21/11 QĐ6 | Overleaf | ☐ | |
+| 26/11 | Lượt đọc toàn bài: Minh kiểm nhóm B, C của Phụ lục B (tác giả, tài trợ, cấu trúc mã nguồn) | R21/11 QĐ6 | Overleaf | ◐ nhóm B, C đối chiếu sớm 25/11 trên bản Overleaf 24/11 (18:00): dòng 13–18, 20–23 khớp; dòng 19 chờ 6 mục mới trong `ref.bib` (21 khoá được trích, 17 mục); đọc toàn bài còn lại 26/11 | |
 | 26/11 | Rút gọn theo mục 6.3, không quá 15 trang; rà chéo với Thiên | R20/11 6.3, 6.4 | Overleaf | ☐ | |
 | 27/11, 22:00 | Bản cuối: 0 lỗi, chỉ còn cảnh báo `\vec`; `cmt_fields.txt`; bản sao Drive | R20/11 6.2 việc 13, 6.4 | Overleaf, Drive | ☐ | |
 | 30/11 | Nộp qua CMT sau khi GVHD duyệt; email xác nhận kèm mã bài | R20/11 QĐ6 | CMT | ☐ | |
