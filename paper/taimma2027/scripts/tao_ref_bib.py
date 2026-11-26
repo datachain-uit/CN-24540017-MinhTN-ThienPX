@@ -14,6 +14,9 @@ OUT = "paper/taimma2027/tables/refs_nhom.bib"
 # Tên đủ cho các mục "và cộng sự" (kế hoạch 14–16/11 review 12/11), tra ngày 14/11/2026; khoá giữ nguyên.
 # Phần tử thứ ba (nếu có): trường bổ sung mà refs.js chưa có, ví dụ DOI.
 DU_TEN = {
+    # refs.js ghi “J. Chung, S. Yun, J. Lee, H. Jeon”: sai tên; Crossref (10.1016/j.eswa.2022.119364, tra 26/11) ghi như dưới.
+    "chung2023predictive": ("Chung, Doohee and Yun, Jinseop and Lee, Jeha and Jeon, Yeram",
+                            "api.crossref.org/works/10.1016/j.eswa.2022.119364 (tra 26/11)"),
     "mohiuddin2023retention": ("Mohiuddin, Karishma and Alam, Mirza Ariful and Alam, Mirza Mohtashim and Welke, Pascal and "
                                "Martin, Michael and Lehmann, Jens and Vahdati, Sahar", "repositum.tuwien.at/handle/20.500.12708/189541; dblp conf/cikm/MohiuddinAAW00V23"),
     "alali2026integrating": ("AL-Ali, Maytha and Alwateer, Majed and Alsaedi, Shatha Abed and Balaha, Hossam Magdy and "
