@@ -14,7 +14,7 @@ Chọn theo mức liên quan trực tiếp tới thí nghiệm của đề tài.
 | [11] | Levin et al. 2023 – transfer với mô hình bảng sâu | Nền cho tiền huấn luyện và FT-Canonical | Đủ |
 | [24] | CARTE | Baseline xuyên bảng dựa vào tên cột (KB2b) | Đủ |
 | [25] | Hollmann et al. 2025 – TabPFN v2 | Baseline chỉ dùng đích mạnh nhất ở nhiều mức k | Chờ toàn văn |
-| [31] | Pereira & Torezzan 2024 (SBPO) | Gần đề tài nhất: huấn luyện một bộ, kiểm tra bộ khác | Chờ toàn văn |
+| [31] | Pereira & Torezzan 2024 (SBPO) | Gần đề tài nhất: huấn luyện một bộ, kiểm tra bộ khác | Đủ (26/11; Thiên đọc toàn văn trên proceedings.science, ChatGPT hỗ trợ viết theo mẫu, xem khai báo) |
 | [32] | Domain Separation Networks | Gần TB-HTL nhất về tách biểu diễn chung/riêng | Đủ |
 | [33] | Daumé III – frustratingly easy DA | Baseline DAUME_LR trong Cổng 0 | Đủ |
 | [43] | De Vos et al. 2025 | Giao thức benchmark, nguồn các mô hình chỉ dùng đích | Đủ |
