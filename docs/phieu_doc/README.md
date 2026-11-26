@@ -31,7 +31,7 @@ Lý do bốn phiếu còn chờ:
 | [5] | Tường phí Elsevier | Thư viện UIT, DOI 10.1016/j.eswa.2022.119364 |
 | [8] | Bài truy cập mở, MDPI chặn tải tự động | <https://www.mdpi.com/2079-8954/13/7/583> |
 | [25] | Nature đòi đăng nhập | Mạng UIT / thư viện trường |
-| [31] | Chưa tìm được bản công khai (đã tra Galoá, OpenAlex, Semantic Scholar, kho UNICAMP, DBLP) | Liên hệ tác giả, hoặc kỷ yếu SBPO qua thư viện |
+| [31] | Đã có toàn văn trên proceedings.science (<https://proceedings.science/p/193706>); phiếu lập lại 26/11 | Xong |
 
 Riêng [43] lấy được giao thức đầy đủ từ mã nguồn tác giả công bố thay cho văn bản bài báo.
 
