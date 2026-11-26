@@ -19,6 +19,8 @@ Chọn theo mức liên quan trực tiếp tới thí nghiệm của đề tài.
 | [33] | Daumé III – frustratingly easy DA | Baseline DAUME_LR trong Cổng 0 | Đủ |
 | [43] | De Vos et al. 2025 | Giao thức benchmark, nguồn các mô hình chỉ dùng đích | Đủ |
 | [44] | Pereira 2025, luận văn thạc sĩ UNICAMP | Gần đề tài nhất về câu hỏi: TrAdaBoost giữa hai bộ nhân sự công khai, ít nhãn đích (QĐ3 review 25/10) | Đủ (28/10) |
+| [39] | Wang và cs. 2019 (CVPR) – negative transfer | Định nghĩa chuyển giao âm (TrAdaBoost kém có ý nghĩa ở 15/18 phép); Related Work bản B (review 20/11-2 Phụ lục B, review 26/11 QĐ 7.1) | Đủ (26/11; Thiên đọc toàn văn bản arXiv v4; ChatGPT hỗ trợ viết theo mẫu, xem khai báo) |
+| [n] | Gulrajani và Lopez-Paz 2021 (ICLR) – DomainBed | Bài học cùng loại: đánh giá công bằng thì baseline ERM ngang các phương pháp DG; Related Work bản B. Chưa có số trong refs.js | Đủ (26/11; đọc bản arXiv v1, cần đối chiếu Bảng 4 với bản ICLR trước khi trích số; ChatGPT hỗ trợ viết theo mẫu, xem khai báo) |
 
 Tình trạng 24/10: 10/10 phiếu đã lập, đã điền ngày đọc và thời gian đọc. Sáu phiếu đủ mục giao thức; bốn phiếu còn ô chờ toàn văn, nhưng không ô nào để trống hay suy đoán — mỗi ô ghi rõ cần gì và lấy ở đâu.
 
