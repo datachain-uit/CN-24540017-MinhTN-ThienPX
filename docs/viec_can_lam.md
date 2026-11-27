@@ -2,7 +2,7 @@
 
 Nguồn: Review-2026-10-24, Review-2026-10-25, **Review-2026-10-26 (mục 7.8)** và các việc còn hiệu lực của review 18/10, 22/10. Mỗi người tự cập nhật trạng thái dòng của mình khi xong, **ghi mã commit** (không ghi chung chung – review 26/10, mục 7.6), bằng tài khoản Git của mình. Trạng thái: ☐ chưa làm · ◐ đang làm · ☑ xong.
 
-Cập nhật: 25/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
+Cập nhật: 27/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). Dòng của Thiên do Thiên tự cập nhật trạng thái.
 
 **Đã bỏ:** K2-XN (QĐ1 review 26/10) – không commit mã K2-XN.
 
@@ -67,7 +67,14 @@ Cập nhật: 25/11/2026 (dòng của Minh); 10/11/2026 (dòng của Thiên). D�
 | 25/11, 22:00 | Câu Discussion về biến thể A–C bỏ tenure (Phụ lục C2) | R21/11 QĐ4 | Overleaf | ◐ lên Overleaf 24/11 | |
 | 25/11, 22:00 | ORCID của Minh (nếu có) gửi GVHD | R21/11 QĐ3 (e) | email | ☐ | |
 | 26/11 | Lượt đọc toàn bài: Minh kiểm nhóm B, C của Phụ lục B (tác giả, tài trợ, cấu trúc mã nguồn) | R21/11 QĐ6 | Overleaf | ◐ nhóm B, C đối chiếu sớm 25/11 trên bản Overleaf 24/11 (18:00): dòng 13–18, 20–23 khớp; dòng 19 chờ 6 mục mới trong `ref.bib` (21 khoá được trích, 17 mục); đọc toàn bài còn lại 26/11 | |
-| 26/11 | Rút gọn theo mục 6.3, không quá 15 trang; rà chéo với Thiên | R20/11 6.3, 6.4 | Overleaf | ☐ | |
+| 26/11 | Rút gọn theo mục 6.3, không quá 15 trang; rà chéo với Thiên | R20/11 6.3, 6.4 | Overleaf | Thay bằng việc theo review 27/11 (GVHD ráp hồ sơ 27/11, 15 trang) | |
+| 26/11 | ORCID của Minh trong `main.tex` trên Overleaf | R26/11 QĐ6 | Overleaf | Xong 27/11 (trễ một ngày): Overleaf trùng hồ sơ GVHD 27/11, có ORCID của Minh và Thiên | |
+| 26/11 | Chuyển Review-2026-11-21 cho Thiên | R26/11 QĐ5; R27/11 QĐ6 | email | ☐ (trễ) | |
+| 26/11 | Gửi bản đủ 24/11 cho GVHD | R26/11 7.2; R27/11 QĐ6 | email | ☐ (trễ; gửi tối 27/11) | |
+| 27/11, 22:00 | Phiếu đọc Lakens 2017, Ben-David và cs. 2010, TransTab, TabLLM | R26/11 QĐ2; R27/11 QĐ3 | `docs/phieu_doc/` | Không kịp: 0/4 phiếu; bỏ 4 câu trích theo Phụ lục B review 27/11 | |
+| 27/11, 22:00 | Overleaf trùng hồ sơ 27/11 (Tie rule gộp vào Results; câu V3, V4 review 26/11; hai ORCID; 48 mục sai lệch) | R27/11 QĐ2 | Overleaf | Xong 27/11 (sau hạn 22:00); thêm Phụ lục B vì chưa có phiếu | |
+| 28/11, 22:00 | Rà hai đoạn Related Work của Thiên theo phiếu [39] Wang và cs. 2019, Gulrajani và Lopez-Paz 2021 | R27/11 QĐ4 | email | ☐ | |
+| 28/11, 22:00 | Bản sao Drive 2026_24540017_24540028_Conf_2026-11-28.zip | R27/11 QĐ4 | Drive | ☐ | |
 | 27/11, 22:00 | Bản cuối: 0 lỗi, chỉ còn cảnh báo `\vec`; `cmt_fields.txt`; bản sao Drive | R20/11 6.2 việc 13, 6.4 | Overleaf, Drive | ☐ | |
 | 30/11 | Nộp qua CMT sau khi GVHD duyệt; email xác nhận kèm mã bài | R20/11 QĐ6 | CMT | ☐ | |
 | 24/11 | Hướng 1: biên TOST ±0,02, báo MDE của D | R12/11 V4 | bản đủ; `huong1_mde_D.py`, `results/k2_coral/huong1_mde_D.csv`; deviations 48 | ☑ MDE80 của D 0,027 (B), 0,020 (C) khi ρ = 0; kết quả commit cùng nhật ký 24/11 (bổ sung) | `e750410` |
